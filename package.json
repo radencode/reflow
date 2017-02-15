@@ -1,0 +1,36 @@
+{
+  "name": "reflow-dev",
+  "version": "1.0.0",
+  "description": "development package",
+  "main": "./app/main.js",
+  "scripts": {
+    "start": "electron ./app/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radencode/reflow.git"
+  },
+  "author": "Teddy Radenkov <teddy.pdx@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radencode/reflow/issues"
+  },
+  "homepage": "https://github.com/radencode/reflow#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "electron": "^1.4.15",
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.0",
+    "style-loader": "^0.13.1"
+  }
+}
