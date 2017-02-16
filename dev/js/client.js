@@ -1,10 +1,9 @@
 //React
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 //Components
-import Bar from './components/Bar';
-//Sass
-import '../styles/routes/Global.sass';
+import Layout from './components/Layout';
 
 const reflow = document.getElementById('reflow');
-ReactDOM.render(<Bar/>, reflow);
+ReactDOM.render(<Layout/>, reflow);

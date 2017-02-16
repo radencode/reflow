@@ -1,26 +1,38 @@
-//React
 import React from 'react';
-//Sass
-import '../../styles/components/Controls.sass';
-//Electron
 const remote = require('electron').remote;
 
 export default class Controls extends React.Component{
+  constructor(){
+    super();
+    this.state = {maximized: false};
+  }
   min(){
     remote.getCurrentWindow().minimize();
   }
   max(){
     remote.getCurrentWindow().maximize();
+    this.setState({maximized: true})
+  }
+  unmax(){
+    remote.getCurrentWindow().unmaximize();
+    this.setState({maximized: false})
   }
   exit(){
     remote.getCurrentWindow().close();
   }
+  maxIcon(){
+    if(!this.state.maximized){
+      return (<div onClick={this.max.bind(this)}><i class="fa fa-window-maximize" aria-hidden="true"></i></div>);
+    }else{
+      return (<div onClick={this.unmax.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
+    }
+  }
   render(){
     return(
       <div id="controls">
-        <div class="min" onClick={this.min.bind(this)}>Min</div>
-        <div class="max" onClick={this.max.bind(this)}>Max</div>
-        <div class="exit" onClick={this.exit.bind(this)}>Exit</div>
+        <div onClick={this.min.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+        {this.maxIcon()}
+        <div class="exit" onClick={this.exit.bind(this)}><i class="fa fa-times" aria-hidden="true"></i></div>
       </div>
     );
   }
