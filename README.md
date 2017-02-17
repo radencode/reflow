@@ -1,5 +1,5 @@
 # Reflow
-File management software build with C# and JavaScript
+File management software built with C# and JavaScript
 
 Reflow allows to rename file lists with various attributes and create custom folder structures for projects that are packaged together and can be re-created upon template load.
 
