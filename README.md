@@ -12,7 +12,7 @@ npm install
 npm start
 
 ##### To build application
-npm build
+npm run build
 
 ##### Destination 
 App will be built in the "dist" folder
