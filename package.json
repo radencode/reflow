@@ -4,7 +4,8 @@
   "description": "development package",
   "main": "./app/main.js",
   "scripts": {
-    "start": "electron ./app/main.js"
+    "start": "electron ./app/main.js",
+    "build": "electron-packager ./app Reflow --electron-version 1.4.15 --asar true --icon ./build/icon/icon.ico --out ./dist"
   },
   "repository": {
     "type": "git",
@@ -20,17 +21,18 @@
     "babel": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.0",
+    "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
-    "babel-plugin-react-html-attrs": "^2.0.0",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0",
+    "css-loader": "^0.26.1",
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.1",
+    "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "electron": "^1.4.15",
-    "css-loader": "^0.26.1",
-    "node-sass": "^4.5.0",
     "sass-loader": "^6.0.0",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
