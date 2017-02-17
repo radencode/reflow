@@ -12,4 +12,5 @@ npm start
 ##### To build application
 npm build
 
---> App will be built in the "dist" folder
+##### Destination 
+App will be built in the "dist" folder
