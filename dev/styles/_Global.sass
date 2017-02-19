@@ -3,7 +3,15 @@ body, html
   margin: 0
   -webkit-user-select: none
   cursor: default
-html
+
+body
   width: calc(100% - 2px)
   height: calc(100vh - 2px)
-  border: 1px solid rgba(0, 0, 0, 0.6)
+
+.windowBlur
+  transition: 500ms all ease
+  border: 1px solid #1A1A1A
+
+.windowFocused
+  transition: 500ms all ease
+  border: 1px solid #1883D7
