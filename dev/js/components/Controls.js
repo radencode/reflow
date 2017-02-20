@@ -5,17 +5,20 @@ export default class Controls extends React.Component{
   constructor(){
     super();
     this.state = {maximized: false};
+    this.body = document.body;
   }
   min(){
     remote.getCurrentWindow().minimize();
   }
   max(){
     remote.getCurrentWindow().maximize();
-    this.setState({maximized: true})
+    this.setState({maximized: true});
+    this.body.classList.add('windowFullScreen');
   }
   unmax(){
     remote.getCurrentWindow().unmaximize();
-    this.setState({maximized: false})
+    this.setState({maximized: false});
+    this.body.classList.remove('windowFullScreen');
   }
   exit(){
     remote.getCurrentWindow().close();
