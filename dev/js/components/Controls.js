@@ -1,5 +1,5 @@
 import React from 'react';
-const remote = require('electron').remote;
+const Remote = require('electron').remote;
 
 export default class Controls extends React.Component{
   constructor(){
@@ -8,20 +8,20 @@ export default class Controls extends React.Component{
     this.body = document.body;
   }
   min(){
-    remote.getCurrentWindow().minimize();
+    Remote.getCurrentWindow().minimize();
   }
   max(){
-    remote.getCurrentWindow().maximize();
+    Remote.getCurrentWindow().maximize();
     this.setState({maximized: true});
     this.body.classList.add('windowFullScreen');
   }
   unmax(){
-    remote.getCurrentWindow().unmaximize();
+    Remote.getCurrentWindow().unmaximize();
     this.setState({maximized: false});
     this.body.classList.remove('windowFullScreen');
   }
   exit(){
-    remote.getCurrentWindow().close();
+    Remote.getCurrentWindow().close();
   }
   maxIcon(){
     if(!this.state.maximized){
@@ -30,7 +30,19 @@ export default class Controls extends React.Component{
       return (<div onClick={this.unmax.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
+  borderBehavior(){
+    Remote.getCurrentWindow().on('focus', () => {
+      if(!this.state.maximized)
+        this.body.className = 'windowFocused';
+    });
+
+    Remote.getCurrentWindow().on('blur', () => {
+      this.body.className = 'windowBlur';
+    });
+  }
+
   render(){
+    this.borderBehavior();
     return(
       <div id="controls">
         <div onClick={this.min.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
