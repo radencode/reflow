@@ -13,12 +13,12 @@ export default class Controls extends React.Component{
   max(){
     Remote.getCurrentWindow().maximize();
     this.setState({maximized: true});
-    this.body.classList.add('windowFullScreen');
+    this.body.classList.add('window-full-screen');
   }
   unmax(){
     Remote.getCurrentWindow().unmaximize();
     this.setState({maximized: false});
-    this.body.classList.remove('windowFullScreen');
+    this.body.classList.remove('window-full-screen');
   }
   exit(){
     Remote.getCurrentWindow().close();
@@ -33,11 +33,11 @@ export default class Controls extends React.Component{
   borderBehavior(){
     Remote.getCurrentWindow().on('focus', () => {
       if(!this.state.maximized)
-        this.body.className = 'windowFocused';
+        this.body.className = 'window-focus';
     });
 
     Remote.getCurrentWindow().on('blur', () => {
-      this.body.className = 'windowBlur';
+      this.body.className = 'window-blur';
     });
   }
 
