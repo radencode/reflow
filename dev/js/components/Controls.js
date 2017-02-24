@@ -6,22 +6,25 @@ export default class Controls extends React.Component{
     super();
     this.state = {maximized: false};
     this.body = document.body;
+    this.win = Remote.getCurrentWindow();
   }
   min(){
-    Remote.getCurrentWindow().minimize();
+    this.win.minimize();
   }
   max(){
-    Remote.getCurrentWindow().maximize();
+    this.win.maximize();
+    this.win.setResizable(false);
     this.setState({maximized: true});
     this.body.classList.add('window-full-screen');
   }
   unmax(){
-    Remote.getCurrentWindow().unmaximize();
+    this.win.unmaximize();
+    this.win.setResizable(true);
     this.setState({maximized: false});
     this.body.classList.remove('window-full-screen');
   }
   exit(){
-    Remote.getCurrentWindow().close();
+    this.win.close();
   }
   maxIcon(){
     if(!this.state.maximized){
@@ -30,19 +33,18 @@ export default class Controls extends React.Component{
       return (<div onClick={this.unmax.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
-  borderBehavior(){
-    Remote.getCurrentWindow().on('focus', () => {
+  screen(){
+    this.win.on('focus', () => {
       if(!this.state.maximized)
         this.body.className = 'window-focus';
     });
-
-    Remote.getCurrentWindow().on('blur', () => {
+    this.win.on('blur', () => {
       this.body.className = 'window-blur';
     });
   }
 
   render(){
-    this.borderBehavior();
+    this.screen();
     return(
       <div id="controls">
         <div onClick={this.min.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
