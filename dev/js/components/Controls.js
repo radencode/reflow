@@ -33,7 +33,7 @@ export default class Controls extends React.Component{
       return (<div onClick={this.unmax.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
-  screen(){
+  border(){
     this.win.on('focus', () => {
       if(!this.state.maximized)
         this.body.className = 'window-focus';
@@ -44,7 +44,7 @@ export default class Controls extends React.Component{
   }
 
   render(){
-    this.screen();
+    this.border();
     return(
       <div id="controls">
         <div onClick={this.min.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>

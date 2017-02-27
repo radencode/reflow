@@ -1,6 +1,53 @@
 #nav
+  width: 60px
+  height: 280px
+  //box-shadow: 0 0 10px 1px $black-border
+  background-color: $blue-cover
   position: absolute
-  ul
-    padding: 0
-    margin: 0
-    list-style: none
+  top: 50%
+  transform: translateY(-50%)
+
+  div
+    width: 60px
+    height: 70px
+    color: #FFF
+    line-height: 70px
+    text-align: center
+    font-size: 25px
+    cursor: pointer
+    position: relative
+    &.active
+      background-color: $blue-highlight
+      color: $yellow
+
+    .hover
+      width: 120px
+      height: 28px
+      top: 21px
+      left: 105px
+      position: absolute
+      visibility: hidden
+      opacity: 0
+      transition: 500ms all ease-in-out
+      &.animation
+        visibility: visible
+        opacity: 1
+        left: 75px
+      .arrow
+        width: 0
+        height: 0
+        float: left
+        border: 8px solid transparent
+        border-right-color: $yellow
+        margin-top: 6px
+      .label
+        float: right
+        width: 92px
+        height: 26px
+        border: 1px solid $black-border
+        color: #FFF
+        text-align: center
+        line-height: 28px
+        font-family: Roboto-Medium
+        font-size: 11px
+        background-color: $blue-highlight
