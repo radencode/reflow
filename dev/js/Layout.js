@@ -11,7 +11,7 @@ export default class Layout extends React.Component{
       <div class="app">
         <Bar/>
         <Menu/>
-        <Viewer/>
+        <Viewer modal={this.props.children}/>
       </div>
     );
   }

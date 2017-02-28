@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class ModalLink extends React.Component{
   constructor(){
@@ -14,13 +15,15 @@ export default class ModalLink extends React.Component{
   render(){
     const animation = this.state.hover ? "hover animation" : "hover";
     return(
-      <div class={this.props.status} onMouseOver={this.animation_in.bind(this)} onMouseOut={this.animation_out.bind(this)}>
-        <i class={this.props.icon} aria-hidden="true"></i>
-        <div class={animation}>
-          <div class="arrow"></div>
-          <div class="label">{this.props.link}</div>
+      <Link to={this.props.link}>
+        <div class={this.props.status} onMouseOver={this.animation_in.bind(this)} onMouseOut={this.animation_out.bind(this)}>
+          <i class={this.props.icon} aria-hidden="true"></i>
+          <div class={animation}>
+            <div class="arrow"></div>
+            <div class="label">{this.props.label}</div>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
