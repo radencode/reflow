@@ -7,7 +7,7 @@ export default class Controls extends React.Component{
     this.state = {maximized: false};
     this.win = Remote.getCurrentWindow();
     this.body = document.body;
-    this.listeners = false;
+    this.window_listeners();
   }
   minimize(){
     this.win.minimize();
@@ -44,12 +44,8 @@ export default class Controls extends React.Component{
     this.win.on('blur', () => {
       this.body.className = 'window-blur';
     });
-    this.listeners = true;
   }
   render(){
-    if(!this.listeners){
-      this.window_listeners();
-    }
     return(
       <div id="controls">
         <div onClick={this.minimize.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
