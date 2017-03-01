@@ -5,8 +5,8 @@ export default class Controls extends React.Component{
   constructor(){
     super();
     this.state = {maximized: false};
-    this.body = document.body;
     this.win = Remote.getCurrentWindow();
+    this.body = document.body;
   }
   min(){
     this.win.minimize();
@@ -33,18 +33,7 @@ export default class Controls extends React.Component{
       return (<div onClick={this.unmax.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
-  border(){
-    this.win.on('focus', () => {
-      if(!this.state.maximized)
-        this.body.className = 'window-focus';
-    });
-    this.win.on('blur', () => {
-      this.body.className = 'window-blur';
-    });
-  }
-
   render(){
-    this.border();
     return(
       <div id="controls">
         <div onClick={this.min.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>

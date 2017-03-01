@@ -10,7 +10,7 @@ const WINDOW_HEIGHT = 800;
 const WINDOW_FRAME = !isWin;
 const WINDOW_SHOW = true;
 const WINDOW_FOCUS = true;
-const WINDOW_THICK_FRAME = false;
+const WINDOW_THICK_FRAME = true;
 const WINDOW_BACKGROUND_COLOR = '#0B1015';
 
 //Set window params
