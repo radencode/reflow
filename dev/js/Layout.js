@@ -11,7 +11,7 @@ export default class Layout extends React.Component{
       <div class="app">
         <Bar/>
         <Menu/>
-        <Viewer modal={this.props.children}/>
+        <Viewer modal={React.cloneElement(this.props.children, {key: this.props.location.pathname})}/>
       </div>
     );
   }
