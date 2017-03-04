@@ -2,7 +2,6 @@ import React from 'react';
 
 //App Components
 import Bar from './components/Bar';
-import Menu from './components/Menu';
 import Viewer from './components/Viewer';
 
 export default class Layout extends React.Component{
@@ -10,7 +9,6 @@ export default class Layout extends React.Component{
     return(
       <div class="app">
         <Bar/>
-        <Menu/>
         <Viewer modal={React.cloneElement(this.props.children, {key: this.props.location.pathname})}/>
       </div>
     );
