@@ -6,6 +6,7 @@ export default class Rename extends React.Component{
     return(
       <div id="rename">
         <Progress/>
+        <div>Rename</div>
       </div>
     );
   }
