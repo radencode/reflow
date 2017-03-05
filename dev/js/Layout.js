@@ -6,10 +6,10 @@ import Viewer from './components/Viewer';
 
 export default class Layout extends React.Component{
   render(){
-    return(
+      return(
       <div class="app">
         <Bar/>
-        <Viewer modal={React.cloneElement(this.props.children, {key: this.props.location.pathname})}/>
+        <Viewer path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: this.props.location.pathname})}/>
       </div>
     );
   }
