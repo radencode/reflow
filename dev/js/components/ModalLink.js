@@ -12,10 +12,13 @@ export default class ModalLink extends React.Component{
   animation_out(){
     this.setState({hover: false});
   }
+  change_title(title, label){
+    title(label);
+  }
   render(){
     return(
       <Link to={this.props.link}>
-        <div class={this.props.status} onMouseOver={this.animation_in.bind(this)} onMouseOut={this.animation_out.bind(this)}>
+        <div class={this.props.status} onClick={this.change_title.bind(this, this.props.title, this.props.label)} onMouseOver={this.animation_in.bind(this)} onMouseOut={this.animation_out.bind(this)}>
           <i class={this.props.icon} aria-hidden="true"></i>
           <div class={this.state.hover ? "hover animation" : "hover"}>
             <div class="arrow"></div>

@@ -1,7 +1,7 @@
 //React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 
 //Components
 import Layout from './Layout';
@@ -22,15 +22,17 @@ const reflow = document.getElementById('reflow');
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
-      <IndexRoute component={Rename}></IndexRoute>
+      <IndexRedirect to="rename"></IndexRedirect>
+      <Route path="rename" component={Rename}>
+        <IndexRedirect to="browse"></IndexRedirect>
+        <Route path="browse" component={Browse}></Route>
+        <Route path="configure" component={Configure}></Route>
+        <Route path="options" component={Options}></Route>
+        <Route path="finalize" component={Finalize}></Route>
+      </Route>
       <Route path="flow" component={Flow}></Route>
       <Route path="history" component={History}></Route>
       <Route path="settings" component={Settings}></Route>
     </Route>
   </Router>,
 reflow);
-
-/* <Route path="browse" component={Browse}></Route>
-<Route path="configure" component={Configure}></Route>
-<Route path="options" component={Options}></Route>
-<Route path="finalize" component={Finalize}></Route>*/

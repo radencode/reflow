@@ -7,7 +7,7 @@ export default class Bar extends React.Component{
   render(){
     return(
       <div id="bar">
-        <Title/>
+        <Title title={this.props.title}/>
         <Controls/>
       </div>
     );

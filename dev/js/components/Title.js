@@ -5,7 +5,7 @@ export default class Title extends React.Component{
     return(
       <div id="title">
         <div id="logo"></div>
-        <div id="status">Home - Reflow file manager</div>
+        <div id="status">{this.props.title} - Reflow file manager</div>
       </div>
     );
   }

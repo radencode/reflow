@@ -10,7 +10,7 @@ export default class Viewer extends React.Component{
   render(){
     return(
       <div id="viewer">
-        <Navigation path={this.props.path}/>
+        <Navigation title={this.props.title} path={this.props.path}/>
         <ReactCSSTransitionGroup
           transitionName = "fade"
           transitionEnterTimeout = {750}
