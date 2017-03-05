@@ -7,10 +7,16 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Layout from './Layout';
 
 //Pages
-import Rename from './pages/Rename';
 import Flow from './pages/Flow';
 import History from './pages/History';
+import Rename from './pages/Rename';
 import Settings from './pages/Settings';
+
+//Modals
+import Browse from './modals/Browse';
+import Configure from './modals/Configure';
+import Finalize from './modals/Finalize';
+import Options from './modals/Options';
 
 const reflow = document.getElementById('reflow');
 ReactDOM.render(
@@ -23,3 +29,8 @@ ReactDOM.render(
     </Route>
   </Router>,
 reflow);
+
+/* <Route path="browse" component={Browse}></Route>
+<Route path="configure" component={Configure}></Route>
+<Route path="options" component={Options}></Route>
+<Route path="finalize" component={Finalize}></Route>*/

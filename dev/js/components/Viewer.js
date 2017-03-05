@@ -13,8 +13,8 @@ export default class Viewer extends React.Component{
         <Navigation path={this.props.path}/>
         <ReactCSSTransitionGroup
           transitionName = "fade"
-          transitionEnterTimeout = {1500}
-          transitionLeaveTimeout = {500}>
+          transitionEnterTimeout = {750}
+          transitionLeaveTimeout = {250}>
           {this.props.modal}
         </ReactCSSTransitionGroup>
       </div>

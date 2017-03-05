@@ -12,7 +12,7 @@ export default class Navigation extends React.Component{
     this.setState({disable: "disable"});
     setTimeout(() => {
       this.setState({disable: "enable"});
-    }, 1000);
+    }, 500);
   }
   render(){
     return(
