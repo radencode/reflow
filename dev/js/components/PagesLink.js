@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class ModalLink extends React.Component{
+export default class PagesLink extends React.Component{
   constructor(){
     super();
     this.state = {hover: false};
