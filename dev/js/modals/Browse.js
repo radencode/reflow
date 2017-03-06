@@ -6,7 +6,7 @@ export default class Browse extends React.Component{
     return(
       <div id="browse">
         <div class="title">Browse</div>
-        <Link to="rename/configure"><div class="next">Next</div></Link>
+        <Link to="/rename/configure"><div class="next">Next</div></Link>
       </div>
     );
   }

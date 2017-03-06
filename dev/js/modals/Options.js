@@ -6,7 +6,7 @@ export default class Options extends React.Component{
     return(
       <div id="options">
         <div class="title">Options</div>
-        <Link to="rename/finalize"><div class="next">Next</div></Link>
+        <Link to="/rename/finalize"><div class="next">Next</div></Link>
       </div>
     );
   }

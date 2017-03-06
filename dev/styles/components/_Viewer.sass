@@ -24,11 +24,30 @@
 .fade-enter.fade-enter-active
   opacity: 1
   transition: 250ms all ease
-  transition-delay: 500ms
+  transition-delay: 250ms
 
 .fade-leave
   opacity: 1
 
 .fade-leave.fade-leave-active
   opacity: 0
+  transition: 250ms all ease
+
+.slide-enter
+  opacity: 0
+  left: 200px
+
+.slide-enter.slide-enter-active
+  opacity: 1
+  left: 0
+  transition: 250ms all ease
+  transition-delay: 250ms
+
+.slide-leave
+  opacity: 1
+  left: 0
+
+.slide-leave.slide-leave-active
+  opacity: 0
+  left: -200px
   transition: 250ms all ease
