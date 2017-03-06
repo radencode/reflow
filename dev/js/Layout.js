@@ -13,6 +13,8 @@ export default class Layout extends React.Component{
     this.setState({title: title});
   }
   render(){
+    const path = this.props.location.pathname;
+    const segment = path.split('/')[1] || 'root';
     return(
       <div class="app">
         <Bar title={this.state.title}/>
