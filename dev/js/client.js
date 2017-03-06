@@ -21,18 +21,18 @@ import Options from './modals/Options';
 const reflow = document.getElementById('reflow');
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
+    <Route key="root" path="/" component={Layout}>
       <IndexRedirect to="rename"></IndexRedirect>
-      <Route path="rename" component={Rename}>
+      <Route key="rename" path="rename" component={Rename}>
         <IndexRedirect to="browse"></IndexRedirect>
-        <Route path="browse" component={Browse}></Route>
-        <Route path="configure" component={Configure}></Route>
-        <Route path="options" component={Options}></Route>
-        <Route path="finalize" component={Finalize}></Route>
+        <Route key="broswe" path="browse" component={Browse}></Route>
+        <Route key="configure" path="configure" component={Configure}></Route>
+        <Route key="options" path="options" component={Options}></Route>
+        <Route key="finalize" path="finalize" component={Finalize}></Route>
       </Route>
-      <Route path="flow" component={Flow}></Route>
-      <Route path="history" component={History}></Route>
-      <Route path="settings" component={Settings}></Route>
+      <Route key="flow" path="flow" component={Flow}></Route>
+      <Route key="history" path="history" component={History}></Route>
+      <Route key="settings" path="settings" component={Settings}></Route>
     </Route>
   </Router>,
 reflow);

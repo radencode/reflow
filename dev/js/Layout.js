@@ -18,7 +18,7 @@ export default class Layout extends React.Component{
     return(
       <div class="app">
         <Bar title={this.state.title}/>
-        <Viewer title={this.change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: this.props.location.pathname})}/>
+        <Viewer title={this.change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: segment})}/>
       </div>
     );
   }
