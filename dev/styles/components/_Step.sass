@@ -1,0 +1,63 @@
+.step
+  width: 65px
+  height: auto
+  text-align: center
+  .icon
+    width: 40px
+    height: 40px
+    margin: auto
+    position: relative
+    .await
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      background-color: $blue-highlight
+      position: absolute
+      &.show
+        opacity: 1
+      &.hide
+        opacity: 0
+    .active
+      width: 46px
+      height: 46px
+      top: -3px
+      left: -3px
+      border-radius: 50%
+      background-color: $yellow
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      box-shadow: 0 0 15px 2px #000
+      &.show
+        opacity: 1
+      &.hide
+        opacity: 0
+      .dot
+        margin: 0 2px
+        width: 7px
+        height: 7px
+        border-radius: 50%
+        background-color: $blue-background
+    .complete
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      background-color: $yellow
+      color: $blue-background
+      line-height: 40px
+      font-size: 17px
+      position: absolute
+      &.show
+        opacity: 1
+      &.hide
+        opacity: 0
+  .label
+    margin-top: 20px
+    font-size: 13px
+    &.active
+      color: $yellow
+    &.complete
+      color: #FFF
+    &.await
+      color: $blue-highlight
