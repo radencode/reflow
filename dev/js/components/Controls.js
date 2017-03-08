@@ -5,52 +5,52 @@ export default class Controls extends React.Component{
   constructor(){
     super();
     this.state = {maximized: false};
-    this.win = Remote.getCurrentWindow();
-    this.body = document.body;
-    this.window_listeners();
+    this._win = Remote.getCurrentWindow();
+    this._body = document.body;
+    this._window_listeners();
   }
-  minimize(){
-    this.win.minimize();
+  _minimize(){
+    this._win.minimize();
   }
-  maximize(){
-    this.win.maximize();
+  _maximize(){
+    this._win.maximize();
   }
-  unmaximize(){
-    this.win.unmaximize();
+  _unmaximize(){
+    this._win.unmaximize();
   }
-  exit(){
-    this.win.close();
+  _exit(){
+    this._win.close();
   }
-  min_max_icon(){
+  _min_max_icon(){
     if(!this.state.maximized){
-      return (<div onClick={this.maximize.bind(this)}><i class="fa fa-window-maximize" aria-hidden="true"></i></div>);
+      return (<div onClick={this._maximize.bind(this)}><i class="fa fa-window-maximize" aria-hidden="true"></i></div>);
     }else{
-      return (<div onClick={this.unmaximize.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
+      return (<div onClick={this._unmaximize.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
-  window_listeners(){
-    this.win.on('maximize', () => {
+  _window_listeners(){
+    this._win.on('maximize', () => {
       this.setState({maximized: true});
-      this.body.classList.add('window-full-screen');
+      this._body.classList.add('window-full-screen');
     });
-    this.win.on('unmaximize', () => {
+    this._win.on('unmaximize', () => {
       this.setState({maximized: false});
-      this.body.classList.remove('window-full-screen');
+      this._body.classList.remove('window-full-screen');
     });
-    this.win.on('focus', () => {
+    this._win.on('focus', () => {
       if(!this.state.maximized)
-        this.body.className = 'window-focus';
+        this._body.className = 'window-focus';
     });
-    this.win.on('blur', () => {
-      this.body.className = 'window-blur';
+    this._win.on('blur', () => {
+      this._body.className = 'window-blur';
     });
   }
   render(){
     return(
       <div id="controls">
-        <div onClick={this.minimize.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
-        {this.min_max_icon()}
-        <div class="exit" onClick={this.exit.bind(this)}><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div onClick={this._minimize.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+        {this._min_max_icon()}
+        <div class="exit" onClick={this._exit.bind(this)}><i class="fa fa-times" aria-hidden="true"></i></div>
       </div>
     );
   }

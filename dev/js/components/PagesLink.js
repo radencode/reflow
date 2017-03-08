@@ -6,19 +6,19 @@ export default class PagesLink extends React.Component{
     super();
     this.state = {hover: false};
   }
-  animation_in(){
+  _animate_in(){
     this.setState({hover: true});
   }
-  animation_out(){
+  _animate_out(){
     this.setState({hover: false});
   }
-  change_title(title, label){
+  _change_title(title, label){
     title(label);
   }
   render(){
     return(
       <Link to={this.props.link}>
-        <div class={this.props.status} onClick={this.change_title.bind(this, this.props.title, this.props.label)} onMouseOver={this.animation_in.bind(this)} onMouseOut={this.animation_out.bind(this)}>
+        <div class={this.props.status} onClick={this._change_title.bind(this, this.props.title, this.props.label)} onMouseOver={this._animate_in.bind(this)} onMouseOut={this._animate_out.bind(this)}>
           <i class={this.props.icon} aria-hidden="true"></i>
           <div class={this.state.hover ? "hover animation" : "hover"}>
             <div class="arrow"></div>

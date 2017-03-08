@@ -9,19 +9,19 @@ export default class Layout extends React.Component{
     super();
     this.state = {title: 'Rename'};
   }
-  change_title(title){
+  _change_title(title){
     this.setState({title: title});
   }
-  get_key(props){
-    this.path = props.location.pathname;
-    return this.path.split('/')[1] || 'root';
+  _get_key(props){
+    this._path = props.location.pathname;
+    return this._path.split('/')[1] || 'root';
   }
   render(){
-    const key = this.get_key(this.props);
+    const key = this._get_key(this.props);
     return(
       <div class="app">
         <Bar title={this.state.title}/>
-        <Viewer title={this.change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: key})}/>
+        <Viewer title={this._change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: key})}/>
       </div>
     );
   }

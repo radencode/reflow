@@ -6,7 +6,7 @@ export default class Navigation extends React.Component{
     super();
     this.state = {disable: 'enable'};
   }
-  delay(){
+  _delay(){
     this.setState({disable: 'disable'});
     setTimeout(() => {
       this.setState({disable: 'enable'});
@@ -14,7 +14,7 @@ export default class Navigation extends React.Component{
   }
   render(){
     return(
-      <div id="nav" class={this.state.disable} onClick={this.delay.bind(this)}>
+      <div id="nav" class={this.state.disable} onClick={this._delay.bind(this)}>
         <PagesLink title={this.props.title} status={this.props.path.match(/rename/) ? 'active' : ''} link="rename" label="Rename" icon="fa fa-pencil"/>
         <PagesLink title={this.props.title} status={this.props.path.match(/flow/) ? 'active' : ''} link="flow" label="File Structure" icon="fa fa-code-fork"/>
         <PagesLink title={this.props.title} status={this.props.path.match(/history/) ? 'active' : ''} link="history" label="History" icon="fa fa-history"/>
