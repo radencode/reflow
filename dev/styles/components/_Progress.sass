@@ -21,11 +21,17 @@
     left: 32.5px
     order: 1
     z-index: 0
-    #indicator
-      width: 145px
+    .indicator
       height: 100%
       position: absolute
       left: 0
       background-color: $yellow
-
-/*One step is  */
+      transition: 500ms width ease
+      &.start
+        width: 0
+      &.first
+        width: 145px
+      &.second
+        width: 290px
+      &.third
+        width: 435px

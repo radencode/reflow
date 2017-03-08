@@ -6,7 +6,7 @@ export default class Configure extends React.Component{
     return(
       <div id="configure">
         <div class="title">Configure</div>
-        <Link to="/rename/options"><div class="next">Next</div></Link>
+        <Link to="/rename/options"><div class="next" onClick={this.props.next}>Next</div></Link>
       </div>
     );
   }

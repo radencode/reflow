@@ -5,20 +5,23 @@ import Bar from './components/Bar';
 import Viewer from './components/Viewer';
 
 export default class Layout extends React.Component{
-  constructor(){
+  constructor(props){
     super();
     this.state = {title: 'Rename'};
   }
   change_title(title){
     this.setState({title: title});
   }
+  get_key(props){
+    this.path = props.location.pathname;
+    return this.path.split('/')[1] || 'root';
+  }
   render(){
-    const path = this.props.location.pathname;
-    const segment = path.split('/')[1] || 'root';
+    const key = this.get_key(this.props);
     return(
       <div class="app">
         <Bar title={this.state.title}/>
-        <Viewer title={this.change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: segment})}/>
+        <Viewer title={this.change_title.bind(this)} path={this.props.location.pathname} modal={React.cloneElement(this.props.children, {key: key})}/>
       </div>
     );
   }
