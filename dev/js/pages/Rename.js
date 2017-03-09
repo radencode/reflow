@@ -27,6 +27,14 @@ export default class Rename extends React.Component{
     this._toReset = false;
     this._step = 0;
   }
+  _finish(){
+    const update = this.state.status.slice();
+    update[3] = 'complete';
+    this.setState({status: update});
+  }
+  _back(to){
+
+  }
   render(){
     return(
       <div id="rename">
@@ -35,7 +43,13 @@ export default class Rename extends React.Component{
           transitionName = "slide"
           transitionEnterTimeout = {500}
           transitionLeaveTimeout = {250}>
-          {React.cloneElement(this.props.children, {key: this.props.location.pathname, next: this._next.bind(this), reset: this._reset.bind(this), toReset: this._toReset})}
+          {React.cloneElement(this.props.children, {
+            key: this.props.location.pathname,
+            next: this._next.bind(this),
+            reset: this._reset.bind(this),
+            finish: this._finish.bind(this),
+            toReset: this._toReset
+          })}
         </ReactCSSTransitionGroup>
       </div>
     );

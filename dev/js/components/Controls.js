@@ -15,7 +15,7 @@ export default class Controls extends React.Component{
   _maximize(){
     this._win.maximize();
   }
-  _unmaximize(){
+  _restore(){
     this._win.unmaximize();
   }
   _exit(){
@@ -25,7 +25,7 @@ export default class Controls extends React.Component{
     if(!this.state.maximized){
       return (<div onClick={this._maximize.bind(this)}><i class="fa fa-window-maximize" aria-hidden="true"></i></div>);
     }else{
-      return (<div onClick={this._unmaximize.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
+      return (<div onClick={this._restore.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
     }
   }
   _window_listeners(){
