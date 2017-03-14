@@ -27,9 +27,9 @@ export default class Rename extends React.Component{
     this._toReset = false;
     this._stage = 0;
   }
-  _finish(){
+  _finish(last){
     var update = this.state.status.slice();
-    update[3] = 'complete';
+    update[last] = 'complete';
     this.setState({status: update, finish: true});
   }
   _back(stage, link){
