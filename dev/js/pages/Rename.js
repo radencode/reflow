@@ -23,7 +23,7 @@ export default class Rename extends React.Component{
     this._stage++;
   }
   _reset(){
-    this.setState({status: this._stages, stage: 'start'});
+    this.setState({status: this._stages, stage: 'start', finish: false});
     this._toReset = false;
     this._stage = 0;
   }
