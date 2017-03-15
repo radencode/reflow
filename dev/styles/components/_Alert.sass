@@ -1,0 +1,50 @@
+.unsaved
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background-color: rgba(11, 16, 21, 0.8)
+  z-index: 1000
+  display: flex
+  justify-content: center
+  align-items: center
+  visibility: hidden
+  opacity: 0
+  &.active
+    opacity: 1
+    visibility: visible
+  .alert
+    width: 420px
+    height: 180px
+    background-color: $blue-highlight
+    font-size: 13px
+    font-family: Roboto-Medium
+    text-align: center
+    display: flex
+    flex-flow: row wrap
+    align-content: center
+    .message
+      width: 100%
+      height: auto
+      padding-bottom: 20px
+    .buttons
+      width: 100%
+      height: auto
+      padding-top: 20px
+      display: flex
+      flex-direction: row
+      justify-content: center
+      .btn
+        width: 120px
+        height: 35px
+        background-color: $blue-cover
+        margin: 0 10px
+        line-height: 35px
+        color: $yellow
+        cursor: pointer
+        border: 1px solid transparent
+        transition: 250ms all ease
+        &:hover
+          border-color: rgba(255, 191, 0, 0.2)
+          color: #FFF
