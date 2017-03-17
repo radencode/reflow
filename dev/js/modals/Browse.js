@@ -6,14 +6,15 @@ export default class Browse extends React.Component{
     if(this.props.toReset)
       this.props.reset();
   }
-  _next(next){
+  _next(next, unsaved){
     next();
+    unsaved();
   }
   render(){
     return(
       <div id="browse">
         <div class="title">Browse</div>
-        <Link to="/rename/configure"><div class="next" onClick={this._next.bind(this, this.props.next)}>Next</div></Link>
+        <Link to="/rename/configure"><div class="next" onClick={this._next.bind(this, this.props.next, this.props.unsaved)}>Next</div></Link>
       </div>
     );
   }

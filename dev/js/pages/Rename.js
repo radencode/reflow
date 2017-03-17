@@ -5,13 +5,11 @@ import { Link } from 'react-router';
 //Animations
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Alert from '../components/Alert';
-
 export default class Rename extends React.Component{
   constructor(){
     super();
     this._stages = ['active', 'await', 'await', 'await'];
-    this.state = {status: this._stages,  stage: 'start', finish: false, unsaved: false};
+    this.state = {status: this._stages,  stage: 'start', finish: false};
     this._bar = ['start', 'first', 'second', 'third'];
     this._toReset = false;
     this._stage = 0;
@@ -47,7 +45,6 @@ export default class Rename extends React.Component{
     return(
       <div id="rename">
         <Progress status={this.state.status} stage={this.state.stage} back={this._back.bind(this)} finish={this.state.finish}/>
-        <Alert unsaved={this.state.unsaved} message="Are you sure you want to continue? All progress will be lost." success="Continue" cancel="Cancel"/>
         <ReactCSSTransitionGroup
           transitionName = "slide"
           transitionEnterTimeout = {500}
@@ -57,7 +54,9 @@ export default class Rename extends React.Component{
             next: this._next.bind(this),
             reset: this._reset.bind(this),
             finish: this._finish.bind(this),
-            toReset: this._toReset
+            toReset: this._toReset,
+            unsaved: this.props.unsaved,
+            saved: this.props.saved
           })}
         </ReactCSSTransitionGroup>
       </div>

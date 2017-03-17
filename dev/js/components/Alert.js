@@ -7,8 +7,8 @@ export default class Alert extends React.Component{
         <div class="alert">
           <div class="message">{this.props.message}</div>
           <div class="buttons">
-            <div class="btn">{this.props.success}</div>
-            <div class="btn">{this.props.cancel}</div>
+            <div class="btn" onClick={this.props.funcContinue.bind(this.props)}>{this.props.success}</div>
+            <div class="btn" onClick={this.props.funcCancel}>{this.props.cancel}</div>
           </div>
         </div>
       </div>

@@ -12,13 +12,14 @@ export default class PagesLink extends React.Component{
   _animate_out(){
     this.setState({hover: false});
   }
-  _change_title(title, label){
+  _switch(title, label, alert, location, event){
     title(label);
+    alert(location, event);
   }
   render(){
     return(
       <Link to={this.props.link}>
-        <div class={this.props.status} onClick={this._change_title.bind(this, this.props.title, this.props.label)} onMouseOver={this._animate_in.bind(this)} onMouseOut={this._animate_out.bind(this)}>
+        <div class={this.props.status} onClick={this._switch.bind(this, this.props.title, this.props.label, this.props.alert, this.props.link)} onMouseOver={this._animate_in.bind(this)} onMouseOut={this._animate_out.bind(this)}>
           <i class={this.props.icon} aria-hidden="true"></i>
           <div class={this.state.hover ? "hover animation" : "hover"}>
             <div class="arrow"></div>
