@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname + "/dev",
-  entry: "./js/client.js",
+  entry: "./scripts/client.js",
   target: "electron",
   module: {
     loaders: [
@@ -9,7 +9,7 @@ module.exports = {
         exclude: /(node_module)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['react', 'es2015', 'stage-2'],
           plugins: ['react-html-attrs']
         }
       },
@@ -20,7 +20,7 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + "/app/src/js/",
+    path: __dirname + "/app/src/scripts/",
     filename: "client.min.js"
   }
 }

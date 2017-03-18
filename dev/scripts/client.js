@@ -1,6 +1,42 @@
+import { createStore, combineReducers } from 'redux';
+
+const userReducer = (state={}, action) => {
+  switch(action.type){
+    case "CHANGE_NAME":
+      state = {...state, name: action.payload};
+      break;
+    case "CHANGE_AGE":
+      state = {...state, age: action.payload};
+      break;
+  }
+  return state;
+};
+
+const tweetsReducer = (state=[], action) => {
+  return state;
+};
+
+const reducers = combineReducers({
+    user: userReducer,
+    tweets: tweetsReducer,
+});
+
+const store = createStore(reducers);
+
+store.subscribe(() => {
+  console.log("store changed", store.getState());
+});
+
+store.dispatch({type: "CHANGE_NAME", payload: "Teddy"});
+store.dispatch({type: "CHANGE_AGE", payload: 24});
+
+
+
 //React
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 
 //Components
@@ -19,7 +55,8 @@ import Finalize from './modals/Finalize';
 import Options from './modals/Options';
 
 const reflow = document.getElementById('reflow');
-ReactDOM.render(
+ReactDOM.render(<h1>hello</h1>,reflow);
+
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRedirect to="rename"></IndexRedirect>
@@ -34,5 +71,4 @@ ReactDOM.render(
       <Route path="history" component={History}></Route>
       <Route path="settings" component={Settings}></Route>
     </Route>
-  </Router>,
-reflow);
+  </Router>,*/
