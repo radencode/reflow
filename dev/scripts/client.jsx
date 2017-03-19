@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+/*import { createStore, combineReducers } from 'redux';
 
 const userReducer = (state={}, action) => {
   switch(action.type){
@@ -29,14 +29,18 @@ store.subscribe(() => {
 
 store.dispatch({type: "CHANGE_NAME", payload: "Teddy"});
 store.dispatch({type: "CHANGE_AGE", payload: 24});
-
+*/
 
 
 //React
-/*
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
+import Layout from './components/Layout.jsx';
+import store from './store';
+/*
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 
 //Components
@@ -53,10 +57,14 @@ import Browse from './modals/Browse';
 import Configure from './modals/Configure';
 import Finalize from './modals/Finalize';
 import Options from './modals/Options';
-
+*/
 const reflow = document.getElementById('reflow');
-ReactDOM.render(<h1>hello</h1>,reflow);
-
+ReactDOM.render(
+  <Provider store={store}>
+    <Layout />
+  </Provider>,
+reflow);
+/*
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRedirect to="rename"></IndexRedirect>

@@ -1,16 +1,16 @@
 module.exports = {
   context: __dirname + "/dev",
-  entry: "./scripts/client.js",
+  entry: "./scripts/client.jsx",
   target: "electron",
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /(node_module)/,
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-2'],
-          plugins: ['react-html-attrs']
+          plugins: ['react-html-attrs', 'transform-decorators-legacy']
         }
       },
       {
