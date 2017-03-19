@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { maxWindow, restoreWindow } from '../actions/controls-action';
 
 const Remote = require('electron').remote;
 
@@ -37,11 +38,11 @@ export default class Controls extends React.Component{
   }
   window_listeners(){
     this.win.on('maximize', () => {
-      this.setState({maximized: true});
+      this.props.dispatch(maxWindow());
       this.body.classList.add('window-full-screen');
     });
     this.win.on('unmaximize', () => {
-      this.setState({maximized: false});
+      this.props.dispatch(restoreWindow());
       this.body.classList.remove('window-full-screen');
     });
     this.win.on('focus', () => {
