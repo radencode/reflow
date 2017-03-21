@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname + "/dev",
-  entry: "./scripts/client.jsx",
+  entry: "./scripts/core/client.jsx",
   target: "electron",
   module: {
     loaders: [

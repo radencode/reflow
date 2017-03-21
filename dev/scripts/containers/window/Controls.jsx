@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { maxWindow, restoreWindow } from '../actions/controls-action';
-
+import { maxWindow, restoreWindow } from '../../actions/controls';
 const Remote = require('electron').remote;
 
 @connect((store) => {

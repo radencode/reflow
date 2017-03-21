@@ -1,5 +1,5 @@
 import React from 'react';
-import Step from './Step'
+import Step from './Step.jsx'
 
 export default class Progress extends React.Component{
   render(){
