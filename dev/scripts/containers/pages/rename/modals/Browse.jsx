@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { switchToConfigure } from '../../../../actions/progress';
+
+@connect((store) => { return {}; })
 
 export default class Browse extends React.Component{
-  componentWillMount(){
-    if(this.props.toReset)
-      this.props.reset();
+  constructor(props){
+    super();
+    this.props = props;
   }
-  next(next){
-    next();
+  switchModal(){
+    this.props.dispatch(switchToConfigure());
   }
   render(){
     return(
       <div id="browse">
         <div class="title">Browse</div>
-        <Link to="/rename/configure"><div class="next" onClick={this.next.bind(this, this.props.next)}>Next</div></Link>
+        <Link to="/rename/configure"><div class="next" onClick={this.switchModal.bind(this)}>Next</div></Link>
       </div>
     );
   }

@@ -10,6 +10,8 @@ export default function reducer(state=defaultState, action){
     case 'RESTORE_WINDOW_STATE':
       state = {...state, window: 'initial'};
       break;
+    default:
+      return state;   
   }
   return state;
 }

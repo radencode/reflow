@@ -1,14 +1,17 @@
 const defaultState = {
-    hover: false
+	hover: false
 }
 
-export default function (state=defaultState, action){
-    switch(action.type){
-        case 'NAVIGATION_HOVER_ACTIVE':
-            state = {...state, hover: true};
-            break;
-        case 'NAVIGATION_HOVER_INACTIVE':
-            state = {...state, hover: false};
-    }
-    return state;
-}
+export default function reducer(state=defaultState, action){
+	switch(action.type){
+		case 'NAVIGATION_HOVER_ACTIVE':
+			state = {...state, hover: true};
+			break;
+		case 'NAVIGATION_HOVER_INACTIVE':
+			state = {...state, hover: false};
+			break;
+		default:
+			return state;
+	}
+	return state;
+}   

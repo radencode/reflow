@@ -2,6 +2,20 @@
   width: 65px
   height: auto
   text-align: center
+  position: relative
+  .bar
+    height: 2px
+    position: absolute
+    left: 32.5px
+    top: 19px
+    background-color: $blue-highlight
+    transition: 750ms width ease
+    &.show
+      width: 145px
+    &.hide
+      width: 0
+    &.none
+      display: none
   .icon
     width: 40px
     height: 40px
@@ -38,7 +52,7 @@
         height: 5px
         border-radius: 50%
         background-color: $blue-background
-    .complete
+    .completed
       width: 100%
       height: 100%
       border-radius: 50%
@@ -62,7 +76,7 @@
       color: $yellow
     &.await
       color: $blue-highlight
-    &.complete
+    &.completed
       color: #FFF
       &.link
         cursor: pointer
