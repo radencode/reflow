@@ -27,10 +27,11 @@ export default class PagesLink extends React.Component{
     this.hover = false;
   }
   handleEvents(active, event){
-    if(active === 'active' || this.props.alert.alert)
+    if(active === 'active' || this.props.alert.alert){
       event.preventDefault();
-    if(active != 'active')
-      this.props.dispatch(fireAlert(this.props.link));
+      if(active != 'active')
+        this.props.dispatch(fireAlert(this.props.link));
+    }
     this.props.dispatch(changeTitle(this.props.label));
   }
   render(){
