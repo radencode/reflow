@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import { changeTitle } from '../../actions/title';
 import { active, inactive } from '../../actions/navigation';
+import { setLinkAlert, fireAlert } from '../../actions/alert';
 import { connect } from 'react-redux';
 
 @connect((store) => {
   return{
-    navigation: store.navigation
+    navigation: store.navigation,
+    alert: store.alert,
   };
 })
 
@@ -25,8 +27,10 @@ export default class PagesLink extends React.Component{
     this.hover = false;
   }
   handleEvents(active, event){
-    if(active === 'active')
+    if(active === 'active' || this.props.alert.alert){
       event.preventDefault();
+      this.props.dispatch(fireAlert(this.props.link));
+    }      
     this.props.dispatch(changeTitle(this.props.label));
   }
   render(){

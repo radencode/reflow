@@ -1,5 +1,6 @@
 import React from 'react';
 import Progress from '../../navigation/Progress.jsx';
+import Alert from '../../messages/Alert.jsx';
 import { Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
@@ -15,6 +16,7 @@ export default class Rename extends React.Component{
     return(
       <div id="rename">
         <Progress router={this.props.router}/>
+        <Alert router={this.props.router}/>
         <ReactCSSTransitionGroup
           transitionName = "slide"
           transitionEnterTimeout = {500}

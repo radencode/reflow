@@ -1,4 +1,4 @@
-.unsaved
+.modal
   position: fixed
   top: 0
   left: 0
@@ -18,34 +18,31 @@
   .alert
     width: 420px
     height: 180px
-    background-color: $blue-highlight
+    background-color: $blue-background
+    border: 1px solid rgba(0, 0, 0, 0.5)
     font-size: 13px
     font-family: Roboto-Medium
     text-align: center
     display: flex
     flex-flow: row wrap
-    align-content: center
     .message
+      padding-top: 60px
       width: 100%
       height: auto
-      padding-bottom: 20px
     .buttons
       width: 100%
       height: auto
-      padding-top: 20px
       display: flex
       flex-direction: row
       justify-content: center
       .btn
-        width: 120px
+        width: 110px
         height: 35px
-        background-color: $blue-cover
-        margin: 0 10px
+        border: 1px solid $blue-border-dark
+        margin: 0 20px
         line-height: 35px
         color: $yellow
         cursor: pointer
-        border: 1px solid transparent
         transition: 250ms all ease
         &:hover
-          border-color: rgba(255, 191, 0, 0.2)
-          color: #FFF
+          color: $green
