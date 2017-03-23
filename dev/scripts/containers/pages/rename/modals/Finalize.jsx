@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { finish } from '../../../../actions/progress';
+import { destroyAlert } from '../../../../actions/alert';
 
 @connect((store) => { return {}; })
 
@@ -11,6 +12,7 @@ export default class Finalize extends React.Component{
   }
   finish(){
     this.props.dispatch(finish());
+    this.props.dispatch(destroyAlert());
   }
   render(){
     return(
