@@ -12,31 +12,31 @@ export default function reducer(state=defaultState, action){
 			state = {...state, browse: {...state, status: 'active', bar: 'hide'}, 
 												 configure: {...state, status: 'await', bar: 'hide'}, 
 												 options: {...state, status: 'await', bar: 'hide'}, 
-												 finalize: {...state, status: 'await', bar: 'none'}, finish: false};
+												 finalize: {...state, status: 'await'}, finish: false};
 			break;
 		case 'ACTIVATE_CONFIGURE_MODAL':
 			state = {...state, browse: {...state, status: 'completed', bar: 'show'}, 
 												 configure: {...state, status: 'active', bar: 'hide'}, 
 												 options: {...state, status: 'await', bar: 'hide'}, 
-												 finalize: {...state, status: 'await', bar: 'none'}, finish: false};
+												 finalize: {...state, status: 'await'}, finish: false};
 			break;
 		case 'ACTIVATE_OPTIONS_MODAL':
 			state = {...state, browse: {...state, status: 'completed', bar: 'show'}, 
 												 configure: {...state, status: 'completed', bar: 'show'}, 
 												 options: {...state, status: 'active', bar: 'hide'}, 
-												 finalize: {...state, status: 'await', bar: 'none'}, finish: false};
+												 finalize: {...state, status: 'await'}, finish: false};
 			break;
 		case 'ACTIVATE_FINALIZE_MODAL':
 			state = {...state, browse: {...state, status: 'completed', bar: 'show'}, 
 												 configure: {...state, status: 'completed', bar: 'show'}, 
 												 options: {...state, status: 'completed', bar: 'show'}, 
-												 finalize: {...state, status: 'active', bar: 'none'}, finish: false};
+												 finalize: {...state, status: 'active'}, finish: false};
 			break;
 		case 'ACTIVATE_FINISH_MODAL':
 			state = {...state, browse: {...state, status: 'completed', bar: 'show'}, 
 												 configure: {...state, status: 'completed', bar: 'show'}, 
 												 options: {...state, status: 'completed', bar: 'show'}, 
-												 finalize: {...state, status: 'completed', bar: 'none'}, finish: true};
+												 finalize: {...state, status: 'completed'}, finish: true};
 			break;
 		default:
 			return state;

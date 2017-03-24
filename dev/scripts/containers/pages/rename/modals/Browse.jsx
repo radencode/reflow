@@ -15,12 +15,21 @@ export default class Browse extends React.Component{
     this.props.dispatch(switchToConfigure());
     this.props.dispatch(createAlert("Are you sure you want to continue? All progress will be lost.", "Continue", "Cancel"));
   }
+  browse(){
+
+  }
   render(){
     return(
       <div id="browse">
-        <div class="title">Browse</div>
-        <Link to="/rename/configure"><div class="next" onClick={this.switchModal.bind(this)}>Next</div></Link>
+        <div class="select">
+          <div class="icon"><i class="fa fa-database" aria-hidden="true"></i></div>
+          <div class="label">Select the files that you wish to rename</div>
+          <div class="arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>    
+          <button class="btn">Browse</button>          
+        </div>        
       </div>
     );
   }
 }
+
+//<Link to="/rename/configure"><div class="next" onClick={this.switchModal.bind(this)}>Next</div></Link>
