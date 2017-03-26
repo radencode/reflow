@@ -15,6 +15,7 @@ export default class Controls extends React.Component{
     this.win = Remote.getCurrentWindow();
     this.body = document.body;
     this.window_listeners();
+    this.drag_listeners();
   }
   minimize(){
     this.win.minimize();
@@ -51,6 +52,15 @@ export default class Controls extends React.Component{
     this.win.on('blur', () => {
       this.body.className = 'window-blur';
     });
+  }
+  drag_listeners(){
+    this.body.addEventListener('dragover', (event) => {
+      event.dataTransfer.dropEffect = 'none';
+      event.preventDefault();      
+    }, false);
+    this.body.addEventListener('drop', (event) => {
+      event.preventDefault();
+    }, false);
   }
   render(){
     return(
