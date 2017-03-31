@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   context: __dirname + "/dev",
   entry: "./scripts/core/client.jsx",
@@ -17,10 +19,16 @@ module.exports = {
         test: /\.sass?$/,
         loader: 'style-loader!css-loader!sass-loader'
       }
-    ]
+    ],
   },
   output: {
     path: __dirname + "/app/src/scripts/",
-    filename: "client.min.js"
+    filename: "client.min.js",
+    libraryTarget: "commonjs2",
+  },
+  externals: {
+    'electron-edge': {
+      commonjs2: 'electron-edge',     
+    }
   }
 }

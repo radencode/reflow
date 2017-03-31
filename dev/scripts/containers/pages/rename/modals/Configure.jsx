@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { switchToOptions } from '../../../../actions/progress';
-const edge = require('electron-edge');
+import edge from 'electron-edge';
 
 @connect((store) => { return {}; })
 
@@ -15,11 +15,11 @@ export default class Configure extends React.Component{
   switchModal(){
     this.props.dispatch(switchToOptions());
   }
- /* API(){
+ API(){
     var csharp = edge.func({
-			assemblyFile: 'csharp/reflow.dll',
+			assemblyFile: './app/src/scripts/reflow.dll',
 			methodName: 'GetFile'
-  	})
+  	});
 
     csharp(1, function (error, result) {
         if (error) {
@@ -31,8 +31,8 @@ export default class Configure extends React.Component{
           var car = json.car;
           console.log('Name: ' + name + ' Age: ' + age + ' Car: ' + car);
         }
-    })
-  }*/
+    });
+  }
   render(){
     return(
       <div id="configure">
