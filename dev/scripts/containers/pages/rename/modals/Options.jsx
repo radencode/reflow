@@ -15,7 +15,7 @@ export default class Options extends React.Component{
   }
   render(){
     return(
-      <div id="options">
+      <div class="container">
         <div class="title">Options</div>
         <Link to="/rename/finalize"><div class="next" onClick={this.switchModal.bind(this)}>Next</div></Link>
       </div>

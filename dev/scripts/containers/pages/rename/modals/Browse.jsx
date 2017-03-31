@@ -35,7 +35,7 @@ export default class Browse extends React.Component{
   }
   render(){
     return(
-      <div id="browse">
+      <div class="container browse">
         <div class="select">
           <div class="icon"><i class="fa fa-database" aria-hidden="true"></i></div>
           <div class="label">{this.select}</div>

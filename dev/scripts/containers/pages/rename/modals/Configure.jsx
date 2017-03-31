@@ -35,7 +35,7 @@ export default class Configure extends React.Component{
   }
   render(){
     return(
-      <div id="configure">
+      <div class="container">
         <div class="title">Configure</div>
         <Link to="/rename/options"><div class="next" onClick={this.switchModal.bind(this)}>Next</div></Link>
       </div>

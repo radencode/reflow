@@ -16,7 +16,7 @@ export default class Finalize extends React.Component{
   }
   render(){
     return(
-      <div id="finalize">
+      <div class="container">
         <div class="title">Finalize</div>
         <div class="next" onClick={this.finish.bind(this)}>Finish</div>
       </div>

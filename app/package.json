@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/radencode/reflow.git"
   },
+  "scripts":{
+    "node-edge": "node_modules/electron-edge/tools/build.bat release \"7.4.0\""
+  },
   "keywords": [
     "rename",
     "flow",
