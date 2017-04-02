@@ -12,6 +12,7 @@ export default {
 					Messages: {
 						Select: 'Select the files that you wish to rename',
 						Selected: ' files have been selected',
+						Again: 'Browse again',
 					},
 				},
 				{ 
