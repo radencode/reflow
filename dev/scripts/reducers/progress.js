@@ -3,7 +3,8 @@ const defaultState = {
 	configure: {status: 'await', bar: 'hide'},
 	options: {status: 'await', bar: 'hide'},
 	finalize: {status: 'await', bar: 'hide'},
-	finish: false
+	finish: false,
+	animation: 'slide-left',
 }
 
 export default function reducer(state=defaultState, action){
@@ -38,6 +39,9 @@ export default function reducer(state=defaultState, action){
 												 options: {...state, status: 'completed', bar: 'show'}, 
 												 finalize: {...state, status: 'completed'}, finish: true};
 			break;
+		case 'UPDATE_ANIMATION_TYPE':
+			state = {...state, animation: action.payload};
+		break;
 		default:
 			return state;
 	}

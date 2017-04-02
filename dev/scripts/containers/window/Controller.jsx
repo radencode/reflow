@@ -1,5 +1,6 @@
+//Modules
 import React from 'react';
-
+//Containers
 import Controls from 'containers/window/Controls.jsx';
 import Title from 'containers/window/Title.jsx';
 

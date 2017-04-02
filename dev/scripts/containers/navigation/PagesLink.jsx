@@ -1,9 +1,12 @@
+//Modules
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+//Actions
 import { changeTitle } from 'actions/title';
 import { active, inactive } from 'actions/navigation';
 import { setLinkAlert, fireAlert } from 'actions/alert';
-import { connect } from 'react-redux';
+//Assets
 import GenerateIcon from 'assets/icons';
 
 @connect((store) => {

@@ -1,12 +1,14 @@
+//Modules
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { switchToConfigure } from 'actions/progress';
-import { createAlert } from 'actions/alert';
-import * as browseActions from 'actions/browse';
+import fs from 'fs';
+//Actions
+import * as action from 'actions/browse';
+//Assets
 import Labels from 'assets/text';
 import GenerateIcon from 'assets/icons';
-import fs from 'fs';
+//Electron
 const { dialog } = require('electron').remote
 
 @connect((store) => { return { browse: store.browse }; })
@@ -15,11 +17,7 @@ export default class Browse extends React.Component{
   constructor(props){
     super();
     this.props = props;
-    this.props.dispatch(browseActions.resetPathVariables());
-  }
-  next(){
-    this.props.dispatch(switchToConfigure());
-    this.props.dispatch(createAlert(Labels.Alerts.Unsaved.Message, Labels.Alerts.Unsaved.Buttons.Success, Labels.Alerts.Unsaved.Buttons.Cancel));
+    this.props.dispatch(action.resetPathVariables());
   }
   action(type){
     switch(type){
@@ -38,7 +36,7 @@ export default class Browse extends React.Component{
             <div class="icon">{GenerateIcon('rename-modal-browse-content-database')}</div>
             <div class="label"><span class="files">{this.props.browse.files}</span>{this.props.browse.label}</div>
             <div class="again" onClick={this.browse.bind(this)}>{Labels.Pages[0].Modal[0].Messages.Again}</div> 
-            <Link to="/rename/configure"><button class="btn" onClick={this.next.bind(this)}>{Labels.Pages[0].Modal[0].Buttons.Next}</button></Link>             
+            <button class="btn" onClick={this.props.next.bind(this, '/rename/configure', 'Configure')}>{Labels.Pages[0].Modal[0].Buttons.Next}</button>         
           </div> 
         );
     }
@@ -49,9 +47,9 @@ export default class Browse extends React.Component{
       fs.readdir(String(path), (err, files) => {
         if (err) throw err;
         if(files.length > 0){
-          this.props.dispatch(browseActions.setSelectedFiles(files.length));
-          this.props.dispatch(browseActions.configureType('next'));
-          this.props.dispatch(browseActions.configureLabel(Labels.Pages[0].Modal[0].Messages.Selected));
+          this.props.dispatch(action.setSelectedFiles(files.length));
+          this.props.dispatch(action.configureType('next'));
+          this.props.dispatch(action.configureLabel(Labels.Pages[0].Modal[0].Messages.Selected));
         }
       });
 	  }

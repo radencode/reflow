@@ -1,5 +1,7 @@
+//Modules
 import React from 'react';
 import { connect } from 'react-redux';
+//Assets
 import Labels from 'assets/text';
 
 @connect((store) => {

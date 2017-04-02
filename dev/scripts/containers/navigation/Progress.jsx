@@ -1,7 +1,11 @@
+//Modules
 import React from 'react';
-import Step from 'containers/navigation/Step.jsx'
 import { connect } from 'react-redux';
+//Containers
+import Step from 'containers/navigation/Step.jsx'
+//Actions
 import * as action from 'actions/progress';
+//Assets
 import Labels from 'assets/text';
 
 @connect((store) => {
@@ -16,6 +20,7 @@ export default class Progress extends React.Component{
     this.props = props;
   }
   switchStep(link, dispatch, completed){
+    this.props.dispatch(action.updateAnimationType('slide-right'));
     if(completed){
       switch(dispatch){
         case 'Browse':
@@ -26,9 +31,6 @@ export default class Progress extends React.Component{
           break;
         case 'Options':
           this.props.dispatch(action.switchToOptions());
-          break;
-        case 'Finalize':
-          this.props.dispatch(action.switchToFinalize());
           break;
       }   
       if(link) 

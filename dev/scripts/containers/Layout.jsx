@@ -1,4 +1,6 @@
+//Modules
 import React from 'react';
+//Containers
 import Controller from 'containers/window/Controller.jsx';
 import Viewer from 'containers/window/Viewer.jsx';
 

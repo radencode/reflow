@@ -27,6 +27,8 @@ body
   pointer-events: none !important
 
 /* Modal animations */
+
+//Fade
 .fade-enter
   opacity: 0
 
@@ -42,21 +44,42 @@ body
   opacity: 0
   transition: 250ms all ease
 
-.slide-enter
+//Slide left
+.slide-left-enter
   opacity: 0
   left: 200px
 
-.slide-enter.slide-enter-active
+.slide-left-enter.slide-left-enter-active
   opacity: 1
   left: 0
   transition: 250ms all ease
   transition-delay: 250ms
 
-.slide-leave
+.slide-left-leave
   opacity: 1
   left: 0
 
-.slide-leave.slide-leave-active
+.slide-left-leave.slide-left-leave-active
   opacity: 0
   left: -200px
+  transition: 250ms all ease
+
+//Slide right
+.slide-right-enter
+  opacity: 0
+  right: 200px
+
+.slide-right-enter.slide-right-enter-active
+  opacity: 1
+  right: 0
+  transition: 250ms all ease
+  transition-delay: 250ms
+
+.slide-right-leave
+  opacity: 1
+  right: 0
+
+.slide-right-leave.slide-right-leave-active
+  opacity: 0
+  right: -200px
   transition: 250ms all ease

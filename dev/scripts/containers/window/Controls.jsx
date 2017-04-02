@@ -1,7 +1,11 @@
+//Modules
 import React from 'react';
 import { connect } from 'react-redux';
+//Actions
 import { maxWindow, restoreWindow } from 'actions/controls';
+//Assets
 import GenerateIcon from 'assets/icons';
+//Electron
 const Remote = require('electron').remote;
 
 @connect((store) => {

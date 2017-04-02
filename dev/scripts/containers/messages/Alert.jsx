@@ -1,6 +1,9 @@
+//Modules
 import React from 'react';
-import { closeAlert, destroyAlert } from 'actions/alert';
 import { connect } from 'react-redux';
+//Actions
+import { closeAlert, destroyAlert } from 'actions/alert';
+
 
 @connect((store) => {
   return { alert: store.alert };

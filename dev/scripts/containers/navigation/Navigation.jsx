@@ -1,5 +1,8 @@
+//Modules
 import React from 'react';
+//Cotainers
 import PagesLink from 'containers/navigation/PagesLink.jsx';
+//Assets
 import Labels from 'assets/text';
 
 export default class Navigation extends React.Component{

@@ -1,9 +1,13 @@
-//Core
+//Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
+
+//Containers
 import Layout from 'containers/Layout.jsx';
+
+//Core
 import store from 'core/store';
 
 //Pages

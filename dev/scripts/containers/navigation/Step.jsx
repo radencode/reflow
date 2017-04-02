@@ -1,4 +1,6 @@
+//Modules
 import React from 'react';
+//Assets
 import GenerateIcon from 'assets/icons';
 
 export default class Step extends React.Component{

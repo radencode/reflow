@@ -27,3 +27,10 @@ export function finish(){
 		type: 'ACTIVATE_FINISH_MODAL'
 	};
 }
+
+export function updateAnimationType(type){
+	return {
+		type: 'UPDATE_ANIMATION_TYPE',
+		payload: type
+	};
+}
