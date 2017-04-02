@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { maxWindow, restoreWindow } from '../../actions/controls';
+import { maxWindow, restoreWindow } from 'actions/controls';
+import GenerateIcon from 'assets/icons';
 const Remote = require('electron').remote;
 
 @connect((store) => {
@@ -31,9 +32,9 @@ export default class Controls extends React.Component{
   }
   min_max_icon(){
     if(this.props.controls.window === 'initial'){
-      return (<div onClick={this.maximize.bind(this)}><i class="fa fa-window-maximize" aria-hidden="true"></i></div>);
+      return (<div onClick={this.maximize.bind(this)}>{GenerateIcon('controls-maximize')}</div>);
     }else{
-      return (<div onClick={this.restore.bind(this)}><i class="fa fa-window-restore" aria-hidden="true"></i></div>);
+      return (<div onClick={this.restore.bind(this)}>{GenerateIcon('controls-restore')}</div>);
     }
   }
   window_listeners(){
@@ -65,9 +66,9 @@ export default class Controls extends React.Component{
   render(){
     return(
       <div id="controls">
-        <div onClick={this.minimize.bind(this)}><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+        <div onClick={this.minimize.bind(this)}>{GenerateIcon('controls-minimize')}</div>
         {this.min_max_icon()}
-        <div class="exit" onClick={this.exit.bind(this)}><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="exit" onClick={this.exit.bind(this)}>{GenerateIcon('controls-exit')}</div>
       </div>
     );
   }

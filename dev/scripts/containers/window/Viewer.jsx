@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import Navigation from '../navigation/Navigation.jsx';
+import Navigation from 'containers/navigation/Navigation.jsx';
 
 export default class Viewer extends React.Component{
   get_key(path){

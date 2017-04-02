@@ -1,6 +1,9 @@
+import Label from 'assets/text';
+
 const defaultState = {
 	files: 0,
-	configure: false
+	type: 'browse',
+	label: Label.Pages[0].Modal[0].Messages.Select
 }
 
 export default function reducer(state=defaultState, action){
@@ -8,8 +11,11 @@ export default function reducer(state=defaultState, action){
 		case 'SET_SELECTED_FILES':
 			state = {...state, files: action.payload};
 			break;
-		case 'SET_CONFIGURE':
-			state = {...state, configure: action.payload};
+		case 'CONFIGURE_TYPE':
+			state = {...state, type: action.payload};
+			break;
+		case 'CONFIGURE_LABEL':
+			state = {...state, label: action.payload};
 			break;
 		case 'RESET_PATH_VARIABLES':
 			state = {...state, ...defaultState};

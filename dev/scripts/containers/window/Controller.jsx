@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Controls from './Controls.jsx';
-import Title from './Title.jsx';
+import Controls from 'containers/window/Controls.jsx';
+import Title from 'containers/window/Title.jsx';
 
 export default class Controller extends React.Component{
   render(){

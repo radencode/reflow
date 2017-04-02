@@ -1,5 +1,7 @@
+import Label from 'assets/text';
+
 const defaultState = {
-  label: 'Rename'
+  label: Label.Pages[0].Title
 }
 
 export default function reducer(state=defaultState, action){

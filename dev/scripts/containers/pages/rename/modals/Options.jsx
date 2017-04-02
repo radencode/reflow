@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { switchToFinalize } from '../../../../actions/progress';
+import { switchToFinalize } from 'actions/progress';
 
 @connect((store) => { return {}; })
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { finish } from '../../../../actions/progress';
-import { destroyAlert } from '../../../../actions/alert';
+import { finish } from 'actions/progress';
+import { destroyAlert } from 'actions/alert';
 
 @connect((store) => { return {}; })
 

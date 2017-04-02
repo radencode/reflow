@@ -1,6 +1,6 @@
 import React from 'react';
-import Controller from './window/Controller.jsx';
-import Viewer from './window/Viewer.jsx';
+import Controller from 'containers/window/Controller.jsx';
+import Viewer from 'containers/window/Viewer.jsx';
 
 export default class Layout extends React.Component{
   render(){

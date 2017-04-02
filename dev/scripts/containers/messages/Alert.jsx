@@ -1,5 +1,5 @@
 import React from 'react';
-import { closeAlert, destroyAlert } from '../../actions/alert';
+import { closeAlert, destroyAlert } from 'actions/alert';
 import { connect } from 'react-redux';
 
 @connect((store) => {
@@ -21,7 +21,6 @@ export default class Alert extends React.Component{
       this.props.dispatch(closeAlert());
   }
   render(){
-    console.log(this.props.alert);
     return(      
       <div class={this.props.alert.stage}>
         <div class="alert">

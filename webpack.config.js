@@ -1,5 +1,4 @@
-var path = require('path');
-
+const path = require('path');
 module.exports = {
   context: __dirname + "/dev",
   entry: "./scripts/core/client.jsx",
@@ -21,14 +20,20 @@ module.exports = {
       }
     ],
   },
+  resolve: {
+    modules: [
+      path.resolve('./dev/scripts/'),
+      path.resolve('./node_modules')
+    ]
+  },  
   output: {
     path: __dirname + "/app/src/scripts/",
     filename: "client.min.js",
     libraryTarget: "commonjs2",
   },
   externals: {
-    'electron-edge': {
-      commonjs2: 'electron-edge',     
+    'reflow-edge': {
+      commonjs2: 'electron-edge',    
     }
   }
 }

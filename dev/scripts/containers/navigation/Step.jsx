@@ -1,4 +1,5 @@
 import React from 'react';
+import GenerateIcon from 'assets/icons';
 
 export default class Step extends React.Component{
   render(){
@@ -12,7 +13,7 @@ export default class Step extends React.Component{
               <div class="dot"></div>
               <div class="dot"></div>
             </div>
-          <div class={this.props.status === 'completed' ? 'completed show' : 'completed hide'}><i class={this.props.icon} aria-hidden="true"></i></div>
+          <div class={this.props.status === 'completed' ? 'completed show' : 'completed hide'}>{GenerateIcon(this.props.icon)}</div>
         </div>
         <div class={this.props.status === 'completed' && !this.props.finish ? 'label ' + this.props.status + ' link' : 'label ' + this.props.status} onClick={this.props.switch.bind(this, this.props.link, this.props.label, this.props.status === 'completed' && !this.props.finish ? true : false)}>
           {this.props.label}
