@@ -43,25 +43,29 @@ export default class Progress extends React.Component{
         <div id="steps">
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progress.browse.status} 
-                bar={this.props.progress.browse.bar} 
+                bar={this.props.progress.browse.bar}
+                connector={this.props.progress.browse.connector} 
                 finish={this.props.progress.finish} 
                 link="/rename/browse" label={Labels.Pages[0].Modal[0].Title}  
                 icon="rename-modal-browse"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progress.configure.status} 
-                bar={this.props.progress.configure.bar} 
+                bar={this.props.progress.configure.bar}
+                connector={this.props.progress.configure.connector} 
                 finish={this.props.progress.finish} 
                 link="/rename/configure" label={Labels.Pages[0].Modal[1].Title} 
                 icon="rename-modal-configure"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progress.options.status} 
-                bar={this.props.progress.options.bar} 
+                bar={this.props.progress.options.bar}
+                connector={this.props.progress.options.connector} 
                 finish={this.props.progress.finish} 
                 link="/rename/options" label={Labels.Pages[0].Modal[2].Title}  
                 icon="rename-modal-options"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progress.finalize.status} 
-                bar={this.props.progress.finalize.bar} 
+                bar={this.props.progress.finalize.bar}
+                connector={this.props.progress.finalize.connector} 
                 finish={this.props.progress.finish} 
                 link={false} label={Labels.Pages[0].Modal[3].Title} 
                 icon="rename-modal-finalize"/>

@@ -4,12 +4,12 @@ import edge from 'reflow-edge';
 export default function GetFile(){
 
     var csharp = edge.func({
-			assemblyFile: 'rfcore.dll',
-      typeName: 'ReflowCore.Reflow.ReflowController',
-			methodName: 'GetFilesInDirectory'
+			assemblyFile: 'reflow.dll',
+      //typeName: 'ReflowCore.Reflow.ReflowController',
+			methodName: 'GetFile'
   	});
 
-    csharp('C:\\Users\\Jenster\\Desktop\\Downloads', function (error, result) {
+    csharp(3, function (error, result) {
         if (error) {
           throw error
         }else{        

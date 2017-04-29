@@ -11,7 +11,7 @@ const WINDOW_FRAME = !isWin;
 const WINDOW_SHOW = true;
 const WINDOW_FOCUS = true;
 const WINDOW_THICK_FRAME = true;
-const WINDOW_BACKGROUND_COLOR = '#0B1015';
+const WINDOW_BACKGROUND_COLOR = '#0C1015';
 
 //Set window params
 function setWindowParams(){

@@ -3,19 +3,26 @@
   height: auto
   text-align: center
   position: relative
-  .bar
-    height: 2px
-    position: absolute
-    left: 32.5px
-    top: 19px
-    background-color: $blue-highlight
-    transition: 750ms width ease
-    &.show
+  .connector
+    &.display
+      height: 1px
       width: 145px
-    &.hide
-      width: 0
+      position: absolute
+      left: 32.5px
+      top: 19.5px
+      background-color: $blue-highlight
     &.none
       display: none
+    .bar
+      height: 100%
+      background-color: $yellow
+      transition: 1000ms width ease
+      &.show
+        width: 100%
+      &.hide
+        width: 0%
+      &.none
+        display: none
   .icon
     width: 40px
     height: 40px
@@ -36,22 +43,17 @@
       height: 100%
       border-radius: 50%
       background-color: $yellow
+      color: $blue-background
+      line-height: 40px
+      font-size: 17px
+      box-shadow: 0 0 10px 1px $glow
       position: absolute
-      display: flex
-      justify-content: center
-      align-items: center
-      box-shadow: 0 0 15px 2px #000
       &.show
         opacity: 1
-        transition: 750ms opacity ease
+        transition: 500ms opacity ease
       &.hide
         opacity: 0
-      .dot
-        margin: 0 2px
-        width: 5px
-        height: 5px
-        border-radius: 50%
-        background-color: $blue-background
+        transition: 500ms opacity ease
     .completed
       width: 100%
       height: 100%

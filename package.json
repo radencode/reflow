@@ -5,7 +5,9 @@
   "main": "./app/main.js",
   "scripts": {
     "start": "electron ./app/main.js",
-    "build": "electron-packager ./app Reflow --electron-version 1.6.2 --overwrite --asar true --icon ./build/icon/icon.ico --out ./dist",
+    "build-linux": "electron-packager ./app Reflow --electron-version 1.6.2 --platform linux --overwrite --asar true --icon ./build/icon/icon.png --out ./dist",
+    "build-win": "electron-packager ./app Reflow --electron-version 1.6.2 --platform win32 --overwrite --asar true --icon ./build/icon/icon.ico --out ./dist",
+    "build-osx": "electron-packager ./app Reflow --electron-version 1.6.2 --platform darwin --overwrite --asar true --icon ./build/icon/icon.ico --out ./dist",
     "sass": "node-sass --include-path sass ./dev/styles/client.sass ./app/src/styles/client.min.css --output-style compressed"
   },
   "repository": {
