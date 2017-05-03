@@ -5,8 +5,8 @@ let mainWindow;
 const isWin = /^win/.test(process.platform);
 
 //Constants for window
-const WINDOW_WIDTH = 1200;
-const WINDOW_HEIGHT = 800;
+const WINDOW_WIDTH = 1280;
+const WINDOW_HEIGHT = 720;
 const WINDOW_FRAME = !isWin;
 const WINDOW_SHOW = true;
 const WINDOW_FOCUS = true;
