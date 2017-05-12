@@ -1,51 +1,108 @@
-#nav
-  width: 60px
-  height: 280px
-  background-color: $blue-cover
-  position: absolute
-  top: 50%
-  transform: translateY(-50%)
-  z-index: 100
-  div
-    width: 60px
-    height: 70px
-    color: #FFF
-    line-height: 70px
-    text-align: center
-    font-size: 25px
-    cursor: pointer
-    position: relative
-    -webkit-backface-visibility: hidden
-    &.active
-      background-color: $blue-highlight
-      color: $yellow
-    .hover
-      width: 120px
-      height: 28px
-      top: 21px
-      left: 105px
-      position: absolute
-      visibility: hidden
-      opacity: 0
-      transition: 500ms all ease-in-out
-      &.animation
-        visibility: visible
-        opacity: 1
-        left: 75px
-      .arrow
-        width: 0
-        height: 0
-        float: left
-        border: 8px solid transparent
-        border-right-color: $yellow
-        margin-top: 6px
-      .label
-        float: right
-        width: 92px
-        height: 26px
-        border: 1px solid $blue-border-dark
-        color: $yellow
-        text-align: center
-        line-height: 28px
-        font-family: Roboto-Medium
-        font-size: 11px
+#navigation
+	width: 700px
+	height: 100px
+	margin: auto
+	-webkit-app-region: no-drag		
+	#nav-menu
+		width: 700px
+		height: 700px
+		border-radius: 50%
+		background-color: $blue-background
+		overflow: hidden
+		position: relative
+		top: -620px
+		#nav-status	
+			width: 630px
+			height: 630px
+			border-radius: 50%
+			background-color: $blue-background
+			position: relative
+			top: 35px
+			left: 35px
+			#nav-title
+				width: 230px
+				top: 598px
+				left: 200px
+				position: relative				
+				text-align: center
+				font-size: 12px
+				color: $yellow
+		#nav-links
+			margin: 0
+			padding: 0
+			list-style: none
+			position: relative
+			li
+				width: 800px
+				height: 300px
+				transform-origin: top left
+				background-color: $blue-highlight				
+				position: absolute
+				overflow: hidden
+				.anchor
+					width: 10px
+					height: 10px
+					transform-origin: top left
+					.linker
+						width: 700px
+						height: 700px
+						border-radius: 50%
+						position: absolute
+						cursor: pointer
+						color: #FFF
+						transition: 400ms all ease
+						.icon
+							width: 20px
+							height: 20px
+							position: absolute							
+							font-size: 16px
+						&:hover
+							color: $yellow
+				&:nth-child(1)
+					transform: rotate(50deg) skew(65deg)
+					top: 342.5px
+					left: 357.5px
+					.anchor
+						transform: skew(-65deg) rotate(-50deg)
+						.linker
+							top: -342.5px
+							left: -357.5px
+							.icon
+								top: 644px
+								left: 457px
+				&:nth-child(2)
+					transform: rotate(75deg) skew(75deg)
+					top: 342.5px
+					left: 352.5px	
+					.anchor
+						transform: skew(-75deg) rotate(-75deg)
+						.linker
+							top: -342.5px
+							left: -352.5px
+							.icon
+								top: 668px
+								left: 370px
+				&:nth-child(3)
+					transform: rotate(90deg) skew(75deg)	
+					top: 342.5px
+					left: 347.5px
+					.anchor
+						transform: skew(-75deg) rotate(-90deg)
+						.linker
+							top: -342.5px
+							left: -347.5px
+							.icon
+								top: 668px
+								left: 276px
+				&:nth-child(4)
+					transform: rotate(105deg) skew(65deg)
+					top: 342.5px
+					left: 342.5px
+					.anchor
+						transform: skew(-65deg) rotate(-105deg)
+						.linker
+							top: -342.5px
+							left: -342.5px
+							.icon
+								top: 644px
+								left: 190px

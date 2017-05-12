@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 //Containers
-import Navigation from 'containers/navigation/Navigation.jsx';
+//import Navigation from 'containers/navigation/Navigation.jsx';
 
 export default class Viewer extends React.Component{
   get_key(path){
@@ -11,8 +11,7 @@ export default class Viewer extends React.Component{
   render(){
     const key = this.get_key(this.props.path);
     return(
-      <div id="viewer">
-        <Navigation path={this.props.path}/>
+      <div id="viewer">       
         <ReactCSSTransitionGroup
           transitionName = "fade"
           transitionEnterTimeout = {500}
@@ -23,3 +22,5 @@ export default class Viewer extends React.Component{
     );
   }
 }
+
+// <Navigation path={this.props.path}/>

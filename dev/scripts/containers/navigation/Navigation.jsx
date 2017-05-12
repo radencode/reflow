@@ -1,19 +1,60 @@
 //Modules
 import React from 'react';
-//Cotainers
-import PagesLink from 'containers/navigation/PagesLink.jsx';
 //Assets
-import Labels from 'assets/text';
+import GenerateIcon from 'assets/icons';
+
 
 export default class Navigation extends React.Component{
-  render(){
-    return(
-      <div id="nav">
-        <PagesLink status={this.props.path.match(/rename/) ? 'active' : ''} link="rename" label={Labels.Pages[0].Title} icon="page-rename"/>
-        <PagesLink status={this.props.path.match(/flow/) ? 'active' : ''} link="flow" label={Labels.Pages[1].Title} icon="page-flow"/>
-        <PagesLink status={this.props.path.match(/history/) ? 'active' : ''} link="history" label={Labels.Pages[2].Title} icon="page-history"/>
-        <PagesLink status={this.props.path.match(/settings/) ? 'active' : ''} link="settings" label={Labels.Pages[3].Title} icon="page-settings"/>
-      </div>
-    );
-  }
+	render(){
+		return(
+				<div id="navigation">
+						<div id="nav-menu">
+							<div id="pointer">
+
+							</div>
+							<ul id="nav-links">
+									<li>
+										<div class="anchor">
+											<div class="linker">
+												<div class="icon">
+													{GenerateIcon('page-settings')}
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="anchor">
+											<div class="linker">
+												<div class="icon">
+													{GenerateIcon('page-history')}													
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="anchor">
+											<div class="linker">
+												<div class="icon">
+													{GenerateIcon('page-flow')}
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="anchor">
+											<div class="linker">
+												<div class="icon">													
+													{GenerateIcon('page-rename')}
+												</div>
+											</div>
+										</div>
+									</li>
+							</ul>
+							<div id="nav-status">
+								<div id="nav-title">Rename</div>
+							</div>
+						</div>
+				</div>	
+		);
+	}
 }

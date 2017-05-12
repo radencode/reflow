@@ -12,13 +12,13 @@ export default function(icon){
 		case 'controls-restore':
 			return ( <i class="fa fa-window-restore" aria-hidden="true"></i> );			
 		case 'page-rename':
-			return ( <i class="fa fa-pencil" aria-hidden="true"></i> );
+			return ( <i class="flaticon-edit"></i> );
 		case 'page-flow':
-			return ( <i class="fa fa-code-fork" aria-hidden="true"></i> );
+			return ( <i class="flaticon-hierarchical-structure"></i> );
 		case 'page-history':
-			return ( <i class="fa fa-history" aria-hidden="true"></i> );
+			return ( <i class="flaticon-clock"></i> );
 		case 'page-settings':
-			return ( <i class="fa fa-cogs" aria-hidden="true"></i> );
+			return ( <i class="flaticon-gearwheels-couple"></i> );
 		case 'rename-modal-browse':
 			return ( <i class="fa fa-search" aria-hidden="true"></i> );
 		case 'rename-modal-browse-content-database':
