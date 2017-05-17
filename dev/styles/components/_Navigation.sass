@@ -1,8 +1,9 @@
 #navigation
-	width: 700px
+	width: 360px
 	height: 100px
 	margin: auto
-	-webkit-app-region: no-drag		
+	overflow: hidden
+	-webkit-app-region: no-drag
 	#nav-menu
 		width: 700px
 		height: 700px
@@ -11,22 +12,26 @@
 		overflow: hidden
 		position: relative
 		top: -620px
+		left: -170px
 		#nav-status	
-			width: 630px
-			height: 630px
+			width: 634px
+			height: 634px
 			border-radius: 50%
 			background-color: $blue-background
 			position: relative
-			top: 35px
-			left: 35px
+			top: 33px
+			left: 33px
 			#nav-title
-				width: 230px
-				top: 598px
-				left: 200px
+				width: 175px
+				height: 30px
+				top: 588px
+				left: 230px
 				position: relative				
 				text-align: center
 				font-size: 12px
+				line-height: 30px
 				color: $yellow
+				-webkit-app-region: drag
 		#nav-links
 			margin: 0
 			padding: 0
@@ -68,7 +73,7 @@
 							top: -342.5px
 							left: -357.5px
 							.icon
-								top: 644px
+								top: 645px
 								left: 457px
 				&:nth-child(2)
 					transform: rotate(75deg) skew(75deg)
@@ -80,8 +85,8 @@
 							top: -342.5px
 							left: -352.5px
 							.icon
-								top: 668px
-								left: 370px
+								top: 670px
+								left: 369px
 				&:nth-child(3)
 					transform: rotate(90deg) skew(75deg)	
 					top: 342.5px
@@ -92,7 +97,7 @@
 							top: -342.5px
 							left: -347.5px
 							.icon
-								top: 668px
+								top: 670px
 								left: 276px
 				&:nth-child(4)
 					transform: rotate(105deg) skew(65deg)
@@ -104,5 +109,5 @@
 							top: -342.5px
 							left: -342.5px
 							.icon
-								top: 644px
+								top: 646px
 								left: 190px

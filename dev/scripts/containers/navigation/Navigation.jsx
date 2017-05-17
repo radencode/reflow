@@ -50,8 +50,8 @@ export default class Navigation extends React.Component{
 										</div>
 									</li>
 							</ul>
-							<div id="nav-status">
-								<div id="nav-title">Rename</div>
+							<div id="nav-status">				
+								<div id="nav-title">Rename</div>		
 							</div>
 						</div>
 				</div>	
