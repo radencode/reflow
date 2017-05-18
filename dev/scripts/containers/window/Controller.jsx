@@ -12,7 +12,7 @@ export default class Controller extends React.Component{
         <div id="bar">
           <Title/>
           <Controls/>
-          <Navigation/>          
+          <Navigation path={this.props.path}/>          
         </div>
       </div>
     );

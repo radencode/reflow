@@ -46,6 +46,6 @@ export default {
 		}		
 	},
 	Window: {
-		Title: ' - Reflow file manager'
+		Title: 'Reflow - file manager'
 	},
 }

@@ -22,5 +22,3 @@ export default class Viewer extends React.Component{
     );
   }
 }
-
-// <Navigation path={this.props.path}/>

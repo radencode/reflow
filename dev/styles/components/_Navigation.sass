@@ -18,7 +18,7 @@
 			height: 634px
 			border-radius: 50%
 			background-color: $blue-background
-			position: relative
+			position: absolute
 			top: 33px
 			left: 33px
 			#nav-title
@@ -26,7 +26,7 @@
 				height: 30px
 				top: 588px
 				left: 230px
-				position: relative				
+				position: absolute				
 				text-align: center
 				font-size: 12px
 				line-height: 30px
@@ -36,7 +36,7 @@
 			margin: 0
 			padding: 0
 			list-style: none
-			position: relative
+			position: absolute
 			li
 				width: 800px
 				height: 300px
@@ -48,13 +48,14 @@
 					width: 10px
 					height: 10px
 					transform-origin: top left
-					.linker
+					a
+						display: block
 						width: 700px
 						height: 700px
 						border-radius: 50%
 						position: absolute
-						cursor: pointer
 						color: #FFF
+						cursor: pointer
 						transition: 400ms all ease
 						.icon
 							width: 20px
@@ -64,50 +65,51 @@
 						&:hover
 							color: $yellow
 				&:nth-child(1)
-					transform: rotate(50deg) skew(65deg)
-					top: 342.5px
-					left: 357.5px
-					.anchor
-						transform: skew(-65deg) rotate(-50deg)
-						.linker
-							top: -342.5px
-							left: -357.5px
-							.icon
-								top: 645px
-								left: 457px
-				&:nth-child(2)
-					transform: rotate(75deg) skew(75deg)
-					top: 342.5px
-					left: 352.5px	
-					.anchor
-						transform: skew(-75deg) rotate(-75deg)
-						.linker
-							top: -342.5px
-							left: -352.5px
-							.icon
-								top: 670px
-								left: 369px
-				&:nth-child(3)
-					transform: rotate(90deg) skew(75deg)	
-					top: 342.5px
-					left: 347.5px
-					.anchor
-						transform: skew(-75deg) rotate(-90deg)
-						.linker
-							top: -342.5px
-							left: -347.5px
-							.icon
-								top: 670px
-								left: 276px
-				&:nth-child(4)
 					transform: rotate(105deg) skew(65deg)
 					top: 342.5px
 					left: 342.5px
 					.anchor
 						transform: skew(-65deg) rotate(-105deg)
-						.linker
+						a
 							top: -342.5px
 							left: -342.5px
 							.icon
 								top: 646px
 								left: 190px
+				&:nth-child(2)
+					transform: rotate(90deg) skew(75deg)	
+					top: 342.5px
+					left: 347.5px
+					.anchor
+						transform: skew(-75deg) rotate(-90deg)
+						a
+							top: -342.5px
+							left: -347.5px
+							.icon
+								top: 670px
+								left: 276px					
+				&:nth-child(3)
+					transform: rotate(75deg) skew(75deg)
+					top: 342.5px
+					left: 352.5px	
+					.anchor
+						transform: skew(-75deg) rotate(-75deg)
+						a
+							top: -342.5px
+							left: -352.5px
+							.icon
+								top: 670px
+								left: 369px
+				&:nth-child(4)
+					transform: rotate(50deg) skew(65deg)
+					top: 342.5px
+					left: 357.5px
+					.anchor
+						transform: skew(-65deg) rotate(-50deg)
+						a
+							top: -342.5px
+							left: -357.5px
+							.icon
+								top: 645px
+								left: 457px
+								

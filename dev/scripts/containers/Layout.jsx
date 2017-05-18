@@ -8,7 +8,7 @@ export default class Layout extends React.Component{
   render(){
     return(
       <div class="app">
-        <Controller/>
+        <Controller path={this.props.location.pathname}/>
         <Viewer path={this.props.location.pathname} modal={this.props.children}/>
       </div>
     );
