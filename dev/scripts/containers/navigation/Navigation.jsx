@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Linker from 'containers/navigation/Linker.jsx';
 //Assets
 import Labels from 'assets/text';
+//Assets
+import * as icon from 'assets/icons';
 
 @connect((store) => {
   return {
@@ -16,6 +18,9 @@ export default class Navigation extends React.Component{
 	render(){
 		return(
 				<div id="navigation">
+						<div id="nav-active">
+							<div id="nav-arrow">{icon.generate('page-arrow')}</div>
+						</div>
 						<div id="nav-menu">
 							<ul id="nav-links">
 								<Linker status={this.props.path.match(/rename/) ? 'active' : ''} link="rename" label={Labels.Pages[0].Title} icon='page-rename'/>

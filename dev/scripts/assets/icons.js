@@ -1,7 +1,7 @@
 //Modules
 import React from 'react';
 
-export default function(icon){
+export function generate(icon){
 	switch(icon){
 		case 'controls-exit':
 			return ( <i class="fa fa-times" aria-hidden="true"></i> );
@@ -19,6 +19,8 @@ export default function(icon){
 			return ( <i class="flaticon-clock"></i> );
 		case 'page-settings':
 			return ( <i class="flaticon-gearwheels-couple"></i> );
+		case 'page-arrow':
+			return ( <i class="flaticon-arrow"></i> );
 		case 'rename-modal-browse':
 			return ( <i class="fa fa-search" aria-hidden="true"></i> );
 		case 'rename-modal-browse-content-database':

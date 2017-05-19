@@ -7,7 +7,7 @@ import fs from 'fs';
 import * as action from 'actions/browse';
 //Assets
 import Labels from 'assets/text';
-import GenerateIcon from 'assets/icons';
+import * as icon from 'assets/icons';
 //Electron
 const { dialog } = require('electron').remote
 
@@ -24,16 +24,16 @@ export default class Browse extends React.Component{
       case 'browse':
         return ( 
           <div class="select">
-            <div class="icon">{GenerateIcon('rename-modal-browse-content-database')}</div>
+            <div class="icon">{icon.generate('rename-modal-browse-content-database')}</div>
             <div class="label">{this.props.browse.label}</div>
-            <div class="arrow">{GenerateIcon('rename-modal-browse-content-arrow')}</div> 
+            <div class="arrow">{icon.generate('rename-modal-browse-content-arrow')}</div> 
             <button class="btn" onClick={this.browse.bind(this)}>{Labels.Pages[0].Modal[0].Buttons.Browse}</button>             
           </div>  
         );
       case 'next':
         return ( 
           <div class="select">
-            <div class="icon">{GenerateIcon('rename-modal-browse-content-database')}</div>
+            <div class="icon">{icon.generate('rename-modal-browse-content-database')}</div>
             <div class="label"><span class="files">{this.props.browse.files}</span>{this.props.browse.label}</div>
             <div class="again" onClick={this.browse.bind(this)}>{Labels.Pages[0].Modal[0].Messages.Again}</div> 
             <button class="btn" onClick={this.props.next.bind(this, '/rename/configure', 'Configure')}>{Labels.Pages[0].Modal[0].Buttons.Next}</button>         

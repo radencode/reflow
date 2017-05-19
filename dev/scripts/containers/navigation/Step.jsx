@@ -1,7 +1,7 @@
 //Modules
 import React from 'react';
 //Assets
-import GenerateIcon from 'assets/icons';
+import * as icon from 'assets/icons';
 
 export default class Step extends React.Component{
   render(){
@@ -12,8 +12,8 @@ export default class Step extends React.Component{
             <div class={'bar ' + this.props.bar}></div>
           </div>
           <div class={this.props.status === 'await' ? 'await show' : 'await hide'}></div>
-          <div class={this.props.status === 'active' ? 'active show' : 'active hide'}>{GenerateIcon(this.props.icon)}</div>
-          <div class={this.props.status === 'completed' ? 'completed show' : 'completed hide'}>{GenerateIcon(this.props.icon)}</div>
+          <div class={this.props.status === 'active' ? 'active show' : 'active hide'}>{icon.generate(this.props.icon)}</div>
+          <div class={this.props.status === 'completed' ? 'completed show' : 'completed hide'}>{icon.generate(this.props.icon)}</div>
         </div>
         <div class={this.props.status === 'completed' && !this.props.finish ? 'label ' + this.props.status + ' link' : 'label ' + this.props.status} onClick={this.props.switch.bind(this, this.props.link, this.props.label, this.props.status === 'completed' && !this.props.finish ? true : false)}>
           {this.props.label}

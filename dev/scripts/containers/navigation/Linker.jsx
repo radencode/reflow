@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { changeTitle } from 'actions/title';
 import { fireAlert } from 'actions/alert';
 //Assets
-import GenerateIcon from 'assets/icons';
+import * as icon from 'assets/icons';
 
 @connect((store) => {
   return{
@@ -33,7 +33,7 @@ export default class Linker extends React.Component{
 				<div class="anchor">					
 						<Link to={this.props.link} onClick={this.switchModal.bind(this, this.props.status)}>
 							<div class="icon">
-								{GenerateIcon(this.props.icon)}
+								{icon.generate(this.props.icon)}
 							</div>
 						</Link>					
 				</div>

@@ -7,7 +7,7 @@ import { changeTitle } from 'actions/title';
 import { active, inactive } from 'actions/navigation';
 import { setLinkAlert, fireAlert } from 'actions/alert';
 //Assets
-import GenerateIcon from 'assets/icons';
+import * as icon from 'assets/icons';
 
 @connect((store) => {
   return{
@@ -42,7 +42,7 @@ export default class PagesLink extends React.Component{
     return(
       <Link to={this.props.link}>
         <div class={this.props.status} onClick={this.handleEvents.bind(this, this.props.status)} onMouseOver={this.animateIn.bind(this)} onMouseOut={this.animateOut.bind(this)}>
-          {GenerateIcon(this.props.icon)}
+          {icon.generate(this.props.icon)}
           <div class={this.props.navigation.hover && this.hover ? "hover animation" : "hover"}>
             <div class="arrow"></div>
             <div class="label">{this.props.label}</div>
