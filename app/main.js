@@ -1,5 +1,5 @@
 const {app, BrowserWindow} = require('electron');
-require('electron-debug')({showDevTools: true});
+require('electron-debug')({showDevTools: false});
 let mainWindow;
 
 //Check if platform is Windows
@@ -12,7 +12,7 @@ const WINDOW_FRAME = !isWin;
 const WINDOW_SHOW = true;
 const WINDOW_FOCUS = true;
 const WINDOW_THICK_FRAME = true;
-const WINDOW_BACKGROUND_COLOR = '#0C1015';
+const WINDOW_BACKGROUND_COLOR = '#141b23'; //'#0C1015';
 
 //Set window params
 function setWindowParams(){

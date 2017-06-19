@@ -1,14 +1,11 @@
 const defaultState = {
-	hover: false
+	active: 'rename'
 }
 
 export default function reducer(state=defaultState, action){
 	switch(action.type){
-		case 'NAVIGATION_HOVER_ACTIVE':
-			state = {...state, hover: true};
-			break;
-		case 'NAVIGATION_HOVER_INACTIVE':
-			state = {...state, hover: false};
+		case 'SET_ACTIVE_MODAL':
+			state = {...state, active: action.modal};
 			break;
 		default:
 			return state;

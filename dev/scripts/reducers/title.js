@@ -1,11 +1,20 @@
 import Label from 'assets/text';
 
 const defaultState = {
-  label: Label.Pages[0].Title
+  label: '',
+  hover: false, 
 }
 
 export default function reducer(state=defaultState, action){
-  if(action.type === 'SWITCH_TITLE')
-    state = {...state, label: action.payload};
+  switch(action.type){
+    case 'HOVER_IN_TITLE':
+      state = {...state, label: action.modal, hover: true};
+      break;
+    case 'HOVER_OUT_TITLE':
+      state = {...state, hover: false};
+      break;
+    default:
+      return state;
+  } 
   return state;
 }

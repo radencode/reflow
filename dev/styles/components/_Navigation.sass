@@ -22,7 +22,7 @@
 			position: absolute
 			top: 33px
 			left: 33px
-			#nav-title
+			.nav-title
 				width: 175px
 				height: 30px
 				top: 588px
@@ -31,8 +31,12 @@
 				text-align: center
 				font-size: 12px
 				line-height: 30px
-				color: $yellow
 				-webkit-app-region: drag
+				opacity: 0
+				transition: all 500ms ease-in-out
+				&.hover
+					opacity: 1
+					color: $yellow
 		#nav-links
 			margin: 0
 			padding: 0
@@ -113,13 +117,21 @@
 							.icon
 								top: 645px
 								left: 457px
-	#nav-active
+	.nav-active
 		width: 750px
 		height: 750px
 		border-radius: 50%
 		position: absolute
 		left: -195px
-		top: -645px
+		top: -638px
+		&.rename
+			transform: rotate(23.5deg)
+		&.flow
+			transform: rotate(8deg)
+		&.history
+			transform: rotate(-8.5deg)
+		&.settings
+			transform: rotate(-24.5deg)
 		#nav-arrow
 			color: $yellow
 			position: absolute
