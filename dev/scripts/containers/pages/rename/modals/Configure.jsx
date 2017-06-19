@@ -1,5 +1,7 @@
 //Modules
 import React from 'react';
+//Components
+import Files from 'containers/pages/rename/modals/configure/Files.jsx';
 
 export default class Configure extends React.Component{
   render(){
@@ -7,7 +9,7 @@ export default class Configure extends React.Component{
       <div class="container configure">
         <div class="config">
           <div class="top-panel">
-            <div class="files"></div>
+            <Files/>
             <div class="side">
               <div class="attr"></div>
               <div class="options"></div>
