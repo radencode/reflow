@@ -8,7 +8,7 @@ import Progress from 'containers/navigation/Progress.jsx';
 import Alert from 'containers/messages/Alert.jsx';
 //Actions
 import { createAlert, destroyAlert } from 'actions/alert';
-import * as action from 'actions/progress';
+import * as progressActions from 'actions/progress';
 //Assets
 import Labels from 'assets/text';
 
@@ -18,23 +18,23 @@ export default class Rename extends React.Component{
   constructor(props){
     super();
     this.props = props;
-    this.props.dispatch(action.initialize());
+    this.props.dispatch(progressActions.initialize());
   }
   switchModal(link, dispatch){
-    this.props.dispatch(action.updateAnimationType('slide-left'));
+    this.props.dispatch(progressActions.updateAnimationType('slide-left'));
       switch(dispatch){
         case 'Configure':
-          this.props.dispatch(action.switchToConfigure());
+          this.props.dispatch(progressActions.switchToConfigure());
           this.props.dispatch(createAlert(Labels.Alerts.Unsaved.Message, Labels.Alerts.Unsaved.Buttons.Success, Labels.Alerts.Unsaved.Buttons.Cancel));
           break;
         case 'Options':
-          this.props.dispatch(action.switchToOptions());
+          this.props.dispatch(progressActions.switchToOptions());
           break;
         case 'Finalize':
-          this.props.dispatch(action.switchToFinalize());
+          this.props.dispatch(progressActions.switchToFinalize());
           break;
         case 'Finish':
-          this.props.dispatch(action.finish());
+          this.props.dispatch(progressActions.finish());
           this.props.dispatch(destroyAlert());
           break;
       }  
