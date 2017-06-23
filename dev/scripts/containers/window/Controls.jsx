@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //Actions
-import { maxWindow, restoreWindow } from 'actions/controls';
+import * as controls from 'actions/controls';
 //Assets
 import * as icon from 'assets/icons';
 //Electron
@@ -43,11 +43,11 @@ export default class Controls extends React.Component{
   }
   window_listeners(){
     this.win.on('maximize', () => {
-      this.props.dispatch(maxWindow());
+      this.props.dispatch(controls.maxWindow());
       this.body.classList.add('window-full-screen');
     });
     this.win.on('unmaximize', () => {
-      this.props.dispatch(restoreWindow());
+      this.props.dispatch(controls.restoreWindow());
       this.body.classList.remove('window-full-screen');
     });
     this.win.on('focus', () => {

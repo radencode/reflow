@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import fs from 'fs';
 //Actions
-import * as action from 'actions/browse';
+import * as browse from 'actions/browse';
 //Assets
 import Labels from 'assets/text';
 import * as icon from 'assets/icons';
@@ -17,7 +17,7 @@ export default class Browse extends React.Component{
   constructor(props){
     super();
     this.props = props;
-    this.props.dispatch(action.resetPathVariables());
+    this.props.dispatch(browse.resetPathVariables());
   }
   action(type){
     switch(type){
@@ -47,9 +47,9 @@ export default class Browse extends React.Component{
       fs.readdir(String(path), (err, files) => {
         if (err) throw err;
         if(files.length > 0){
-          this.props.dispatch(action.setSelectedFiles(files.length));
-          this.props.dispatch(action.configureType('next'));
-          this.props.dispatch(action.configureLabel(Labels.Pages[0].Modal[0].Messages.Selected));
+          this.props.dispatch(browse.setSelectedFiles(files.length));
+          this.props.dispatch(browse.configureType('next'));
+          this.props.dispatch(browse.configureLabel(Labels.Pages[0].Modal[0].Messages.Selected));
         }
       });
 	  }

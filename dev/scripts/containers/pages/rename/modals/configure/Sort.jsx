@@ -31,11 +31,9 @@ export default class Sort extends React.Component{
 			}
 		}
 		else
-			this.props.dispatch(sort.activate_sort(_id));
-		
+			this.props.dispatch(sort.activate_sort(_id));		
 	}
 	render(){
-		console.log(this.props.sort.sorts);
 		return(
 			<div class={'sort ' + this.props.name}>
 				<div class="label" onClick={this.update_sort.bind(this, this.props.id)}>

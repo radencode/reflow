@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //Actions
-import { closeAlert, destroyAlert } from 'actions/alert';
+import * as alert from 'actions/alert';
 
 
 @connect((store) => {
@@ -16,12 +16,12 @@ export default class Alert extends React.Component{
   }
   success(){
     if(this.props.alert.alert)
-      this.props.dispatch(destroyAlert());
+      this.props.dispatch(alert.destroyAlert());
       this.props.router.push(this.props.alert.link);
   }
   cancel(){
     if(this.props.alert.alert)
-      this.props.dispatch(closeAlert());
+      this.props.dispatch(alert.closeAlert());
   }
   render(){
     return(      

@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 //Actions
-import * as titleActions from 'actions/title'
-import { fireAlert } from 'actions/alert';
-import { setActiveModal } from 'actions/navigation';
+import * as title from 'actions/title'
+import * as alert from 'actions/alert';
+import * as navigation from 'actions/navigation';
 //Assets
 import * as icon from 'assets/icons';
 
@@ -24,15 +24,15 @@ export default class Linker extends React.Component{
     if(active === 'active' || this.props.alert.alert){
       event.preventDefault();
       if(active != 'active')
-        this.props.dispatch(fireAlert(this.props.link));
+        this.props.dispatch(alert.fireAlert(this.props.link));
     }
-		this.props.dispatch(setActiveModal(this.props.link));
+		this.props.dispatch(navigation.setActiveModal(this.props.link));
   }
 	hoverOverLink(){
-		this.props.dispatch(titleActions.hoverInTitle(this.props.label));
+		this.props.dispatch(title.hoverInTitle(this.props.label));
 	}
 	hoverOutLink(){
-		this.props.dispatch(titleActions.hoverOutTitle());
+		this.props.dispatch(title.hoverOutTitle());
 	}
 	render(){
 		return(
