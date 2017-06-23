@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 //Containers
 import Step from 'containers/navigation/Step.jsx'
 //Actions
-import * as action from 'actions/progress';
+import * as progress from 'actions/progress';
 //Assets
 import Labels from 'assets/text';
 
@@ -20,17 +20,17 @@ export default class Progress extends React.Component{
     this.props = props;
   }
   switchStep(link, dispatch, completed){
-    this.props.dispatch(action.updateAnimationType('slide-right'));
+    this.props.dispatch(progress.updateAnimationType('slide-right'));
     if(completed){
       switch(dispatch){
         case 'Browse':
-          this.props.dispatch(action.initialize());
+          this.props.dispatch(progress.initialize());
           break;
         case 'Configure':
-          this.props.dispatch(action.switchToConfigure());
+          this.props.dispatch(progress.switchToConfigure());
           break;
         case 'Options':
-          this.props.dispatch(action.switchToOptions());
+          this.props.dispatch(progress.switchToOptions());
           break;
       }   
       if(link) 
