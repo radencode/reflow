@@ -10,12 +10,12 @@
 		align-content: space-between		
 		.top-panel
 			width: 1040px
-			height: 360px
+			height: 366px
 			display: flex
 			justify-content: space-between
 			.files
 				width: 740px
-				height: 360px
+				height: 366px
 				.search-bar
 					width: 100%
 					height: 26px
@@ -26,13 +26,13 @@
 						outline: none
 						background-color: $blue-highlight
 						font-size: 12px
-						color: $yellow
+						color: #FFF
 						font-family: Esphimere
 						border: none
 						margin: 0
 						padding: 0 0 0 10px
 						&::-webkit-input-placeholder
-							color: $yellow
+							color: $gray
 							font-size: 12px
 							font-family: Esphimere
 					.filters
@@ -44,11 +44,11 @@
 						padding: 0 0 0 10px
 						margin: 0
 						font-size: 12px
-						color: #FFF
 						font-familty: Esphimere
 						text-align: left
 						cursor: pointer
 						transition: all 400ms ease
+						color: $gray
 						&:hover
 							color: $yellow
 				.sort-list
@@ -61,12 +61,12 @@
 						.label
 							height: 100%							
 							font-family: Esphimere
-							color: #FFF
 							transition: all 400ms ease
 							cursor: pointer
 							display: inline-block
+							color: $gray
 							&:hover
-								color: $yellow
+								color: #FFF
 							.name, .icon
 								float: left
 								height: 100%
@@ -74,6 +74,8 @@
 							.name
 								font-size: 12px								
 								padding-right: 7px
+								&.active
+									color: #FFF								
 							.icon
 								font-size: 9px
 								transition: transform 400ms ease-in-out
@@ -85,14 +87,64 @@
 									transform: rotate(180deg)
 					 &.type
 					 	padding-left: 15px
-					 	width: 110px 
+					 	width: 95px 
 					 &.size
 					 	width: 110px
 					 &.original, &.new
-					 	width: 260px					 
+					 	width: 260px
+				.file-list
+					width: 100%
+					height: 300px
+					margin: 6px 0 0 0
+					padding: 0
+					list-style: none
+					overflow-y: scroll
+					&::-webkit-scrollbar, &::-webkit-scrollbar-track
+						width: 4px
+						backround-color: transparent
+						border: none
+						padding: 0
+						margin: 0
+						outline: 0
+					&::-webkit-scrollbar-thumb
+						background-color: $blue-highlight
+						border-radius: 30px
+					li
+						width: 730px
+						height: 50px
+						line-height: 50px
+						font-size: 13px 
+						display: flex
+						cursor: pointer
+						transition: all 400ms ease
+						&:hover
+							background-color: $blue-highlight
+						.type
+							width: 110px
+							height: 100% 
+							span
+								width: 40px
+								height: 17px
+								display: inline-block
+								background-color: $yellow
+								border-radius: 5px
+								margin-left: 15px
+								color: $blue-highlight
+								text-align: center
+								line-height: 20px
+								font-size: 10px							
+								text-transform: uppercase
+								font-family: Esphimere-Bold
+						.size
+							width: 100px
+							height: 100%
+						.original, .new
+							width: 260px
+							height: 100%
+						.type 
 			.side
 				width: 260px
-				height: 360px
+				height: 366px
 				display: flex
 				flex-wrap: wrap
 				align-content: space-between				
@@ -102,5 +154,3 @@
 		.bottom-panel
 			width: 1040px
 			height: 80px
-
-
