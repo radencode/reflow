@@ -12,16 +12,17 @@ export function remove_file(_key){
 	}
 }
 
-export function sort_files(sort_by){
-	switch(sort_by){
-		case 'type':
-			return{
-				type: 'SORT_BY_TYPE'
-			};			
-		break;
-		default:
-			return{
-				type: 'SORT_ORIGINAL'
-			};
-	};
+export function clear_files(){
+	return{
+		type: 'CLEAR_FILES',
+	}
+}
+
+export function sort_files(_sort, _up, _down){
+	return{
+		type: 'SORT_FILES',
+		sort: _sort,
+		up: _up,
+		down: _down
+	}
 }
