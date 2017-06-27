@@ -1,19 +1,21 @@
 export default function reducer(state = [], action){
 	switch(action.type){
 		case 'ADD_FILE':
-			state = [...state, {
-				type: action.file.type,
-				original: action.file.original,
-				new: action.file.new,
-				size: action.file.size,
-				key: action.file.key
+			return [...state, {
+				key: action.file.Key,
+				type: action.file.Type,
+				original: action.file.OriginalName,
+				new: action.file.NewName,
+				size: action.file.Size,
+				visibility: true,
+				selected: true				
 			}];
-		break;
 		case 'REMOVE_FILE':
-			
+			return state.filter(file => file.key !== action.key);
 		break;
+		case 'CLEAR_FILES':
+			return [];
 		default:
 			return state;
 	}
-	return state;
 }

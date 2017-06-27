@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //Actions
-import * as controls from 'actions/controls';
+import * as controls_actions from 'actions/controls';
 //Assets
 import * as icon from 'assets/icons';
 //Electron
@@ -10,7 +10,7 @@ const Remote = require('electron').remote;
 
 @connect((store) => {
   return{
-    controls: store.controls
+    controls_store: store.controls
   };
 })
 export default class Controls extends React.Component{
@@ -35,7 +35,7 @@ export default class Controls extends React.Component{
     this.win.close();
   }
   min_max_icon(){
-    if(this.props.controls.window === 'initial'){
+    if(this.props.controls_store.window === 'initial'){
       return (<div onClick={this.maximize.bind(this)}>{icon.generate('controls-maximize')}</div>);
     }else{
       return (<div onClick={this.restore.bind(this)}>{icon.generate('controls-restore')}</div>);
@@ -43,15 +43,15 @@ export default class Controls extends React.Component{
   }
   window_listeners(){
     this.win.on('maximize', () => {
-      this.props.dispatch(controls.maxWindow());
+      this.props.dispatch(controls_actions.maxWindow());
       this.body.classList.add('window-full-screen');
     });
     this.win.on('unmaximize', () => {
-      this.props.dispatch(controls.restoreWindow());
+      this.props.dispatch(controls_actions.restoreWindow());
       this.body.classList.remove('window-full-screen');
     });
     this.win.on('focus', () => {
-      if(this.props.controls.window === 'initial')
+      if(this.props.controls_store.window === 'initial')
         this.body.className = 'window-focus';
     });
     this.win.on('blur', () => {

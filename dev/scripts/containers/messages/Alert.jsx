@@ -2,11 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //Actions
-import * as alert from 'actions/alert';
+import * as alert_actions from 'actions/alert';
 
 
 @connect((store) => {
-  return { alert: store.alert };
+  return { alert_store: store.alert };
 })
 
 export default class Alert extends React.Component{
@@ -15,22 +15,22 @@ export default class Alert extends React.Component{
     this.props = props;
   }
   success(){
-    if(this.props.alert.alert)
-      this.props.dispatch(alert.destroyAlert());
-      this.props.router.push(this.props.alert.link);
+    if(this.props.alert_store.alert)
+      this.props.dispatch(alert_actions.destroyAlert());
+      this.props.router.push(this.props.alert_store.link);
   }
   cancel(){
-    if(this.props.alert.alert)
-      this.props.dispatch(alert.closeAlert());
+    if(this.props.alert_store.alert)
+      this.props.dispatch(alert_actions.closeAlert());
   }
   render(){
     return(      
-      <div class={this.props.alert.stage}>
+      <div class={this.props.alert_store.stage}>
         <div class="alert">
-          <div class="message">{this.props.alert.message}</div>
+          <div class="message">{this.props.alert_store.message}</div>
           <div class="buttons">
-            <button class="btn" onClick={this.success.bind(this)}>{this.props.alert.success}</button>
-            <button class="btn" onClick={this.cancel.bind(this)}>{this.props.alert.cancel}</button>
+            <button class="btn" onClick={this.success.bind(this)}>{this.props.alert_store.success}</button>
+            <button class="btn" onClick={this.cancel.bind(this)}>{this.props.alert_store.cancel}</button>
           </div>
         </div>
       </div>

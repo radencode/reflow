@@ -5,7 +5,6 @@ const defaultState = {
 		{active: false, status: 'up', id: 2},
 		{active: false, status: 'up', id: 3},
 	],
-	active: 1
 }
 
 export default function reducer(state = defaultState, action){

@@ -7,35 +7,35 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Progress from 'containers/navigation/Progress.jsx';
 import Alert from 'containers/messages/Alert.jsx';
 //Actions
-import * as alert from 'actions/alert';
-import * as progress from 'actions/progress';
+import * as alert_actions from 'actions/alert';
+import * as progress_actions from 'actions/progress';
 //Assets
 import Labels from 'assets/text';
 
-@connect((store) => { return { progress: store.progress}; })
+@connect((store) => { return { progress_store: store.progress}; })
 
 export default class Rename extends React.Component{
   constructor(props){
     super();
     this.props = props;
-    this.props.dispatch(progress.initialize());
+    this.props.dispatch(progress_actions.initialize());
   }
   switchModal(link, dispatch){
-    this.props.dispatch(progress.updateAnimationType('slide-left'));
+    this.props.dispatch(progress_actions.updateAnimationType('slide-left'));
       switch(dispatch){
         case 'Configure':
-          this.props.dispatch(progress.switchToConfigure());
-          this.props.dispatch(alert.createAlert(Labels.Alerts.Unsaved.Message, Labels.Alerts.Unsaved.Buttons.Success, Labels.Alerts.Unsaved.Buttons.Cancel));
+          this.props.dispatch(progress_actions.switchToConfigure());
+          this.props.dispatch(alert_actions.createAlert(Labels.Alerts.Unsaved.Message, Labels.Alerts.Unsaved.Buttons.Success, Labels.Alerts.Unsaved.Buttons.Cancel));
           break;
         case 'Options':
-          this.props.dispatch(progress.switchToOptions());
+          this.props.dispatch(progress_actions.switchToOptions());
           break;
         case 'Finalize':
-          this.props.dispatch(progress.switchToFinalize());
+          this.props.dispatch(progress_actions.switchToFinalize());
           break;
         case 'Finish':
-          this.props.dispatch(progress.finish());
-          this.props.dispatch(alert.destroyAlert());
+          this.props.dispatch(progress_actions.finish());
+          this.props.dispatch(alert_actions.destroyAlert());
           break;
       }  
       if(link) 
@@ -47,7 +47,7 @@ export default class Rename extends React.Component{
         <Progress router={this.props.router}/>
         <Alert router={this.props.router}/>
         <ReactCSSTransitionGroup
-          transitionName = {this.props.progress.animation}
+          transitionName = {this.props.progress_store.animation}
           transitionEnterTimeout = {500}
           transitionLeaveTimeout = {250}>
           {React.cloneElement(this.props.children, {key: this.props.location.pathname, next: this.switchModal.bind(this)})}

@@ -29,6 +29,7 @@ function setWindowParams(){
 
 app.on('ready', () => {
   setWindowParams();
+  //mainWindow.openDevTools();
   mainWindow.setResizable(true);
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 });
@@ -36,3 +37,5 @@ app.on('ready', () => {
 app.on('window-all-closed', () => {
   app.quit();
 });
+
+
