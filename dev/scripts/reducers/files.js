@@ -16,24 +16,14 @@ export default function reducer(state = [], action){
 		case 'CLEAR_FILES':
 			return [];
 		case 'SORT_FILES':
-			return state.slice().sort((_fileA, _fileB) => {
-				const fileA = get_sort_type(_fileA);
-				const fileB = get_sort_type(_fileB);
-				if(fileA > fileB) return action.up;
-				if(fileA < fileB) return action.down;
+			return state.slice().sort((fileA, fileB) => {
+				const compareA = fileA[action.sort].toLowerCase();
+				const compareB = fileB[action.sort].toLowerCase();
+				if(compareA > compareB) return (action.order == 'down') ? 1 : -1;
+				if(compareA < compareB) return (action.order == 'down') ? -1 : 1;
 				return 0;
 			});
 		default:
 			return state;
-	}
-	function get_sort_type(_file){
-		switch(action.sort){
-			case 'type': return _file.type.toLowerCase();
-			case 'original': return _file.original.toLowerCase();
-			case 'new': return _file.new.toLowerCase();
-			case 'size': return _file.size.toLowerCase();			
-			default:
-				return _file.original.toLowerCase();
-		}
 	}
 }

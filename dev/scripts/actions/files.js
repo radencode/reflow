@@ -18,11 +18,10 @@ export function clear_files(){
 	}
 }
 
-export function sort_files(_sort, _up, _down){
+export function sort_files(_sort, _order = 'down'){
 	return{
 		type: 'SORT_FILES',
 		sort: _sort,
-		up: _up,
-		down: _down
+		order: _order
 	}
 }

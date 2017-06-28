@@ -23,11 +23,11 @@ export default class Sort extends React.Component{
 			switch(this.props.sort_store.sorts[_id].status){
 				case 'up':
 					this.props.dispatch(sort_actions.sort_down(_id));
-					this.props.dispatch(files_actions.sort_files(_sort, -1, 1));
+					this.props.dispatch(files_actions.sort_files(_sort, 'up'));
 				break;
 				case 'down':
 					this.props.dispatch(sort_actions.sort_up(_id));
-					this.props.dispatch(files_actions.sort_files(_sort, 1, -1));
+					this.props.dispatch(files_actions.sort_files(_sort));
 				break;
 				default:
 					return;
@@ -35,7 +35,7 @@ export default class Sort extends React.Component{
 			return;
 		}	
 		this.props.dispatch(sort_actions.activate_sort(_id));
-		this.props.dispatch(files_actions.sort_files(_sort, 1, -1));		
+		this.props.dispatch(files_actions.sort_files(_sort));		
 	}
 	render(){
 		return(
