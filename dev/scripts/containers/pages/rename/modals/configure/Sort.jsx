@@ -10,7 +10,6 @@ import * as files_actions from 'actions/files';
 @connect((store) => {
   return {
     sort_store: store.sort,
-		files_store: store.files
   };
 }) 
 export default class Sort extends React.Component{
@@ -35,7 +34,7 @@ export default class Sort extends React.Component{
 			return;
 		}	
 		this.props.dispatch(sort_actions.activate_sort(_id));
-		this.props.dispatch(files_actions.sort_files(_sort));		
+		this.props.dispatch(files_actions.sort_files(_sort));	
 	}
 	render(){
 		return(

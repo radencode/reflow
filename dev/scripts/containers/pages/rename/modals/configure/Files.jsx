@@ -5,18 +5,19 @@ import { connect } from 'react-redux';
 import Sort from 'containers/pages/rename/modals/configure/Sort.jsx';
 import File from 'containers/pages/rename/modals/configure/File.jsx';
 //Action
-import * as files_actions from 'actions/files';
+import * as FilesActions from 'actions/files';
 //API
 //import * as API from 'core/APIs';
 
 @connect((store) => {
   return {
-    files_store: store.files,
+    FilesStore: store.files,
   };
 }) 
 export default class Files extends React.Component{
-	constructor(props){
-		super();
+	constructor(_props){
+		super(_props);
+		this.props = _props;
 		//const _files = API.GetFile();
 		const _files = [
 			{
@@ -90,13 +91,16 @@ export default class Files extends React.Component{
 				Key: 9
 			},
 		];
-		_files.map(file => props.dispatch(files_actions.add_file(file)));
+		_files.map(file => this.props.dispatch(FilesActions.add_file(file)));
+	}
+	UpdateSearch(event){
+		this.props.dispatch(FilesActions.SearchFiles(event.target.value));
 	}
 	render(){	
 		return(
 			<div class="files">
 				<div class="search-bar">
-					<input class="search" type="text" placeholder="Search results..." onFocus={(e) => e.target.placeholder = ''} onBlur={(e) => e.target.placeholder = 'Search results...'}></input>
+					<input class="search" type="text" onChange={this.UpdateSearch.bind(this)} placeholder="Search results..." onFocus={(e) => e.target.placeholder = ''} onBlur={(e) => e.target.placeholder = 'Search results...'}></input>
 					<button class="filters">Filters</button>
 				</div>
 				<div class="sort-list">
@@ -106,7 +110,7 @@ export default class Files extends React.Component{
 					<Sort name="size" label="Size" id={3}/>
 				</div>
 				<ul class="file-list">
-					{this.props.files_store.map((file) => {
+					{this.props.FilesStore.map(file => {
 						if(file.visibility) return <File type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
 					})}
 				</ul>

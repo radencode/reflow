@@ -25,3 +25,10 @@ export function sort_files(_sort, _order = 'down'){
 		order: _order
 	}
 }
+
+export function SearchFiles(keyWord){
+	return{
+		type: 'SEARCH_FILES',
+		KeyWord: keyWord.toLowerCase()
+	}
+}
