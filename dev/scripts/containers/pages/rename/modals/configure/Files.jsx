@@ -106,7 +106,7 @@ export default class Files extends React.Component{
 		return(
 			<div class="files">
 				<div class="search-bar">
-					<input class="search" type="text" placeholder = "Search results..." onChange={this.updateSearch.bind(this)} onFocus={this.showPlaceHolder.bind(this)} onBlur={this.hidePlaceHolder.bind(this)}></input>
+					<input class="search" type="text" placeholder = "Search results..." onChange={this.updateSearch.bind(this)} onFocus={this.hidePlaceHolder.bind(this)} onBlur={this.showPlaceHolder.bind(this)}></input>
 					<button class="filters">Filters</button>
 				</div>
 				<div class="sort-list">
