@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import Sort from 'containers/pages/rename/modals/configure/Sort.jsx';
 import File from 'containers/pages/rename/modals/configure/File.jsx';
 //Action
-import * as FilesActions from 'actions/files';
+import * as filesActions from 'actions/files';
 //API
 //import * as API from 'core/APIs';
 
 @connect((store) => {
   return {
-    FilesStore: store.files,
+    filesStore: store.files,
   };
 }) 
 export default class Files extends React.Component{
-	constructor(_props){
-		super(_props);
-		this.props = _props;
+	constructor(props){
+		super(props);
+		this.props = props;
 		//const _files = API.GetFile();
-		const _files = [
+		const files = [
 			{
 				Type: 'txt',
 				OriginalName: 'PC Build Chart',
@@ -91,16 +91,22 @@ export default class Files extends React.Component{
 				Key: 9
 			},
 		];
-		_files.map(file => this.props.dispatch(FilesActions.add_file(file)));
+		files.map(file => this.props.dispatch(filesActions.addFile(file)));
 	}
-	UpdateSearch(event){
-		this.props.dispatch(FilesActions.SearchFiles(event.target.value));
+	updateSearch(event){
+		this.props.dispatch(filesActions.searchFiles(event.target.value));
+	}
+	showPlaceHolder(event){
+		event.target.placeholder = 'Search results...';
+	}
+	hidePlaceHolder(event){
+		event.target.placeholder = '';
 	}
 	render(){	
 		return(
 			<div class="files">
 				<div class="search-bar">
-					<input class="search" type="text" onChange={this.UpdateSearch.bind(this)} placeholder="Search results..." onFocus={(e) => e.target.placeholder = ''} onBlur={(e) => e.target.placeholder = 'Search results...'}></input>
+					<input class="search" type="text" placeholder = "Search results..." onChange={this.updateSearch.bind(this)} onFocus={this.showPlaceHolder.bind(this)} onBlur={this.hidePlaceHolder.bind(this)}></input>
 					<button class="filters">Filters</button>
 				</div>
 				<div class="sort-list">
@@ -110,7 +116,7 @@ export default class Files extends React.Component{
 					<Sort name="size" label="Size" id={3}/>
 				</div>
 				<ul class="file-list">
-					{this.props.FilesStore.map(file => {
+					{this.props.filesStore.map(file => {
 						if(file.visibility) return <File type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
 					})}
 				</ul>

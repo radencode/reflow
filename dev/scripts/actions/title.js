@@ -1,12 +1,14 @@
-export function hoverInTitle(_modal){
+export function hoverInTitle(modal){
     return{
         type: 'HOVER_IN_TITLE',
-        modal: _modal
+        payload: {
+            modal: modal
+        }
     };
 }
 
 export function hoverOutTitle(){
     return{
-        type: 'HOVER_OUT_TITLE',
+        type: 'HOVER_OUT_TITLE'
     };
 }

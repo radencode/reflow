@@ -1,27 +1,31 @@
-export function createAlert(_message, _success, _cancel){
+export function createAlert(message, success, cancel){
 	return {
 		type: 'CREATE_ALERT',
-		message: _message,
-		success: _success,
-		cancel: _cancel,
+		payload: {
+			message: message,
+			success: success,
+			cancel: cancel
+		}	
 	};
 }
 
-export function fireAlert(_link){
+export function fireAlert(link){
 	return {
 		type: 'FIRE_ALERT',
-		link: _link,
+		payload: {
+			link: link
+		}
 	};
 }
 
 export function closeAlert(){
 	return {
-		type: 'CLOSE_ALERT',
+		type: 'CLOSE_ALERT'
 	};
 }
 
 export function destroyAlert(){
 	return {
-		type: 'DESTROY_ALERT',
+		type: 'DESTROY_ALERT'
 	};
 }

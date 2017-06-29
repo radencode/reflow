@@ -5,16 +5,13 @@ const defaultState = {
   hover: false, 
 }
 
-export default function reducer(state=defaultState, action){
+export default function reducer(state = defaultState, action){
   switch(action.type){
     case 'HOVER_IN_TITLE':
-      state = {...state, label: action.modal, hover: true};
-      break;
+      return {...state, label: action.payload.modal, hover: true};
     case 'HOVER_OUT_TITLE':
-      state = {...state, hover: false};
-      break;
+      return {...state, hover: false};
     default:
       return state;
   } 
-  return state;
 }

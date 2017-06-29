@@ -4,25 +4,20 @@ const defaultState = {
 	message: '',
 	success: '',
 	cancel: '',
-	link: '',
+	link: ''
 }
 
-export default function reducer(state=defaultState, action){
+export default function reducer(state = defaultState, action){
 	switch(action.type){
 		case 'CREATE_ALERT':
-			state = {...state, alert: true, message: action.message, success: action.success, cancel: action.cancel};
-			break;
+			return {...state, alert: true, message: action.payload.message, success: action.payload.success, cancel: action.payload.cancel};
 		case 'FIRE_ALERT':
-			state = {...state, stage: 'modal active', link: action.link};
-			break;
+			return {...state, stage: 'modal active', link: action.payload.link};
 		case 'CLOSE_ALERT':
-			state = {...state, stage: 'modal'};
-			break;
+			return {...state, stage: 'modal'};
 		case 'DESTROY_ALERT':
-			state = {...state, ...defaultState};
-			break;
+			return {...state, ...defaultState};
 		default:
 			return state;
 	}
-	return state;
 }

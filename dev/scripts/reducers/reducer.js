@@ -6,7 +6,7 @@ import browse from 'reducers/browse';
 import files from 'reducers/files';
 import navigation from 'reducers/navigation';
 import progress from 'reducers/progress';
-import sort from 'reducers/sort';
+import sortAnimation from 'reducers/sortAnimation';
 import title from 'reducers/title';
 
 export default combineReducers({
@@ -16,6 +16,6 @@ export default combineReducers({
   files,
   navigation,
   progress,
-  sort,
+  sortAnimation,
   title,
 });

@@ -2,16 +2,14 @@ const defaultState = {
   window: 'initial'
 };
 
-export default function reducer(state=defaultState, action){
+export default function reducer(state = defaultState, action){
   switch(action.type){
     case 'MAX_WINDOW_STATE':
-      state = {...state, window: 'max'};
-      break;
+      return {...state, window: 'max'};
     case 'RESTORE_WINDOW_STATE':
-      state = {...state, window: 'initial'};
+      return {...state, window: 'initial'};
       break;
     default:
       return state;   
   }
-  return state;
 }

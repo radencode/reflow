@@ -1,34 +1,42 @@
-export function add_file(_file){
+export function addFile(file){
 	return{
 		type: 'ADD_FILE',
-		file: _file
+		payload: {
+			file: file
+		}
 	};
 }
 
-export function remove_file(_key){
+export function removeFile(key){
 	return{
 		type: 'REMOVE_FILE',
-		key: _key
-	}
+		payload: {
+			key: key
+		}
+	};
 }
 
-export function clear_files(){
+export function clearFiles(){
 	return{
-		type: 'CLEAR_FILES',
-	}
+		type: 'CLEAR_FILES'
+	};
 }
 
-export function sort_files(_sort, _order = 'down'){
+export function sortFiles(sort, order = 'down'){
 	return{
 		type: 'SORT_FILES',
-		sort: _sort,
-		order: _order
-	}
+		payload: {
+			sort: sort,
+			order: order
+		}
+	};
 }
 
-export function SearchFiles(keyWord){
+export function searchFiles(keyWord){
 	return{
 		type: 'SEARCH_FILES',
-		KeyWord: keyWord.toLowerCase()
-	}
+		payload: {
+			keyWord: keyWord.toLowerCase()
+		}
+	};
 }

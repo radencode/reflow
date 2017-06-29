@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //Actions
-import * as controls_actions from 'actions/controls';
+import * as controlsActions from 'actions/controls';
 //Assets
 import * as icon from 'assets/icons';
 //Electron
@@ -10,7 +10,7 @@ const Remote = require('electron').remote;
 
 @connect((store) => {
   return{
-    controls_store: store.controls
+    controlsStore: store.controls
   };
 })
 export default class Controls extends React.Component{
@@ -19,8 +19,8 @@ export default class Controls extends React.Component{
     this.props = props;
     this.win = Remote.getCurrentWindow();
     this.body = document.body;
-    this.window_listeners();
-    this.drag_listeners();
+    this.windowListeners();
+    this.dragListeners();
   }
   minimize(){
     this.win.minimize();
@@ -34,31 +34,31 @@ export default class Controls extends React.Component{
   exit(){
     this.win.close();
   }
-  min_max_icon(){
-    if(this.props.controls_store.window === 'initial'){
+  minMaxIcon(){
+    if(this.props.controlsStore.window === 'initial'){
       return (<div onClick={this.maximize.bind(this)}>{icon.generate('controls-maximize')}</div>);
     }else{
       return (<div onClick={this.restore.bind(this)}>{icon.generate('controls-restore')}</div>);
     }
   }
-  window_listeners(){
+  windowListeners(){
     this.win.on('maximize', () => {
-      this.props.dispatch(controls_actions.maxWindow());
+      this.props.dispatch(controlsActions.maxWindow());
       this.body.classList.add('window-full-screen');
     });
     this.win.on('unmaximize', () => {
-      this.props.dispatch(controls_actions.restoreWindow());
+      this.props.dispatch(controlsActions.restoreWindow());
       this.body.classList.remove('window-full-screen');
     });
     this.win.on('focus', () => {
-      if(this.props.controls_store.window === 'initial')
+      if(this.props.controlsStore.window === 'initial')
         this.body.className = 'window-focus';
     });
     this.win.on('blur', () => {
       this.body.className = 'window-blur';
     });
   }
-  drag_listeners(){
+  dragListeners(){
     this.body.addEventListener('dragover', (event) => {
       event.dataTransfer.dropEffect = 'none';
       event.preventDefault();      
@@ -71,7 +71,7 @@ export default class Controls extends React.Component{
     return(
       <div id="controls">
         <div onClick={this.minimize.bind(this)}>{icon.generate('controls-minimize')}</div>
-        {this.min_max_icon()}
+        {this.minMaxIcon()}
         <div class="exit" onClick={this.exit.bind(this)}>{icon.generate('controls-exit')}</div>
       </div>
     );

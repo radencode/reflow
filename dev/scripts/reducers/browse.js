@@ -6,22 +6,17 @@ const defaultState = {
 	label: Label.Pages[0].Modal[0].Messages.Select
 }
 
-export default function reducer(state=defaultState, action){
+export default function reducer(state = defaultState, action){
 	switch(action.type){
 		case 'SET_SELECTED_FILES':
-			state = {...state, files: action.payload};
-			break;
+			return {...state, files: action.payload.count};
 		case 'CONFIGURE_TYPE':
-			state = {...state, type: action.payload};
-			break;
+			return {...state, type: action.payload.type};
 		case 'CONFIGURE_LABEL':
-			state = {...state, label: action.payload};
-			break;
+			return {...state, label: action.payload.label};
 		case 'RESET_PATH_VARIABLES':
-			state = {...state, ...defaultState};
-			break;
+			return {...state, ...defaultState};
 		default:
 			return state;
 	}
-	return state;
 }

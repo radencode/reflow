@@ -22,7 +22,7 @@ export function switchToFinalize(){
 	};
 }
 
-export function finish(){
+export function finalize(){
 	return {
 		type: 'ACTIVATE_FINISH_MODAL'
 	};
@@ -31,6 +31,8 @@ export function finish(){
 export function updateAnimationType(type){
 	return {
 		type: 'UPDATE_ANIMATION_TYPE',
-		payload: type
+		payload: {
+			type: type
+		}
 	};
 }

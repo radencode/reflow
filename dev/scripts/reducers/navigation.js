@@ -2,13 +2,11 @@ const defaultState = {
 	active: 'rename'
 }
 
-export default function reducer(state=defaultState, action){
+export default function reducer(state = defaultState, action){
 	switch(action.type){
 		case 'SET_ACTIVE_MODAL':
-			state = {...state, active: action.modal};
-			break;
+			return {...state, active: action.payload.modal};
 		default:
 			return state;
 	}
-	return state;
 }   

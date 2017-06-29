@@ -1,7 +1,9 @@
-export function setActiveModal(_modal){
+export function setActiveModal(modal){
     return {
         type: 'SET_ACTIVE_MODAL',
-        modal: _modal
+        payload: {
+            modal: modal
+        }        
     };
 }
 

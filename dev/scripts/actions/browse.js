@@ -1,27 +1,33 @@
 export function setSelectedFiles(count){
 	return {
 		type: 'SET_SELECTED_FILES',
-		payload: count
+		payload: {
+			count: count
+		}
 	};
 }
 
 export function configureType(type){
 	return {
 		type: 'CONFIGURE_TYPE',
-		payload: type
+		payload: {
+			type: type
+		}
 	};
 }
 
 export function configureLabel(label){
 	return {
 		type: 'CONFIGURE_LABEL',
-		payload: label
+		payload: {
+			label: label
+		} 
 	};
 }
 
 export function resetPathVariables(){
 	return {
-		type: 'RESET_PATH_VARIABLES',
+		type: 'RESET_PATH_VARIABLES'
 	};
 }
 

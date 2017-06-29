@@ -3,15 +3,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 //Actions
-import * as title_actions from 'actions/title'
-import * as alert_actions from 'actions/alert';
-import * as navigation_actions from 'actions/navigation';
+import * as titleActions from 'actions/title'
+import * as alertActions from 'actions/alert';
+import * as navigationActions from 'actions/navigation';
 //Assets
 import * as icon from 'assets/icons';
 
 @connect((store) => {
   return{
-    alert_store: store.alert
+    alertStore: store.alert
   };
 })
 
@@ -21,18 +21,18 @@ export default class Linker extends React.Component{
     this.props = props;
   }
 	switchModal(active, event){
-    if(active === 'active' || this.props.alert_store.alert){
+    if(active === 'active' || this.props.alertStore.alert){
       event.preventDefault();
       if(active != 'active')
-        this.props.dispatch(alert_actions.fireAlert(this.props.link));
+        this.props.dispatch(alertActions.fireAlert(this.props.link));
     }
-		this.props.dispatch(navigation_actions.setActiveModal(this.props.link));
+		this.props.dispatch(navigationActions.setActiveModal(this.props.link));
   }
 	hoverOverLink(){
-		this.props.dispatch(title_actions.hoverInTitle(this.props.label));
+		this.props.dispatch(titleActions.hoverInTitle(this.props.label));
 	}
 	hoverOutLink(){
-		this.props.dispatch(title_actions.hoverOutTitle());
+		this.props.dispatch(titleActions.hoverOutTitle());
 	}
 	render(){
 		return(
