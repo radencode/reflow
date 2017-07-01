@@ -31,6 +31,8 @@ export function generate(icon){
 			return ( <i class="fa fa-wrench" aria-hidden="true"></i> );
 		case 'rename-modal-configure-sort':
 			return ( <i class="fa fa-chevron-down" aria-hidden="true"></i> );
+		case 'rename-modal-configure-file-check':
+			return ( <i class="fa fa-check" aria-hidden="true"></i> );
 		case 'rename-modal-finalize':
 			return ( <i class="fa fa-check" aria-hidden="true"></i> );
 		case 'rename-modal-options':

@@ -1,9 +1,10 @@
 const defaultState = {
 	sorts: [
 		{active: false, status: 'up', id: 0},
-		{active: true, status: 'up', id: 1},
-		{active: false, status: 'up', id: 2},
+		{active: false, status: 'up', id: 1},
+		{active: true, status: 'up', id: 2},
 		{active: false, status: 'up', id: 3},
+		{active: false, status: 'up', id: 4}
 	],
 }
 

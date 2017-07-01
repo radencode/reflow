@@ -110,14 +110,15 @@ export default class Files extends React.Component{
 					<button class="filters">Filters</button>
 				</div>
 				<div class="sort-list">
-					<Sort name="type" label="Type" id={0}/>
-					<Sort name="original" label="Original Name" id={1}/>
-					<Sort name="new" label="New Name" id={2}/>
-					<Sort name="size" label="Size" id={3}/>
+					<Sort type="state" name="select" label="Select" id={0}/>
+					<Sort type="word" name="type" label="Type" id={1}/>
+					<Sort type="word" name="original" label="Original Name" id={2}/>
+					<Sort type="word" name="new" label="New Name" id={3}/>
+					<Sort type="word" name="size" label="Size" id={4}/>
 				</div>
 				<ul class="file-list">
 					{this.props.filesStore.map(file => {
-						if(file.visibility) return <File type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
+						if(file.visibility) return <File select={file.select} type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
 					})}
 				</ul>
 			</div>

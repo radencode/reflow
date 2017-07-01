@@ -22,11 +22,12 @@ export function clearFiles(){
 	};
 }
 
-export function sortFiles(sort, order = 'down'){
+export function sortFiles(type, sort, order = 'down'){
 	return{
 		type: 'SORT_FILES',
 		payload: {
 			sort: sort,
+			type: type,
 			order: order
 		}
 	};
@@ -37,6 +38,15 @@ export function searchFiles(keyWord){
 		type: 'SEARCH_FILES',
 		payload: {
 			keyWord: keyWord.toLowerCase()
+		}
+	};
+}
+
+export function toggleSelect(key){
+	return {
+		type: 'TOGGLE_SELECT',
+		payload: {
+			key: key
 		}
 	};
 }

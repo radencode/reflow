@@ -17,16 +17,16 @@ export default class Sort extends React.Component{
 		super();
 		this.props = props;
 	}
-	sort(id, sort){	
+	sort(id, type, sort){	
 		if(this.props.sortAnimationStore.sorts[id].active){
 			switch(this.props.sortAnimationStore.sorts[id].status){
 				case 'up':
 					this.props.dispatch(sortAnimationActions.sortAnimationDown(id));
-					this.props.dispatch(filesActions.sortFiles(sort, 'up'));
+					this.props.dispatch(filesActions.sortFiles(type, sort, 'up'));
 				break;
 				case 'down':
 					this.props.dispatch(sortAnimationActions.sortAnimationUp(id));
-					this.props.dispatch(filesActions.sortFiles(sort));
+					this.props.dispatch(filesActions.sortFiles(type, sort));
 				break;
 				default:
 					return;
@@ -34,12 +34,12 @@ export default class Sort extends React.Component{
 			return;
 		}	
 		this.props.dispatch(sortAnimationActions.activateAnimationSort(id));
-		this.props.dispatch(filesActions.sortFiles(sort));	
+		this.props.dispatch(filesActions.sortFiles(type, sort));	
 	}
 	render(){
 		return(
 			<div class={'sort ' + this.props.name}>
-				<div class="label" onClick={this.sort.bind(this, this.props.id, this.props.name)}>
+				<div class="label" onClick={this.sort.bind(this, this.props.id, this.props.type, this.props.name)}>
 					<div class={this.props.sortAnimationStore.sorts[this.props.id].active ? 'name active' : 'name'}>{this.props.label}</div>
 					<div class={this.props.sortAnimationStore.sorts[this.props.id].active ? 'icon ' + this.props.sortAnimationStore.sorts[this.props.id].status : 'icon'}>{icon.generate('rename-modal-configure-sort')}</div>
 				</div>		
