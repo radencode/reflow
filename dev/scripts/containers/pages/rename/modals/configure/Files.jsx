@@ -1,6 +1,7 @@
 //Modules
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 //Components
 import Sort from 'containers/pages/rename/modals/configure/Sort.jsx';
 import File from 'containers/pages/rename/modals/configure/File.jsx';
@@ -102,6 +103,11 @@ export default class Files extends React.Component{
 	hidePlaceHolder(event){
 		event.target.placeholder = '';
 	}
+	filesToDisplay(){
+		return this.props.filesStore.map(file => {
+							if(file.visibility) return <File select={file.select} settings={file.settings} type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
+						});
+	}
 	render(){	
 		return(
 			<div class="files">
@@ -117,9 +123,9 @@ export default class Files extends React.Component{
 					<Sort type="word" name="size" label="Size" id={4}/>
 				</div>
 				<ul class="file-list">
-					{this.props.filesStore.map(file => {
-						if(file.visibility) return <File select={file.select} settings={file.settings} type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
-					})}
+					<ReactCSSTransitionGroup transitionName = "fade" transitionEnterTimeout = {500} transitionLeaveTimeout = {250}>
+						{this.filesToDisplay()}
+					</ReactCSSTransitionGroup>					
 				</ul>
 			</div>
 		);
