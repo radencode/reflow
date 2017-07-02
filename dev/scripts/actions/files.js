@@ -50,3 +50,12 @@ export function toggleSelect(key){
 		}
 	};
 }
+
+export function toggleSettings(key){
+	return {
+		type: 'TOGGLE_SETTINGS',
+		payload: {
+			key: key
+		}
+	};
+}

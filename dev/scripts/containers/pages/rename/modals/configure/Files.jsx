@@ -118,7 +118,7 @@ export default class Files extends React.Component{
 				</div>
 				<ul class="file-list">
 					{this.props.filesStore.map(file => {
-						if(file.visibility) return <File select={file.select} type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
+						if(file.visibility) return <File select={file.select} settings={file.settings} type={file.type} original={file.original} new={file.new} size={file.size} id={file.key} key={file.key}/>				
 					})}
 				</ul>
 			</div>

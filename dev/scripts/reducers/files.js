@@ -8,7 +8,8 @@ export default function reducer(state = [], action){
 				new: action.payload.file.NewName,
 				size: action.payload.file.Size,
 				visibility: true,
-				select: true				
+				select: true,
+				settings: false				
 			}];
 		case 'REMOVE_FILE':
 			return state.filter(file => file.key !== action.payload.key);
@@ -46,6 +47,10 @@ export default function reducer(state = [], action){
 		case 'TOGGLE_SELECT':
 			return state.map(file => {
 				return file.key === action.payload.key ? {...file, select: !file.select} : file;
+			});
+		case 'TOGGLE_SETTINGS':
+			return state.map(file => {
+				return file.key === action.payload.key ? {...file, settings: !file.settings} : file;
 			});
 		default:
 			return state;
