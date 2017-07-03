@@ -1,5 +1,5 @@
 const {app, BrowserWindow} = require('electron');
-require('electron-debug')({showDevTools: false});
+//require('electron-debug')({showDevTools: false});
 let mainWindow;
 
 //Check if platform is Windows
@@ -29,7 +29,7 @@ function setWindowParams(){
 
 app.on('ready', () => {
   setWindowParams();
-  //mainWindow.openDevTools();
+  mainWindow.openDevTools();
   mainWindow.setResizable(true);
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 });

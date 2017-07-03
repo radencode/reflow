@@ -46,7 +46,7 @@ export default class File extends React.Component{
 						</div>
 						<div class="option back" onClick={this.viewFile.bind(this, this.props.id)}>
 							{icon.generate('rename-modal-configure-view-file')}
-							<span>View file properties</span>
+							<span>Cancel</span>
 						</div>
 					</div>
 				</div> 

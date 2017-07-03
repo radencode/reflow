@@ -1,8 +1,14 @@
-export function addFile(file){
+export function requestFiles(){
 	return{
-		type: 'ADD_FILE',
+		type: 'REQUEST_FILES',
+	};
+}
+
+export function receiveFiles(files){
+	return{
+		type: 'RECEIVE_FILES',
 		payload: {
-			file: file
+			files: files
 		}
 	};
 }

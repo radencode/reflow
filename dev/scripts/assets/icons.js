@@ -35,6 +35,12 @@ export function generate(icon){
 			return ( <i class="fa fa-trash" aria-hidden="true"></i> );
 		case 'rename-modal-configure-view-file':
 			return ( <i class="fa fa-undo" aria-hidden="true"></i> );
+		case 'rename-modal-configure-options-delete-files':
+			return ( <i class="fa fa-trash" aria-hidden="true"></i> );
+		case 'rename-modal-configure-options-check-files':
+			return ( <i class="fa fa-check" aria-hidden="true"></i> );
+		case 'rename-modal-configure-options-uncheck-files':
+			return ( <i class="fa fa-times" aria-hidden="true"></i> );
 		case 'rename-modal-configure-file-check':
 			return ( <i class="fa fa-check" aria-hidden="true"></i> );
 		case 'rename-modal-finalize':

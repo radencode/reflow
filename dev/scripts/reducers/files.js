@@ -1,57 +1,51 @@
-export default function reducer(state = [], action){
+const defaultState = {
+	fetching: false,
+	files: []
+}
+
+export default function reducer(state = defaultState, action){
 	switch(action.type){
-		case 'ADD_FILE':
-			return [...state, {
-				key: action.payload.file.Key,
-				type: action.payload.file.Type,
-				original: action.payload.file.OriginalName,
-				new: action.payload.file.NewName,
-				size: action.payload.file.Size,
-				visibility: true,
-				select: true,
-				settings: false				
-			}];
+		case 'REQUEST_FILES':
+			return {...state, fetching: true};
+		case 'RECEIVE_FILES':
+			return {...state, fetching: false, files: action.payload.files};
 		case 'REMOVE_FILE':
-			return state.filter(file => file.key !== action.payload.key);
+			return {...state, files: state.files.filter(file => file.Key !== action.payload.key)};
 		case 'CLEAR_FILES':
-			return [];
+			return defaultState;
 		case 'SORT_FILES':
 			switch(action.payload.type){
 				case 'state': 
-					return state.slice().sort((fileA, fileB) => {
+					return {...state, files: state.files.slice().sort((fileA, fileB) => {
 						const compareA = fileA[action.payload.sort];
 						const compareB = fileB[action.payload.sort];
 						if(compareA && !compareB) return action.payload.order == 'down' ? -1 : 1;
 						if(!compareA && compareB) return action.payload.order == 'down' ? 1 : -1;
 						return 0;
-					});
+					})};
 				case 'word':
-					return state.slice().sort((fileA, fileB) => {
+					return {...state, files: state.files.slice().sort((fileA, fileB) => {
 						const compareA = fileA[action.payload.sort].toLowerCase();
 						const compareB = fileB[action.payload.sort].toLowerCase();
 						if(compareA > compareB) return action.payload.order == 'down' ? 1 : -1;
 						if(compareA < compareB) return action.payload.order == 'down' ? -1 : 1;
 						return 0;
-					});
+					})};
 				default:
 					return state;
 			}				
 		case 'SEARCH_FILES':	
-			return state.map(file => {
-				if(file.type.toLowerCase().indexOf(action.payload.keyWord) === -1 
-					&& file.original.toLowerCase().indexOf(action.payload.keyWord) === -1 
-					&& file.new.toLowerCase().indexOf(action.payload.keyWord) === -1
-					&& file.size.toLowerCase().indexOf(action.payload.keyWord) === -1) return {...file, visibility: false};
-				return {...file, visibility: true};
-			});	
+			return {...state, files: state.files.map(file => {
+			  return file.OriginalName.toLowerCase().indexOf(action.payload.keyWord) === -1 ? {...file, Visibility: false} : {...file, Visibility: true};
+			})};
 		case 'TOGGLE_SELECT':
-			return state.map(file => {
-				return file.key === action.payload.key ? {...file, select: !file.select} : file;
-			});
+			return {...state, files: state.files.map(file => {
+				return file.Key === action.payload.key ? {...file, Select: !file.Select} : file;
+			})};
 		case 'TOGGLE_SETTINGS':
-			return state.map(file => {
-				return file.key === action.payload.key ? {...file, settings: !file.settings} : file;
-			});
+			return {...state, files: state.files.map(file => {
+				return file.Key === action.payload.key ? {...file, Settings: !file.Settings} : file;
+			})};
 		default:
 			return state;
 	}
