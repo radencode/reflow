@@ -13,7 +13,7 @@ import * as icon from 'assets/icons';
 import * as API from 'core/APIs';
 @connect((store) => {
 	return {
-		attributesList: store.attributes.attributes,
+		attributes: store.attributes.attributes,
 		fetching: store.attributes.fetching
 	};
 })
@@ -85,14 +85,15 @@ export default class Attributes extends React.Component{
 		}, 1000);
 	}
 	mapItems(){
-		console.log("Attribute items called");
-		return this.props.attributesList.map(tag => <Attribute id={tag.Id} name={tag.Name} key={tag.Id}/>);
+		return this.props.attributes.map(attribute => {
+			/*if(attribute.Visible)*/ return <Attribute id={attribute.Id} name={attribute.Name} key={attribute.Id}/>
+		});
 	}
   render(){
     return(
 			<div class="side">
 				<div class="attributes">
-					<SearchBar placeholder="Search attributes..." dispatch={false} actions={false}/>
+					<SearchBar placeholder="Search attributes..." dispatch={this.props.dispatch.bind(this)} action={attributesActions.searchAttributes.bind(this)}/>
 					<div class="explorer-container">
 						<ExplorerList 
 							loading={this.props.fetching}

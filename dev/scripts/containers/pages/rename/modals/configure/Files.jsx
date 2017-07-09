@@ -132,7 +132,6 @@ export default class Files extends React.Component{
 		}, 1000);			
 	}
 	mapItems(){
-		console.log("Files items called");
 		return this.props.files.map(file => {
 			if(file.Visible) return <File selected={file.Selected} settings={file.Settings} type={file.Type} original={file.OriginalName} new={file.NewName} size={file.Size} id={file.Key} key={file.Key}/>				
 		});

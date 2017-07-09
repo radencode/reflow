@@ -12,3 +12,12 @@ export function receiveAttributes(attributes){
 		}
 	};
 }
+
+export function searchAttributes(keyWord){
+	return{
+		type: 'SEARCH_ATTRIBUTES',
+		payload: {
+			keyWord: keyWord.toLowerCase()
+		}
+	};
+}
