@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 //Components
 import Attribute from 'containers/pages/rename/modals/configure/Attribute.jsx';
+import AttributeOptions from 'containers/pages/rename/modals/configure/AttributeOptions.jsx';
 import SearchBar from 'containers/components/SearchBar.jsx';
 import ExplorerList from 'containers/components/ExplorerList.jsx';
 //Action
@@ -102,7 +103,7 @@ export default class Attributes extends React.Component{
 							items={this.mapItems.bind(this)}/>
 					</div>				
 				</div>
-				<div class="options"></div>
+				<AttributeOptions/>
 			</div>
     );
   }

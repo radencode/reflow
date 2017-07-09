@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import alert from 'reducers/alert';
 import attributes from 'reducers/attributes';
+import attributeOptions from 'reducers/attributeOptions';
 import controls from 'reducers/controls';
 import browse from 'reducers/browse';
 import files from 'reducers/files';
