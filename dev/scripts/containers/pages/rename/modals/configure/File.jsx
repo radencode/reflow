@@ -30,10 +30,10 @@ export default class File extends React.Component{
 	}
 	render(){
 		return(
-			<li>
+			<li class="file-item">
 				<div class="file">
 					<div class={this.props.settings ? 'properties close' : 'properties'} onClick={this.handleClick.bind(this, this.props.id)} onContextMenu={this.handleClick.bind(this, this.props.id)}>
-						<div class="select"><div class={this.props.select ? 'check true' : 'check false'}>{icon.generate('rename-modal-configure-file-check')}</div></div>
+						<div class="select"><div class={this.props.selected ? 'check true' : 'check false'}>{icon.generate('rename-modal-configure-file-check')}</div></div>
 						<div class="type"><span>{this.props.type}</span></div>
 						<div class="original">{this.props.original}</div> 
 						<div class="new">{this.props.new}</div>

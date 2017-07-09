@@ -5,6 +5,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 //Components
 import Sort from 'containers/pages/rename/modals/configure/Sort.jsx';
 import File from 'containers/pages/rename/modals/configure/File.jsx';
+import SearchBar from 'containers/components/SearchBar.jsx';
+import ExplorerList from 'containers/components/ExplorerList.jsx';
 //Action
 import * as filesActions from 'actions/files';
 //APIs
@@ -29,8 +31,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '35KB',
 				Key: 0,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -39,8 +41,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '403.2KB',
 				Key: 1,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -49,8 +51,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '24KB',
 				Key: 2,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -59,8 +61,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '27MB',
 				Key: 3,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -69,8 +71,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '109.50MB',
 				Key: 4,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -79,8 +81,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '540KB',
 				Key: 5,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -89,8 +91,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '750.54MB',
 				Key: 6,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -99,8 +101,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '403.2KB',
 				Key: 7,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -109,8 +111,8 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '3.5GB',
 				Key: 8,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 			{
@@ -119,53 +121,29 @@ export default class Files extends React.Component{
 				NewName: '...',
 				Size: '70KB',
 				Key: 9,
-				Visibility: true,
-				Select: true,
+				Visible: true,
+				Selected: true,
 				Settings: false
 			},
 		];
 		this.props.dispatch(filesActions.requestFiles());
 		setTimeout(() => {
-			this.props.dispatch(filesActions.receiveFiles(files));
+			this.props.dispatch(filesActions.receiveFiles(files/*(API.GetFilesInDirectory()*/));
 		}, 1000);			
 	}
-	updateSearch(event){
-		this.props.dispatch(filesActions.searchFiles(event.target.value));
-	}
-	showPlaceHolder(event){
-		event.target.placeholder = 'Search original name results...';
-	}
-	hidePlaceHolder(event){
-		event.target.placeholder = '';
-	}
-	filesToDisplay(){
+	mapItems(){
+		console.log("Files items called");
 		return this.props.files.map(file => {
-							if(file.Visibility) return <File select={file.Select} settings={file.Settings} type={file.Type} original={file.OriginalName} new={file.NewName} size={file.Size} id={file.Key} key={file.Key}/>				
-						});
-	}
-	loadDisplay(fetching){
-		return fetching ? (
-			<div class="load-list">
-				<div class="screen">
-					<div class="icon"></div>
-					<div class="message">Importing files...</div>
-				</div>
-			</div> 
-		)  
-			:
-		(
-			<ul class="file-list">
-				<ReactCSSTransitionGroup transitionName = "fade" transitionEnterTimeout = {500} transitionLeaveTimeout = {250}>
-					{this.filesToDisplay()}
-				</ReactCSSTransitionGroup>					
-			</ul>	
-		);	
+			if(file.Visible) return <File selected={file.Selected} settings={file.Settings} type={file.Type} original={file.OriginalName} new={file.NewName} size={file.Size} id={file.Key} key={file.Key}/>				
+		});
 	}
 	render(){	
 		return(
 			<div class="files">
-				<div class="search-bar">
-					<input class="search" type="text" placeholder = "Search results..." onChange={this.updateSearch.bind(this)} onFocus={this.hidePlaceHolder.bind(this)} onBlur={this.showPlaceHolder.bind(this)}></input>
+				<div class="search-container">
+					<div class="search">
+						<SearchBar placeholder="Search original names..." dispatch={this.props.dispatch.bind(this)} action={filesActions.searchFiles.bind(this)}/>
+					</div>
 					<button class="filters">Filters</button>
 				</div>
 				<div class="sort-list">
@@ -175,8 +153,12 @@ export default class Files extends React.Component{
 					<Sort type="word" style="new" name="NewName" label="New Name" id={3}/>
 					<Sort type="word" style="size" name="Size" label="Size" id={4}/>
 				</div>
-				<div class="explorer">
-					{this.loadDisplay(this.props.fetching)}
+				<div class="explorer-container">
+					<ExplorerList 
+							loading={this.props.fetching}
+							loadingMessage="Loading files..."
+							animation={{name: 'fade', enter: 500, leave: 500}}
+							items={this.mapItems.bind(this)}/>
 				</div>
 				<div class="options">
 					<div class="check">

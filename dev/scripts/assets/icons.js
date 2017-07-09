@@ -47,5 +47,9 @@ export function generate(icon){
 			return ( <i class="fa fa-check" aria-hidden="true"></i> );
 		case 'rename-modal-options':
 			return ( <i class="fa fa-cog" aria-hidden="true"></i> );
+		case 'search':
+			return ( <i class="fa fa-search" aria-hidden="true"></i> );
+		case 'box':
+			return ( <i class="flaticon-box"></i> );
 	}
 }

@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 12/05/2017 05:57
+    Creation date: 08/07/2017 04:38
     */
 
     @font-face {
@@ -36,14 +36,18 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-clock:before { content: "\f100"; }
-.flaticon-arrow:before { content: "\f101"; }
-.flaticon-hierarchical-structure:before { content: "\f102"; }
-.flaticon-gearwheels-couple:before { content: "\f103"; }
-.flaticon-edit:before { content: "\f104"; }
+    .flaticon-box:before { content: "\f100"; }
+.flaticon-done-tick:before { content: "\f101"; }
+.flaticon-clock:before { content: "\f102"; }
+.flaticon-arrow:before { content: "\f103"; }
+.flaticon-hierarchical-structure:before { content: "\f104"; }
+.flaticon-gearwheels-couple:before { content: "\f105"; }
+.flaticon-edit:before { content: "\f106"; }
     
-    $font-Flaticon-clock: "\f100";
-    $font-Flaticon-arrow: "\f101";
-    $font-Flaticon-hierarchical-structure: "\f102";
-    $font-Flaticon-gearwheels-couple: "\f103";
-    $font-Flaticon-edit: "\f104";
+    $font-Flaticon-box: "\f100";
+    $font-Flaticon-done-tick: "\f101";
+    $font-Flaticon-clock: "\f102";
+    $font-Flaticon-arrow: "\f103";
+    $font-Flaticon-hierarchical-structure: "\f104";
+    $font-Flaticon-gearwheels-couple: "\f105";
+    $font-Flaticon-edit: "\f106";

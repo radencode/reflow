@@ -36,11 +36,11 @@ export default function reducer(state = defaultState, action){
 			}				
 		case 'SEARCH_FILES':	
 			return {...state, files: state.files.map(file => {
-			  return file.OriginalName.toLowerCase().indexOf(action.payload.keyWord) === -1 ? {...file, Visibility: false} : {...file, Visibility: true};
+			  return file.OriginalName.toLowerCase().indexOf(action.payload.keyWord) === -1 ? {...file, Visible: false} : {...file, Visible: true};
 			})};
 		case 'TOGGLE_SELECT':
 			return {...state, files: state.files.map(file => {
-				return file.Key === action.payload.key ? {...file, Select: !file.Select} : file;
+				return file.Key === action.payload.key ? {...file, Selected: !file.Selected} : file;
 			})};
 		case 'TOGGLE_SETTINGS':
 			return {...state, files: state.files.map(file => {

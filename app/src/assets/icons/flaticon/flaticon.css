@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 12/05/2017 05:57
+  	Creation date: 08/07/2017 04:38
   	*/
 
 @font-face {
@@ -23,13 +23,14 @@
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
-font-family: Flaticon;
-font-style: normal;
-margin-left: 20px;
+  font-family: Flaticon;
+  font-style: normal;
 }
 
-.flaticon-clock:before { content: "\f100"; }
-.flaticon-arrow:before { content: "\f101"; }
-.flaticon-hierarchical-structure:before { content: "\f102"; }
-.flaticon-gearwheels-couple:before { content: "\f103"; }
-.flaticon-edit:before { content: "\f104"; }
+.flaticon-box:before { content: "\f100"; }
+.flaticon-done-tick:before { content: "\f101"; }
+.flaticon-clock:before { content: "\f102"; }
+.flaticon-arrow:before { content: "\f103"; }
+.flaticon-hierarchical-structure:before { content: "\f104"; }
+.flaticon-gearwheels-couple:before { content: "\f105"; }
+.flaticon-edit:before { content: "\f106"; }

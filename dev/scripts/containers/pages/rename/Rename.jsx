@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 //Containers
 import Progress from 'containers/navigation/Progress.jsx';
-import Alert from 'containers/messages/Alert.jsx';
+import Message from 'containers/components/Message.jsx';
 //Actions
 import * as alertActions from 'actions/alert';
 import * as progressActions from 'actions/progress';
@@ -49,7 +49,7 @@ export default class Rename extends React.Component{
     return(
       <div id="rename">
         <Progress router={this.props.router}/>
-        <Alert router={this.props.router}/>
+        <Message router={this.props.router}/>
         <ReactCSSTransitionGroup
           transitionName = {this.props.progressStore.animation}
           transitionEnterTimeout = {500}
