@@ -1,3 +1,14 @@
+export function browse(text){
+	switch(text){
+		case '':
+		return '';
+		default:
+			return '';
+	}
+}
+
+
+
 export default {
 	Pages: [
 		{ 

@@ -25,59 +25,73 @@ export default class Attributes extends React.Component{
 		const attributes = [
 			{
 				Id: 0,
-				Name: "Auto Increment"
+				Name: "Auto Increment",
+				Visible: true
 			},
 			{
 				Id: 1,
-				Name: "Riegex"
+				Name: "Riegex",
+				Visible: true
 			},
 			{
 				Id: 2,
-				Name: "File Name"
+				Name: "File Name",
+				Visible: true
 			},
 			{
 				Id: 3,
-				Name: "Type"
+				Name: "Type",
+				Visible: true
 			},
 			{
 				Id: 4,
-				Name: "Replace"
+				Name: "Replace",
+				Visible: true
 			},
 			{
 				Id: 5,
-				Name: "Random"
+				Name: "Random",
+				Visible: true
 			},
 			{
 				Id: 6,
-				Name: "Reverse"
+				Name: "Reverse",
+				Visible: true
 			},
 			{
 				Id: 7,
-				Name: "Auto Increment"
+				Name: "Auto Increment",
+				Visible: true
 			},
 			{
 				Id: 8,
-				Name: "Riegex"
+				Name: "Riegex",
+				Visible: true
 			},
 			{
 				Id: 9,
-				Name: "File Name"
+				Name: "File Name",
+				Visible: true
 			},
 			{
 				Id: 10,
-				Name: "Type"
+				Name: "Type",
+				Visible: true
 			},
 			{
 				Id: 11,
-				Name: "Replace"
+				Name: "Replace",
+				Visible: true
 			},
 			{
 				Id: 12,
-				Name: "Random"
+				Name: "Random",
+				Visible: true
 			},
 			{
 				Id: 14,
-				Name: "Reverse"
+				Name: "Reverse",
+				Visible: true
 			},			
 		];
 		this.props.dispatch(attributesActions.requestAttributes());
@@ -87,7 +101,7 @@ export default class Attributes extends React.Component{
 	}
 	mapItems(){
 		return this.props.attributes.map(attribute => {
-			/*if(attribute.Visible)*/ return <Attribute id={attribute.Id} name={attribute.Name} key={attribute.Id}/>
+			if(attribute.Visible) return <Attribute id={attribute.Id} name={attribute.Name} key={attribute.Id}/>
 		});
 	}
   render(){

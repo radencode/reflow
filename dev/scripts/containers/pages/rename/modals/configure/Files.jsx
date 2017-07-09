@@ -128,7 +128,7 @@ export default class Files extends React.Component{
 		];
 		this.props.dispatch(filesActions.requestFiles());
 		setTimeout(() => {
-			this.props.dispatch(filesActions.receiveFiles(files/*(API.GetFilesInDirectory()*/));
+			this.props.dispatch(filesActions.receiveFiles(files/*API.GetFilesInDirectory()*/));
 		}, 1000);			
 	}
 	mapItems(){
