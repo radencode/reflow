@@ -1,9 +1,9 @@
-import Label from 'assets/text';
+import * as getText from 'assets/text';
 
 const defaultState = {
 	files: 0,
 	type: 'browse',
-	label: Label.Pages[0].Modal[0].Messages.Select
+	text: getText.browse('select-prompt')
 }
 
 export default function reducer(state = defaultState, action){
@@ -12,8 +12,8 @@ export default function reducer(state = defaultState, action){
 			return {...state, files: action.payload.count};
 		case 'CONFIGURE_TYPE':
 			return {...state, type: action.payload.type};
-		case 'CONFIGURE_LABEL':
-			return {...state, label: action.payload.label};
+		case 'CONFIGURE_TEXT':
+			return {...state, text: action.payload.text};
 		case 'RESET_PATH_VARIABLES':
 			return {...state, ...defaultState};
 		default:

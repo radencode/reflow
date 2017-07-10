@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //Actions
 import * as filesActions from 'actions/files';
 //Assets
+import * as getText from 'assets/text';
 import * as icon from 'assets/icons';
 
 @connect ((store) => { return {} })
@@ -42,11 +43,11 @@ export default class File extends React.Component{
 					<div class={this.props.settings ? 'settings open' : 'settings'}>
 						<div class="option delete" onClick={this.deleteFile.bind(this, this.props.id)}>
 							{icon.generate('rename-modal-configure-delete-file')}
-							<span>Delete file from list</span>
+							<span>{getText.configure('settings-delete-button')}</span>
 						</div>
 						<div class="option back" onClick={this.viewFile.bind(this, this.props.id)}>
 							{icon.generate('rename-modal-configure-view-file')}
-							<span>Cancel</span>
+							<span>{getText.configure('settings-cancel-button')}</span>
 						</div>
 					</div>
 				</div> 

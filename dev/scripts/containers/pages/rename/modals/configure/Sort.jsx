@@ -39,8 +39,8 @@ export default class Sort extends React.Component{
 	render(){
 		return(
 			<div class={'sort ' + this.props.style}>
-				<div class="label" onClick={this.sort.bind(this, this.props.id, this.props.type, this.props.name)}>
-					<div class={this.props.sortAnimationStore.sorts[this.props.id].active ? 'name active' : 'name'}>{this.props.label}</div>
+				<div class="text" onClick={this.sort.bind(this, this.props.id, this.props.type, this.props.name)}>
+					<div class={this.props.sortAnimationStore.sorts[this.props.id].active ? 'name active' : 'name'}>{this.props.text}</div>
 					<div class={this.props.sortAnimationStore.sorts[this.props.id].active ? 'icon ' + this.props.sortAnimationStore.sorts[this.props.id].status : 'icon'}>{icon.generate('rename-modal-configure-sort')}</div>
 				</div>		
 			</div>

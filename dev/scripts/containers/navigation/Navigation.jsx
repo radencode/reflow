@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 //Containers
 import Linker from 'containers/navigation/Linker.jsx';
 //Assets
-import Labels from 'assets/text';
+import * as getText from 'assets/text';
 import * as icon from 'assets/icons';
 
 @connect((store) => {
@@ -23,13 +23,13 @@ export default class Navigation extends React.Component{
 						</div>
 						<div id="nav-menu">
 							<ul id="nav-links">
-								<Linker status={this.props.path.match(/rename/) ? 'active' : ''} link="rename" label={Labels.Pages[0].Title} icon='page-rename'/>
-								<Linker status={this.props.path.match(/flow/) ? 'active' : ''} link="flow" label={Labels.Pages[1].Title} icon='page-flow'/>
-								<Linker status={this.props.path.match(/history/) ? 'active' : ''} link="history" label={Labels.Pages[2].Title} icon='page-history'/>
-								<Linker status={this.props.path.match(/settings/) ? 'active' : ''} link="settings" label={Labels.Pages[3].Title} icon='page-settings'/>
+								<Linker status={this.props.path.match(/rename/) ? 'active' : ''} link="rename" text={getText.navigation('rename-title')} icon='page-rename'/>
+								<Linker status={this.props.path.match(/flow/) ? 'active' : ''} link="flow" text={getText.navigation('file-structure-title')} icon='page-flow'/>
+								<Linker status={this.props.path.match(/history/) ? 'active' : ''} link="history" text={getText.navigation('history-title')} icon='page-history'/>
+								<Linker status={this.props.path.match(/settings/) ? 'active' : ''} link="settings" text={getText.navigation('settings-title')} icon='page-settings'/>
 							</ul>
 							<div id="nav-status">				
-								<div class={this.props.titleStore.hover ? 'nav-title hover' : 'nav-title'}>{this.props.titleStore.label}</div>		
+								<div class={this.props.titleStore.hover ? 'nav-title hover' : 'nav-title'}>{this.props.titleStore.text}</div>		
 							</div>
 						</div>
 				</div>	

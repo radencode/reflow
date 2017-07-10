@@ -9,6 +9,7 @@ import ExplorerList from 'containers/components/ExplorerList.jsx';
 //Action
 import * as attributesActions from 'actions/attributes';
 //Assets
+import * as getText from 'assets/text';
 import * as icon from 'assets/icons';
 //APIs
 import * as API from 'core/APIs';
@@ -108,11 +109,11 @@ export default class Attributes extends React.Component{
     return(
 			<div class="side">
 				<div class="attributes">
-					<SearchBar placeholder="Search attributes..." dispatch={this.props.dispatch.bind(this)} action={attributesActions.searchAttributes.bind(this)}/>
+					<SearchBar placeholder={getText.configure('search-attributes-placeholder')} dispatch={this.props.dispatch.bind(this)} action={attributesActions.searchAttributes.bind(this)}/>
 					<div class="explorer-container">
 						<ExplorerList 
 							loading={this.props.fetching}
-							loadingMessage="Loading attributes..."
+							loadingMessage={getText.configure('attributes-loading-screen')}
 							animation={{name: 'fade', enter: 500, leave: 500}}
 							items={this.mapItems.bind(this)}/>
 					</div>				

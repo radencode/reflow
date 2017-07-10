@@ -6,7 +6,7 @@ import Step from 'containers/navigation/Step.jsx'
 //Actions
 import * as progressActions from 'actions/progress';
 //Assets
-import Labels from 'assets/text';
+import * as getText from 'assets/text';
 
 @connect((store) => {
   return{
@@ -46,28 +46,28 @@ export default class Progress extends React.Component{
                 bar={this.props.progressStore.browse.bar}
                 connector={this.props.progressStore.browse.connector} 
                 finish={this.props.progressStore.finish} 
-                link="/rename/browse" label={Labels.Pages[0].Modal[0].Title}  
+                link="/rename/browse" text={getText.progress('browse-title')}  
                 icon="rename-modal-browse"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progressStore.configure.status} 
                 bar={this.props.progressStore.configure.bar}
                 connector={this.props.progressStore.configure.connector} 
                 finish={this.props.progressStore.finish} 
-                link="/rename/configure" label={Labels.Pages[0].Modal[1].Title} 
+                link="/rename/configure" text={getText.progress('configure-title')} 
                 icon="rename-modal-configure"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progressStore.options.status} 
                 bar={this.props.progressStore.options.bar}
                 connector={this.props.progressStore.options.connector} 
                 finish={this.props.progressStore.finish} 
-                link="/rename/options" label={Labels.Pages[0].Modal[2].Title}  
+                link="/rename/options" text={getText.progress('options-title')}  
                 icon="rename-modal-options"/>
           <Step switch={this.switchStep.bind(this)} 
                 status={this.props.progressStore.finalize.status} 
                 bar={this.props.progressStore.finalize.bar}
                 connector={this.props.progressStore.finalize.connector} 
                 finish={this.props.progressStore.finish} 
-                link={false} label={Labels.Pages[0].Modal[3].Title} 
+                link={false} text={getText.progress('finalize-title')} 
                 icon="rename-modal-finalize"/>
         </div>
       </div>

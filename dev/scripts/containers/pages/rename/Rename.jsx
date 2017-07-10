@@ -10,7 +10,7 @@ import Message from 'containers/components/Message.jsx';
 import * as alertActions from 'actions/alert';
 import * as progressActions from 'actions/progress';
 //Assets
-import Labels from 'assets/text';
+import * as getText from 'assets/text';
 
 @connect((store) => { 
   return { 
@@ -29,7 +29,7 @@ export default class Rename extends React.Component{
       switch(dispatch){
         case 'Configure':
           this.props.dispatch(progressActions.switchToConfigure());
-          this.props.dispatch(alertActions.createAlert(Labels.Alerts.Unsaved.Message, Labels.Alerts.Unsaved.Buttons.Success, Labels.Alerts.Unsaved.Buttons.Cancel));
+          this.props.dispatch(alertActions.createAlert(getText.message('message'), getText.message('continue'), getText.message('cancel')));
           break;
         case 'Options':
           this.props.dispatch(progressActions.switchToOptions());

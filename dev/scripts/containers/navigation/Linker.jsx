@@ -29,7 +29,7 @@ export default class Linker extends React.Component{
 		this.props.dispatch(navigationActions.setActiveModal(this.props.link));
   }
 	hoverOverLink(){
-		this.props.dispatch(titleActions.hoverInTitle(this.props.label));
+		this.props.dispatch(titleActions.hoverInTitle(this.props.text));
 	}
 	hoverOutLink(){
 		this.props.dispatch(titleActions.hoverOutTitle());

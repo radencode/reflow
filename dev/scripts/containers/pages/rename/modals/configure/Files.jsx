@@ -12,6 +12,7 @@ import * as filesActions from 'actions/files';
 //APIs
 import * as API from 'core/APIs';
 //Assets
+import * as getText from 'assets/text';
 import * as icon from 'assets/icons';
 
 @connect((store) => {
@@ -141,36 +142,36 @@ export default class Files extends React.Component{
 			<div class="files">
 				<div class="search-container">
 					<div class="search">
-						<SearchBar placeholder="Search original names..." dispatch={this.props.dispatch.bind(this)} action={filesActions.searchFiles.bind(this)}/>
+						<SearchBar placeholder={getText.configure('search-files-placeholder')} dispatch={this.props.dispatch.bind(this)} action={filesActions.searchFiles.bind(this)}/>
 					</div>
-					<button class="filters">Filters</button>
+					<button class="filters">{getText.configure('filters-button')}</button>
 				</div>
 				<div class="sort-list">
-					<Sort type="state" style="select" name="Select" label="Select" id={0}/>
-					<Sort type="word" style="type" name="Type" label="Type" id={1}/>
-					<Sort type="word" style="original" name="OriginalName" label="Original Name" id={2}/>
-					<Sort type="word" style="new" name="NewName" label="New Name" id={3}/>
-					<Sort type="word" style="size" name="Size" label="Size" id={4}/>
+					<Sort type="state" style="select" name="Select" text={getText.configure('sort-select')} id={0}/>
+					<Sort type="word" style="type" name="Type" text={getText.configure('sort-type')} id={1}/>
+					<Sort type="word" style="original" name="OriginalName" text={getText.configure('sort-original-name')} id={2}/>
+					<Sort type="word" style="new" name="NewName" text={getText.configure('sort-new-name')} id={3}/>
+					<Sort type="word" style="size" name="Size" text={getText.configure('sort-size')} id={4}/>
 				</div>
 				<div class="explorer-container">
 					<ExplorerList 
 							loading={this.props.fetching}
-							loadingMessage="Loading files..."
+							loadingMessage={getText.configure('files-loading-screen')}
 							animation={{name: 'fade', enter: 500, leave: 500}}
 							items={this.mapItems.bind(this)}/>
 				</div>
 				<div class="options">
 					<div class="check">
 						{icon.generate('rename-modal-configure-options-check-files')}
-						<span>Check options</span>						
+						<span>{getText.configure('check-options-button')}</span>						
 					</div>
 					<div class="uncheck">
 						{icon.generate('rename-modal-configure-options-uncheck-files')}	
-						<span>Uncheck options</span>					
+						<span>{getText.configure('uncheck-options-button')}</span>					
 					</div>
 					<div class="delete">
 						{icon.generate('rename-modal-configure-options-delete-files')}
-						<span>Delete options</span>						
+						<span>{getText.configure('delete-options-button')}s</span>						
 					</div>
 				</div>
 			</div>

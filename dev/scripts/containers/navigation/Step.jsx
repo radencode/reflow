@@ -15,8 +15,8 @@ export default class Step extends React.Component{
           <div class={this.props.status === 'active' ? 'active show' : 'active hide'}>{icon.generate(this.props.icon)}</div>
           <div class={this.props.status === 'completed' ? 'completed show' : 'completed hide'}>{icon.generate(this.props.icon)}</div>
         </div>
-        <div class={this.props.status === 'completed' && !this.props.finish ? 'label ' + this.props.status + ' link' : 'label ' + this.props.status} onClick={this.props.switch.bind(this, this.props.link, this.props.label, this.props.status === 'completed' && !this.props.finish ? true : false)}>
-          {this.props.label}
+        <div class={this.props.status === 'completed' && !this.props.finish ? 'text ' + this.props.status + ' link' : 'text ' + this.props.status} onClick={this.props.switch.bind(this, this.props.link, this.props.text, this.props.status === 'completed' && !this.props.finish ? true : false)}>
+          {this.props.text}
         </div>
       </div>
     );

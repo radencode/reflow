@@ -16,11 +16,11 @@ export function configureType(type){
 	};
 }
 
-export function configureLabel(label){
+export function configuretext(text){
 	return {
-		type: 'CONFIGURE_LABEL',
+		type: 'CONFIGURE_TEXT',
 		payload: {
-			label: label
+			text: text
 		} 
 	};
 }
