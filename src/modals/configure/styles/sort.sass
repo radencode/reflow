@@ -1,0 +1,52 @@
+.sort
+  height: 100%
+
+  .text
+    height: 100%
+    display: flex							
+    font-family: Esphimere
+    cursor: pointer
+    color: map-get($gray, 'light')
+
+    &:hover
+      color: #FFF
+
+    .name, .icon > i
+      height: 100%
+      
+
+    .name
+      font-size: 13px	
+      text-transform: capitalize							
+      padding-right: 7px
+      line-height: 45px
+
+      &.active
+        color: #FFF			
+
+    .icon
+      font-size: 15px	
+
+      i
+        line-height: 48px
+
+      &.up
+        color: $yellow
+
+      &.down
+        color: $yellow
+        transform: rotate(180deg)
+        transform-origin: 10px 24px
+          
+  &.select
+    padding-left: 15px
+    width: 85px
+
+  &.type
+    width: 100px
+
+  &.size
+    width: 80px
+
+  &.original, &.new
+    width: 210px

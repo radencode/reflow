@@ -1,30 +1,14 @@
 {
-  "name": "reflow",
-  "version": "1.0.0",
-  "description": "Renaming and folder structure software",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/radencode/reflow.git"
-  },
-  "scripts": {
-    "node-edge": "node_modules/electron-edge/tools/build.bat release \"7.4.0\""
-  },
-  "keywords": [
-    "rename",
-    "flow",
-    "folder",
-    "structure",
-    "reflow",
-    "project"
-  ],
-  "author": "Teddy Radenkov <teddy.pdx@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/radencode/reflow/issues"
-  },
-  "homepage": "https://github.com/radencode/reflow#readme",
-  "dependencies": {
-    "electron-edge": "^6.5.5"
-  }
+	"name": "reflow-edge",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Teddy Radenkov",
+	"license": "ISC",
+	"dependencies": {
+		"electron-edge-js": "^8.3.2"
+	}
 }

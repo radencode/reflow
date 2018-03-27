@@ -1,0 +1,38 @@
+.spinner
+  position: absolute
+  top: 0
+  left: 0
+
+  &.active
+    animation: spinner 2s infinite
+    animation-delay: 500ms
+    animation-timing-function: linear
+  
+  @keyframes spinner
+    0%
+      transform: rotate(0deg)
+    100%
+      transform: rotate(360deg)
+
+  .background
+    stroke: map-get($blue, 'dark')
+    stroke-width: 60px
+    stroke-dashoffset: 0
+    
+  .loader
+    stroke: $yellow
+    stroke-width: 60px
+    stroke-dashoffset: 973.89
+
+    &.active
+      animation: loader 2s infinite
+      animation-delay: 500ms
+      animation-timing-function: ease
+
+    @keyframes loader
+      0%
+        stroke-dashoffset: 973.89
+      50%
+        stroke-dashoffset: 0
+      100%
+        stroke-dashoffset: -973.89

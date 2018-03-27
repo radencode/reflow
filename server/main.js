@@ -25,14 +25,12 @@ const setWindowParams = () => {
 //Start app
 app.on('ready', () => {
 	let mainWindow = setWindowParams();
-	/************* REMOVE AFTER PRODUCTION *****************/
 	mainWindow.openDevTools({ detached: true });
 	BrowserWindow.addDevToolsExtension(
-		'C:\\Users\\Jenster\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.1.0_0'
+		'C:\\Users\\Jenster\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.1_0'
 	);
-	/*****************************************************/
 	mainWindow.setResizable(true);
-	mainWindow.loadURL(`file://${__dirname}/index.html`);
+	mainWindow.loadURL('http://localhost:3000/');
 });
 
 //Close app

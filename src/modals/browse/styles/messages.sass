@@ -1,0 +1,41 @@
+#browse-messages 
+  h1.message
+    width: 630px
+    height: auto
+    position: absolute
+    bottom: -30px
+    text-align: center
+    font-family: Esphimere
+    font-size: 14px
+    letter-spacing: 0.2em
+    color: #FFF
+
+  h3.message
+    width: 630px
+    height: auto
+    position: absolute
+    bottom: -55px
+    text-align: center
+    font-family: Esphimere
+    font-size: 13px
+    letter-spacing: 0.1em
+    cursor: pointer
+    color: map-get($gray, 'light')
+
+    &:hover
+      color: $yellow
+
+  .message
+    transition: 500ms transform ease, 500ms opacity ease, 0ms hover
+    
+    &.active
+      opacity: 1
+      visibility: visible
+      transform: translate(0, 0)
+    &.inactive
+      opacity: 0
+      visibility: hidden
+      transform: translate(0, -50px)
+
+    span
+      color: $yellow

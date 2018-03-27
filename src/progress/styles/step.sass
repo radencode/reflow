@@ -1,0 +1,89 @@
+.progress-step
+  width: 34px
+  height: 34px
+  position: absolute
+  z-index: 1
+
+  .circle
+    background-color: $black
+    border-radius: 50%
+    position: absolute
+    top: 7px
+    left: 7px
+    overflow: hidden
+    transition: all 500ms ease-in
+    transform: rotate(0deg)	
+    &.active
+      width: 34px
+      height: 34px
+      top: 0
+      left: 0		
+    &.inactive
+      width: 20px
+      height: 20px
+      transition-delay: 1s
+
+    .icon
+      background-color: $yellow
+      width: 34px
+      height: 34px
+      position: absolute
+      left: 0
+      transition: all 500ms ease-in
+      
+      &.active
+        top: 0
+        transition-delay: 500ms
+      &.inactive
+        top: -34px
+        transition-delay: 500ms
+        
+
+      .label
+        font-family: Esphimere-Bold
+        text-align: center
+        line-height: 34px
+        font-size: 14px
+        transition: all 500ms ease-in
+        &.active
+          color: $black
+          transition-delay: 1s
+        &.inactive
+          color: $yellow
+
+  .link
+    width: auto
+    height: 34px
+    position: absolute
+    top: 0
+    left: 50px
+    
+    .link-label
+      display: block
+      line-height: 34px
+      font-size: 14px
+      text-transform: capitalize
+      color: map-get($gray, 'light')
+
+      &.current
+        color: $yellow
+        pointer-events: none
+    
+      &:hover
+        color: #FFF
+      
+    .link-slider
+      background-color: map-get($blue, 'main')
+      height: 100%
+      float: right
+      position: absolute
+      top: 0
+      right: 0
+      transition: all 500ms ease-in-out
+      
+      &.active
+        width: 0%
+        transition-delay: 500ms
+
+      &.inactive
+        width: 100%

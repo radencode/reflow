@@ -1,3 +1,6 @@
+app/node_modules
+bin
 node_modules
+server/reflow
 yarn-error.log
 npm-debug.log
