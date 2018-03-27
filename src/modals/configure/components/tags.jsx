@@ -15,7 +15,7 @@ class Tags extends React.Component {
 	renderTags = (tags, render) => {
 		return (
 			<div key={render.key} style={render.style}>
-				<Tag name={tags[render.index].name} />
+				<Tag name={tags[render.index].Name} />
 			</div>
 		);
 	};

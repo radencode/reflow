@@ -30,12 +30,14 @@ class Browse extends React.Component {
 			if (path) {
 				this.setState({ stage: 'loading' });
 				try {
-					const files = await this.reflow.fetchFiles(path);
+					const [files, tags] = await Promise.all([this.reflow.fetchFiles(path), this.reflow.fetchTags()]);
 					const count = await this.reflow.fetchFilesCount();
 					this.props.actions.configure.addFiles(files);
+					this.props.actions.configure.addTags(tags);
 					this.props.actions.configure.setCount(count);
 					this.setState({ stage: 'configure' });
 				} catch (err) {
+					console.log(new Error('Rename calls error'));
 					this.setState({ stage: 'browse' });
 				}
 			}

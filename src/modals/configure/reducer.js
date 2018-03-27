@@ -1,43 +1,7 @@
 const defaultState = {
 	filesCount: 0,
 	files: [],
-	tags: [
-		{
-			id: 1,
-			name: 'Auto Increment',
-			isVisible: true,
-		},
-		{
-			id: 2,
-			name: 'Regix',
-			isVisible: true,
-		},
-		{
-			id: 3,
-			name: 'File Name',
-			isVisible: true,
-		},
-		{
-			id: 4,
-			name: 'Type',
-			isVisible: true,
-		},
-		{
-			id: 5,
-			name: 'Replace',
-			isVisible: true,
-		},
-		{
-			id: 6,
-			name: 'Random',
-			isVisible: true,
-		},
-		{
-			id: 7,
-			name: 'Reverse',
-			isVisible: true,
-		},
-	],
+	tags: [],
 };
 
 export default function reducer(state = defaultState, action) {
@@ -47,6 +11,13 @@ export default function reducer(state = defaultState, action) {
 			...state,
 			files: action.payload.files.map(file => {
 				return { ...file, isVisible: true, isChecked: true };
+			}),
+		};
+	case 'ADD_TAGS':
+		return {
+			...state,
+			tags: action.payload.tags.map(tag => {
+				return { ...tag, isVisible: true };
 			}),
 		};
 	case 'DELETE_FILE':

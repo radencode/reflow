@@ -7,6 +7,15 @@ export function addFiles(_files) {
 	};
 }
 
+export function addTags(_tags) {
+	return {
+		type: 'ADD_TAGS',
+		payload: {
+			tags: _tags,
+		},
+	};
+}
+
 export function setCount(_count) {
 	return {
 		type: 'SET_COUNT',
