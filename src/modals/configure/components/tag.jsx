@@ -6,7 +6,7 @@ const Tag = ({ name }) => {
 	return (
 		<div class='tag'>
 			<i class='material-icons'>style</i>
-			<h2>{name}</h2>
+			<h2 class='tag-name'>{name}</h2>
 		</div>
 	);
 };
