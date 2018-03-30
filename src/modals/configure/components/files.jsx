@@ -40,10 +40,10 @@ class Files extends React.Component {
 	render() {
 		let visibleFiles = this.props.files.filter(file => file.isVisible);
 		return (
-			<div id='files'>
-				<div id='files-bar'>
+			<div id='configure-files'>
+				<div id='configure-files-bar'>
 					<Search style='files' placeholder='Search original name...' onChange={this.searchFiles} />
-					<div id='filters'>Filters</div>
+					<div id='configure-filters'>Filters</div>
 				</div>
 				<Sorts actions={this.props.actions} />
 				<Explorer
