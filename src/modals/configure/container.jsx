@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 //Components
 import Files from './components/files.jsx';
+import Options from './components/options.jsx';
 import Tags from './components/tags.jsx';
 
 //Actions
@@ -28,6 +29,7 @@ class Configure extends React.Component {
 				<div class='viewer'>
 					<Files files={this.props.configure.files} actions={this.props.actions} />
 					<Tags tags={this.props.configure.tags} actions={this.props.actions} />
+					<Options />
 				</div>
 			</div>
 		);
