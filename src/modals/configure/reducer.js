@@ -62,6 +62,15 @@ export default function reducer(state = defaultState, action) {
 					: { ...file, isVisible: true };
 			}),
 		};
+	case 'SEARCH_TAGS':
+		return {
+			...state,
+			tags: state.tags.map(tag => {
+				return tag.Name.toLowerCase().indexOf(action.payload.keyword) === -1
+					? { ...tag, isVisible: false }
+					: { ...tag, isVisible: true };
+			}),
+		};
 	case 'TOGGLE_FILE_CHECKED':
 		return {
 			...state,
