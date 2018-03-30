@@ -27,13 +27,14 @@ class Tags extends React.Component {
 	render() {
 		let visibleTags = this.props.tags.filter(tag => tag.isVisible);
 		return (
-			<div id='tags'>
+			<div id='configure-tags'>
 				<Search style='tags' placeholder='Search attributes...' onChange={this.searchTags} />
+				<div class='tags-breaker' />
 				<Explorer
 					width={250}
-					height={125}
+					height={156}
 					rowCount={visibleTags.length}
-					rowHeight={25}
+					rowHeight={26}
 					renderer={this.renderTags.bind(this, visibleTags)}
 				/>
 			</div>
