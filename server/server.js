@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const expressSanitizer = require('express-sanitizer');
 const app = express();
 const PORT = 3001;
+const path = require('path');
 
 //Set up body-parser
 app.use(bodyParser.json());
@@ -16,11 +17,14 @@ app.use(expressSanitizer());
 //Set up CORS
 app.use(cors());
 
+//Base DLL
+const DLL = path.join(__dirname, 'reflow', 'rfcore.dll');
+
 //Testing routes
 app.post('/reflow/files', (req, res) => {
 	let path = req.sanitize(req.body.path);
 	edge.func({
-		assemblyFile: 'server/reflow/rfcore.dll',
+		assemblyFile: DLL,
 		typeName: 'ReflowCore.Reflow.ReflowController',
 		methodName: 'GetFilesInDirectory',
 	})(path, (error, result) => {
@@ -31,7 +35,7 @@ app.post('/reflow/files', (req, res) => {
 
 app.get('/reflow/files/count', (req, res) => {
 	edge.func({
-		assemblyFile: 'server/reflow/rfcore.dll',
+		assemblyFile: DLL,
 		typeName: 'ReflowCore.Reflow.ReflowController',
 		methodName: 'GetFilesCount',
 	})(null, (error, result) => {
@@ -42,7 +46,7 @@ app.get('/reflow/files/count', (req, res) => {
 
 app.get('/reflow/tags', (req, res) => {
 	edge.func({
-		assemblyFile: 'server/reflow/rfcore.dll',
+		assemblyFile: DLL,
 		typeName: 'ReflowCore.Reflow.ReflowController',
 		methodName: 'GetTags',
 	})(null, (error, result) => {
@@ -53,7 +57,7 @@ app.get('/reflow/tags', (req, res) => {
 
 app.get('/reflow/options', (req, res) => {
 	edge.func({
-		assemblyFile: 'server/reflow/rfcore.dll',
+		assemblyFile: DLL,
 		typeName: 'ReflowCore.Reflow.ReflowController',
 		methodName: 'GetOptions',
 	})(null, (error, result) => {

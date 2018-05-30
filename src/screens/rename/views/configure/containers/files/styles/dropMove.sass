@@ -1,0 +1,55 @@
+.drop-container
+	width: 173.5px
+	height: 75px
+	float: left
+	position: relative
+
+	.drop
+		width: 150px
+		height: 50px
+		position: absolute
+		top: 12.5px
+		left: 11.75px
+		background-color: map-get($blue, 'light')
+		font-family: Esphimere
+		letter-spacing: 0.1em
+		font-size: 12px
+		text-align: center
+		line-height: 50px
+		text-transform: capitalize
+		color: #FFF
+		cursor: pointer
+		transition: 250ms transform ease-in-out
+
+
+		.drag-animation
+			background-color: map-get($blue, 'dark')
+			width: 0
+			height: 0
+			position: absolute
+			top: 50%
+			left: 50%
+			border-radius: 50%
+			transform: translate(-50%, -50%)
+			pointer-events: none
+			transition: 250ms all ease-in-out
+			i
+				text-align: center
+				line-height: 50px
+				visibility: hidden
+				opacity: 0
+				font-size: 50px
+				color: $yellow
+				transition: 350ms all ease-in
+
+			&.draggedOver, &.dropped
+				width: 150px
+				height: 50px
+				border-radius: 0
+
+			&.dropped
+				i
+					visibility: visible
+					opacity: 1
+					font-size: 20px
+				

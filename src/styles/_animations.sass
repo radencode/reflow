@@ -1,0 +1,50 @@
+.fade-enter
+  opacity: 0
+
+.fade-enter.fade-enter-active
+  opacity: 1
+  transition: opacity 300ms ease-in
+
+.fade-exit
+  opacity: 1
+
+.fade-exit.fade-exit-active
+  opacity: 0
+
+
+.slide-up-enter
+  opacity: 0
+  top: 200px
+
+.slide-up-enter.slide-up-enter-active
+  opacity: 1
+  top: 0
+  transition: 1s all ease-in-out
+
+.slide-up-exit
+  opacity: 1
+  top: 0
+
+.slide-up-exit.slide-up-exit-active
+  opacity: 0
+  top: -200px
+  transition: 1s all ease-in-out
+
+
+.slide-down-enter
+  opacity: 0
+  top: -200px
+
+.slide-down-enter.slide-down-enter-active
+  opacity: 1
+  top: 0px
+  transition: 1s all ease-in-out
+
+.slide-down-exit
+  opacity: 1
+  top: 0px
+
+.slide-down-exit.slide-down-exit-active
+  opacity: 0
+  top: 200px
+  transition: 1s all ease-in-out

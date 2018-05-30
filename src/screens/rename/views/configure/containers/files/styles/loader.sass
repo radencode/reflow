@@ -1,0 +1,34 @@
+#configure-files-loader
+	width: 700px
+	height: 350px
+
+	.spinner-loader
+		width: 100%
+		height: auto
+		position: absolute
+		top: 50%
+
+		.spinner-body
+			width: 20px
+			height: 20px
+			margin: auto
+			border: 5px solid map-get($blue, 'dark')
+			border-top: 5px solid $yellow
+			border-radius: 50%
+			animation: spinner-files 750ms infinite linear
+
+			@keyframes spinner-files
+				0%
+					transform: rotate(0deg)
+				100%
+					transform: rotate(360deg)
+
+		.loader-message
+			width: 100%
+			height: auto
+			padding-top: 15px
+			font-family: Esphimere
+			letter-spacing: 0.1em
+			font-size: 13px
+			text-align: center
+			color: #FFF

@@ -14,6 +14,8 @@ const setWindowParams = () => {
 	return new BrowserWindow({
 		width: WINDOW_WIDTH,
 		height: WINDOW_HEIGHT,
+		minWidth: WINDOW_WIDTH,
+		minHeight: WINDOW_HEIGHT,
 		frame: WINDOW_FRAME,
 		backgroundColor: WINDOW_BACKGROUND_COLOR,
 		thickFrame: WINDOW_THICK_FRAME,
@@ -26,9 +28,9 @@ const setWindowParams = () => {
 app.on('ready', () => {
 	let mainWindow = setWindowParams();
 	mainWindow.openDevTools({ detached: true });
-	BrowserWindow.addDevToolsExtension(
+	/*BrowserWindow.addDevToolsExtension(
 		'C:\\Users\\Jenster\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.1_0'
-	);
+	);*/
 	mainWindow.setResizable(true);
 	mainWindow.loadURL('http://localhost:3000/');
 });

@@ -1,0 +1,71 @@
+#configure-options
+	width: 250px
+	height: auto
+	position: absolute
+	top: 206px
+	right: 0px
+
+	#configure-options-name
+		width: 250px
+		height: 40px
+		background-color: $black
+		letter-spacing: 0.1em
+		font-family: Esphimere
+		line-height: 40px
+		text-align: center
+		font-size: 13px
+		color: #FFF
+
+	.opitons
+		width: 250px
+		height: 180px
+		overflow-y: scroll
+		position: relative
+
+		&::-webkit-scrollbar, &::-webkit-scrollbar-track
+			width: 4px
+			border: none
+			padding: 0
+			margin: 0
+			outline: 0
+
+		&::-webkit-scrollbar-thumb
+			background-color: map-get($blue, 'light')
+			border-radius: 30px
+
+		.options-list
+			width: auto
+			height: 180px
+			position: absolute
+			left: 50%
+			transform: translate(-50%, 0)
+
+			.initial-message
+				width: auto
+				height: 180px
+				text-align: center
+				font-family: Esphimere
+				letter-spacing: 0.1em
+				line-height: 180px
+				font-size: 12px
+				color: map-get($gray, 'light')
+				white-space: nowrap
+
+			.option-wrapper
+				width: auto
+				height: auto
+				padding-top: 20px			
+
+				.option
+					letter-spacing: 0.1em
+					font-family: Esphimere
+					font-size: 12px
+					color: #FFF
+
+@import './styles/checkBox.sass'
+@import './styles/checkList.sass'
+@import './styles/list.sass'
+@import './styles/numericBox.sass'
+@import './styles/textArea.sass'
+@import './styles/textBox.sass'
+@import './styles/toggle.sass'

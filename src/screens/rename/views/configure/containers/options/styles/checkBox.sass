@@ -1,0 +1,37 @@
+#configure-options
+	.option
+		&.checkbox
+			display: flex
+			width: auto
+			height: 24px
+
+			.checkbox-containter				
+				.checkbox-label
+					background-color: map-get($blue, 'dark')
+					display: block
+					width: 24px
+					height: 24px			
+					cursor: pointer
+
+					i
+						width: 24px
+						line-height: 24px
+						text-align: center
+						font-size: 18px
+						color: $yellow
+
+						&.on
+							opacity: 1
+							visibility: visible
+						
+						&.off
+							opacity: 0
+							visibility: hidden
+				
+				input
+					display: none
+			
+			.input-name
+				position: relative
+				left: 15px
+				line-height: 24px

@@ -1,0 +1,32 @@
+.drop-area
+	background-color: map-get($blue, 'main')
+	width: 700px
+	height: 350px
+	position: absolute
+	z-index: 100
+	bottom: 0
+	left: 0
+	opacity: 0
+	visibility: hidden		
+
+	&.open
+		opacity: 1
+		visibility: visible
+		transition: 250ms all ease-in-out
+
+		.drops
+			width: 704px
+			height: 300px
+			overflow-y: scroll
+			position: absolute
+			top: 0
+			left: 0
+			&::-webkit-scrollbar, &::-webkit-scrollbar-track
+				width: 4px
+				border: none
+				padding: 0
+				margin: 0
+				outline: 0
+			&::-webkit-scrollbar-thumb
+				background-color: map-get($blue, 'light')
+				border-radius: 30px

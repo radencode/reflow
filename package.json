@@ -5,13 +5,12 @@
 	"main": "./app/main.js",
 	"scripts": {
 		"start": "electron ./app/main.js",
-		"bundle": "set NODE_ENV=production && webpack --config ./build/webpack.production.babel.js",
+		"bundle": "webpack --mode=production --config ./webpack/webpack.production.babel.js",
 		"electron": "electron ./server/main.js",
 		"api-server": "nodemon ./server/server.js",
-		"clint-server": "set NODE_ENV=development && webpack-dev-server --config ./build/webpack.development.babel.js",
+		"clint-server": "webpack-dev-server --mode=development --config ./webpack/webpack.development.babel.js",
 		"dev": "concurrently \"npm run clint-server\" \" npm run api-server\" \" npm run electron\"",
-		"build":
-			"npm run bundle && electron-packager ./app Reflow --electron-version 1.8.2 --platform win32 --overwrite --asar true --icon ./src/app/icons/electron/icon.ico --out ./bin"
+		"build": "npm run bundle && electron-packager ./app Reflow --electron-version 1.8.2 --platform win32 --overwrite --asar true --icon ./src/icons/electron/icon.ico --out ./release"
 	},
 	"repository": {
 		"type": "git",
@@ -31,9 +30,10 @@
 		"react-dom": "^16.2.0",
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.2.2",
-		"react-transition-group": "^2.2.1",
+		"react-transition-group": "^2.3.1",
 		"react-virtualized": "^9.18.5",
-		"redux": "^3.7.2"
+		"redux": "^3.7.2",
+		"redux-promise-middleware": "^5.1.1"
 	},
 	"devDependencies": {
 		"axios": "^0.18.0",
@@ -60,7 +60,7 @@
 		"express": "^4.16.2",
 		"express-sanitizer": "^1.0.3",
 		"file-loader": "^1.1.6",
-		"html-webpack-plugin": "^2.30.1",
+		"html-webpack-plugin": "^3.2.0",
 		"node-sass": "^4.7.2",
 		"nodemon": "^1.15.1",
 		"progress-bar-webpack-plugin": "^1.10.0",
@@ -70,8 +70,9 @@
 		"style-loader": "^0.20.2",
 		"uglifyjs-webpack-plugin": "^1.2.0",
 		"url-loader": "^0.6.2",
-		"webpack": "^3.11.0",
-		"webpack-dev-server": "^2.11.1",
+		"webpack": "^4.8.3",
+		"webpack-cli": "^2.1.3",
+		"webpack-dev-server": "^3.1.4",
 		"webpack-merge": "^4.1.1"
 	}
 }

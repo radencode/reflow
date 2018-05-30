@@ -1,0 +1,56 @@
+#configure-options
+	.option
+		&.numericbox
+			display: flex
+			width: auto
+			height: 24px
+			
+			.input-name
+				width: auto
+				height: 24px
+				line-height: 24px
+				padding-right: 15px
+
+			.numericbox-container
+				display: flex
+
+				input::-webkit-inner-spin-button, input::-webkit-outer-spin-button
+					margin: 0
+					-webkit-appearance: none
+
+				button
+					background-color: map-get($blue, 'dark')
+					border: none
+					height: 24px					
+					width: 24px
+					margin: 0
+					padding: 0
+					outline: none
+					cursor: pointer
+
+					i
+						width: 20px
+						line-height: 20px
+						text-align: center
+						font-size: 18px
+						color: $yellow
+
+				.input-number
+					background-color: map-get($blue, 'dark')
+					width: 50px
+					height: 24px
+					border-top: none
+					border-right: 3px solid map-get($blue, 'main')
+					border-bottom: none
+					border-left: 3px solid map-get($blue, 'main')
+					letter-spacing: 0.1em
+					font-family: Esphimere
+					font-size: 12px
+					color: #FFF
+					text-align: center
+					outline: none
+					border-radius: 0
+					padding: 0
+					margin: 0
+					-webkit-appearance: none
+

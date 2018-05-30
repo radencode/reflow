@@ -14,6 +14,8 @@ const setWindowParams = () => {
 	return new BrowserWindow({
 		width: WINDOW_WIDTH,
 		height: WINDOW_HEIGHT,
+		minWidth: WINDOW_WIDTH,
+		minHeight: WINDOW_HEIGHT,
 		frame: WINDOW_FRAME,
 		backgroundColor: WINDOW_BACKGROUND_COLOR,
 		thickFrame: WINDOW_THICK_FRAME,
@@ -27,9 +29,6 @@ app.on('ready', () => {
 	let mainWindow = setWindowParams();
 	/************* REMOVE AFTER PRODUCTION *****************/
 	mainWindow.openDevTools({ detached: true });
-	BrowserWindow.addDevToolsExtension(
-		'C:\\Users\\Jenster\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.1.0_0'
-	);
 	/*****************************************************/
 	mainWindow.setResizable(true);
 	mainWindow.loadURL(`file://${__dirname}/index.html`);

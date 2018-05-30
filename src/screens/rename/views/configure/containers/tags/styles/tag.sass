@@ -1,0 +1,39 @@
+.tag
+	width: 250px
+	height: 30px
+	position: relative
+	display: flex
+	cursor: pointer
+	line-height: 30px
+
+	&:hover
+		background-color: map-get($blue, 'dark')
+
+	i
+		line-height: 30px
+		padding: 0 10px 0 20px
+		color: map-get($gray, 'light')
+
+	.tag-name
+		font-family: Esphimere
+		letter-spacing: 0.1em
+		font-size: 12px
+
+	.tag-counter
+		background-color: $yellow
+		width: 17px
+		height: 17px
+		position: absolute
+		top: 6.5px
+		right: 25px
+		border-radius: 50%
+		font-family: Esphimere
+		line-height: 17px
+		text-align: center
+		font-size: 11px
+		color: $black
+
+		&.show
+			display: block
+		&.hide
+			display: none

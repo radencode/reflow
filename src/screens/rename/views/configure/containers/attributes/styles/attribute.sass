@@ -1,0 +1,37 @@
+.attribute
+	background-color: map-get($blue, 'dark')
+	width: 128px
+	height: 30px
+	border-radius: 5px
+	font-family: Esphimere
+	margin-left: 20px
+	letter-spacing: 0.1em
+	font-size: 12px
+	text-align: center
+	line-height: 30px
+	text-transform: capitalize
+	color: #FFF
+	cursor: pointer
+	transition: 250ms transform ease-in-out
+
+	&:nth-child(1)
+		margin-left: 0px
+
+	&:hover
+		font-family: Esphimere-Bold
+		background-color: $yellow
+		color: $black
+
+	&.selected 
+		font-family: Esphimere-Bold
+		background-color: $yellow
+		color: $black
+
+	&.first
+		margin-left: 0
+
+	&.dragging
+		font-family: Esphimere
+		background-color: map-get($blue, 'dark')
+		color: #FFF
+		transform: scale(0)

@@ -1,0 +1,82 @@
+#configure-attributes   
+	display: flex
+	width: 700px   
+	height: 30px   
+	position: absolute   
+	bottom: 0 	
+	left: 0
+
+	.attribute-scroll
+		width: 64px
+		height: 30px
+		position: relative
+
+		.attribute-arrow
+			width: 28px
+			height: 28px
+			border-radius: 50%
+			border: 2px solid map-get($blue, 'dark')
+			cursor: pointer
+			position: absolute
+			top: 0
+
+			&:hover
+					background-color: map-get($blue, 'dark')
+
+			&.disable
+				border: 2px solid map-get($blue, 'dark')
+				opacity: 0.8
+				pointer-events: none
+
+			i
+				width: 28px
+				height: 28px
+				text-align: center
+				line-height: 28px
+				font-size: 22px
+				color: $yellow
+				transition: 250ms all ease-in	
+				
+			&.disable
+				i
+					opacity: 0.5
+					color: #FFF
+
+			&.right
+				right: 10px
+			&.left
+				left: 10px
+
+	.attributes
+		width: 572px
+		height: 30px
+		overflow: hidden
+		position: relative
+
+		.slider
+			display: flex
+			position: absolute
+			top: 0
+			transition: 250ms all linear
+
+			&.pos0, &.pos1, &.pos2, &.pos3, &.pos4
+				left: 0
+
+			@for $i from 5 through 50
+				&.pos#{$i}
+					left: -#{($i - 4) * 148}px
+
+			.attribute-info
+				width: 572px
+				height: 30px
+
+				h3
+					width: 100%
+					font-family: Esphimere
+					letter-spacing: 0.1em
+					font-size: 12px
+					line-height: 30px
+					text-align: center
+					color: map-get($gray, 'light')
+
+	@import './styles/attribute.sass'
