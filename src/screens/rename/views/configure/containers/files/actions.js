@@ -48,3 +48,15 @@ export function updateLoader(isLoading, message) {
 		},
 	};
 }
+
+export function setUnsavedFiles() {
+	return {
+		type: 'FILES_SET_UNSAVED',
+	};
+}
+
+export function clearUnsavedFiles() {
+	return {
+		type: 'FILES_CLEAR_UNSAVED',
+	};
+}

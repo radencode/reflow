@@ -5,6 +5,7 @@ const defaultState = {
 		isLoading: false,
 		message: 'Loading files...',
 	},
+	unsaved: false,
 };
 
 export default (state = defaultState, action) => {
@@ -58,6 +59,18 @@ export default (state = defaultState, action) => {
 
 	case 'FILES_LOADER_UPDATE':
 		return { ...state, loader: { isLoading: action.payload.isLoading, message: action.payload.message } };
+
+	case 'FILES_SET_UNSAVED':
+		return {
+			...state,
+			unsaved: true,
+		};
+
+	case 'FILES_CLEAR_UNSAVED':
+		return {
+			...state,
+			unsaved: false,
+		};
 
 	case 'DEFAULT_STATE':
 		return defaultState;

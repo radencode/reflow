@@ -2,6 +2,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+//Redux modules
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+//Actions
+import * as files_actions from 'screens/rename/views/configure/containers/files/actions';
+import * as alert_actions from 'shared/notifications/alert/actions';
+
 class Menu extends React.Component {
 	constructor() {
 		super();
@@ -13,6 +21,23 @@ class Menu extends React.Component {
 	}
 
 	navigate = path => {
+		if (this.props.store.files.unsaved) {
+			this.props.actions.alert.openAlert(
+				'All progress and configurations will be lost.',
+				'Are you sure you want to continute?',
+				[
+					{
+						label: 'Continue',
+						action: () => {
+							this.props.actions.files.clearUnsavedFiles();
+							this.props.history.push(path);
+						},
+					},
+					{ label: 'Cancel', action: false },
+				]
+			);
+			return;
+		}
 		this.props.history.push(path);
 	};
 
@@ -77,7 +102,24 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
+	actions: PropTypes.object.isRequired,
 	history: PropTypes.object.isRequired,
+	store: PropTypes.object.isRequired,
 };
 
-export default Menu;
+const mapStateToProps = state => {
+	return {
+		store: { files: state.files },
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		actions: {
+			files: bindActionCreators(files_actions, dispatch),
+			alert: bindActionCreators(alert_actions, dispatch),
+		},
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

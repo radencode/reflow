@@ -12,10 +12,30 @@ import Frame from './components/frame.jsx';
 import Step from './components/step.jsx';
 
 //Actions
+//Actions
+import * as alert_actions from 'shared/notifications/alert/actions';
+import * as files_actions from 'screens/rename/views/configure/containers/files/actions';
 import * as progressActions from './actions';
 
 class Progress extends React.Component {
 	browseAction = () => {
+		if (this.props.store.files.unsaved) {
+			this.props.actions.alert.openAlert(
+				'All progress and configurations will be lost.',
+				'Are you sure you want to continute?',
+				[
+					{
+						label: 'Continue',
+						action: () => {
+							this.props.actions.files.clearUnsavedFiles();
+							this.props.actions.progress.progressToBrowse('down');
+						},
+					},
+					{ label: 'Cancel', action: false },
+				]
+			);
+			return;
+		}
 		this.props.actions.progress.progressToBrowse('down');
 	};
 
@@ -51,13 +71,15 @@ Progress.propTypes = {
 };
 
 const mapStateToProps = state => {
-	return { store: { progress: state.progress } };
+	return { store: { progress: state.progress, files: state.files } };
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		actions: {
 			progress: bindActionCreators(progressActions, dispatch),
+			files: bindActionCreators(files_actions, dispatch),
+			alert: bindActionCreators(alert_actions, dispatch),
 		},
 	};
 };

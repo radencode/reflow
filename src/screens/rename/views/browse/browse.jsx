@@ -1,6 +1,8 @@
 //React modules
 import PropTypes from 'prop-types';
 import React from 'react';
+
+//Redux modules
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -47,6 +49,7 @@ class Browse extends React.Component {
 
 	handleConfigure = () => {
 		this.props.history.push('/app/rename/configure');
+		this.props.actions.files.setUnsavedFiles();
 		this.props.actions.progress.progressToConfigure('up');
 	};
 
