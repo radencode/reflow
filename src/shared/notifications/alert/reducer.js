@@ -1,10 +1,13 @@
 const defaultState = {
-	isOn: false,
+	isOn: true,
+	message: 'There are no changes made to the original files.', 
+	prompt: 'Please add at least one attribute before proceeding.',
+	buttons: [],
 };
 
 export default function reducer(state = defaultState, action) {
 	switch (action.type) {
-	case 'FADEOUT_ON':
+	case 'ALERT_UPDATE':
 		return {
 			...state,
 			isOn: action.payload,

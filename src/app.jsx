@@ -1,11 +1,11 @@
 //React modules
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 //Shared
+import Alert from 'shared/notifications/alert';
 import Navigation from 'shared/navigation';
 
 //Screens
@@ -20,6 +20,7 @@ import 'styles/main.sass';
 const App = ({ history, location }) => {
 	return (
 		<div id='root'>
+			<Alert/>
 			<Navigation history={history} />
 			<div id='viewer'>
 				<TransitionGroup style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -46,10 +47,4 @@ App.propTypes = {
 	location: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-	return {
-		fadeout: state.fadeout,
-	};
-};
-
-export default connect(mapStateToProps, null)(App);
+export default App;
