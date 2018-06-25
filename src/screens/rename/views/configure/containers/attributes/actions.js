@@ -1,24 +1,48 @@
-export function applyAttribute(id, name, options) {
+export function applyAttribute(tagId, tagType, name, options) {
 	return {
-		type: 'ATTRIBUTE_ADD',
+		type: 'ATTRIBUTE_DATA_ADD',
 		payload: {
-			id,
+			tagId,
+			tagType,
 			name,
 			options,
 		},
 	};
 }
 
-export function deleteAttribute(key) {
+export function deleteAttribute(id) {
 	return {
-		type: 'ATTRIBUTE_DELETE',
-		payload: key,
+		type: 'ATTRIBUTE_DATA_DELETE',
+		payload: id,
+	};
+}
+
+export function updateActiveId(id) {
+	return {
+		type: 'ATTRIBUTE_DATA_UPDATE_ACTIVE_ID',
+		payload: id,
+	};
+}
+
+export function updateOptions(id, options) {
+	return {
+		type: 'ATTRIBUTE_DATA_UPDATE_OPTIONS',
+		payload: {
+			id,
+			options,
+		},
+	};
+}
+
+export function updateIds() {
+	return {
+		type: 'ATTRIBUTE_DATA_UPDATE_IDS',
 	};
 }
 
 export function update(attributes) {
 	return {
-		type: 'ATTRIBUTE_LIST_UPDATE',
+		type: 'ATTRIBUTE_DATA_UPDATE',
 		payload: attributes,
 	};
 }
@@ -37,9 +61,15 @@ export function attributeHasBeenDropped(state) {
 	};
 }
 
-export function uptateScrollPosition(position) {
+export function updateScrollPosition(position) {
 	return {
 		type: 'ATTRIBUTE_SCROLL_POSITION_UPDATE',
 		payload: position,
+	};
+}
+
+export function clearData() {
+	return {
+		type: 'ATTRIBUTES_CLEAR_DATA',
 	};
 }
