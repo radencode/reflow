@@ -39,15 +39,20 @@ class Attribute extends React.Component {
 		evt.preventDefault();
 	};
 
+	handleClick = () => {
+		this.props.showOptions(this.props.id, this.props.name, this.props.tagType, this.props.options);
+		this.props.updateActiveId(this.props.id);
+	};
+
 	render() {
 		return (
 			<div
-				class={`attribute ${this.state.stage}`}
+				class={`attribute ${this.state.stage} ${this.props.isActive && this.props.isOptions ? 'selected' : ''}`}
 				data-id={this.props.id}
 				draggable={true}
 				onDragStart={this.handleDragStart}
 				onDragEnd={this.handleDragEnd}
-				onClick={this.props.showOptions.bind(this, this.props.name, this.props.options)}
+				onClick={this.handleClick}
 			>
 				{this.props.name}
 			</div>
@@ -57,12 +62,16 @@ class Attribute extends React.Component {
 
 Attribute.propTypes = {
 	id: PropTypes.number.isRequired,
+	isActive: PropTypes.bool.isRequired,
+	isOptions: PropTypes.bool.isRequired,
 	hasAttributeBeenDropped: PropTypes.bool.isRequired,
 	hideDragArea: PropTypes.func.isRequired,
 	name: PropTypes.string.isRequired,
+	tagType: PropTypes.string.isRequired,
 	options: PropTypes.array.isRequired,
 	showDragArea: PropTypes.func.isRequired,
 	showOptions: PropTypes.func.isRequired,
+	updateActiveId: PropTypes.func.isRequired,
 	updateAttributeHasBeenDropped: PropTypes.func.isRequired,
 };
 
