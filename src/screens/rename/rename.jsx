@@ -14,8 +14,8 @@ import Progress from 'shared/progress';
 //Views
 import Browse from 'screens/rename/views/browse';
 import Configure from 'screens/rename/views/configure';
-import Finalize from 'screens/rename/views/finalize/container.jsx';
-import Options from 'screens/rename/views/options/container.jsx';
+import Finalize from 'screens/rename/views/finalize';
+import Settings from 'screens/rename/views/settings';
 
 //Actions
 import * as progressActions from 'shared/progress/actions';
@@ -33,24 +33,26 @@ class Rename extends React.Component {
 		this.props.actions.progress.setDefault();
 	}
 
-	childFactoryCreator = classNames => {
-		child => React.cloneElement(child, { classNames });
-	};
+	childFactoryCreator = animation => child => React.cloneElement(child, { classNames: animation });
 
 	render() {
 		return (
 			<div id='rename'>
-				<TransitionGroup childFactory={this.childFactoryCreator(this.props.progress.animation)}>
-					<CSSTransition key={this.props.location.pathname} timeout={1000} classNames={this.props.progress.animation}>
+				<TransitionGroup childFactory={this.childFactoryCreator(this.props.store.progress.animation)}>
+					<CSSTransition
+						key={this.props.location.pathname}
+						timeout={500}
+						classNames={this.props.store.progress.animation}
+					>
 						<Switch location={this.props.location}>
 							<Route path='/app/rename/browse' render={props => <Browse {...props} />} />
 							<Route path='/app/rename/configure' render={props => <Configure {...props} />} />
-							<Route path='/app/rename/options' render={props => <Options {...props} />} />
+							<Route path='/app/rename/settings' render={props => <Settings {...props} />} />
 							<Route path='/app/rename/finalize' render={props => <Finalize {...props} />} />
 						</Switch>
 					</CSSTransition>
 				</TransitionGroup>
-				<Progress />
+				<Progress history={this.props.history} />
 			</div>
 		);
 	}
@@ -59,11 +61,12 @@ class Rename extends React.Component {
 Rename.propTypes = {
 	actions: PropTypes.object.isRequired,
 	location: PropTypes.object.isRequired,
-	progress: PropTypes.object.isRequired,
+	history: PropTypes.object.isRequired,
+	store: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => {
-	return { progress: state.progress };
+	return { store: { progress: state.rename.progress } };
 };
 
 const mapDispatchToProps = dispatch => {
