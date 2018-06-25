@@ -12,7 +12,7 @@ const Selector = ({ stage, handleConfigure, handleBrowse }) => {
 	return (
 		<div id='selector'>
 			<Spinner isSpinning={stage === 'loading' ? true : false} />
-			<Folder match={stage === 'browse' ? true : false} position={{ top: '-37.5px', left: '157.5px' }} extention='js' />
+			<Folder match={stage === 'browse' ? true : false} extention='js' />
 			<Folder
 				match={stage === 'browse' ? true : false}
 				position={{ top: '147.5px', right: '-27.5px' }}
