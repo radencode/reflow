@@ -7,7 +7,7 @@ class Tag extends React.Component {
 		return (
 			<div
 				class='tag'
-				onDoubleClick={this.props.applyTag.bind(this, this.props.id, this.props.name, this.props.options)}
+				onClick={this.props.applyTag.bind(this, this.props.id, this.props.type, this.props.name, this.props.options)}
 			>
 				<i class='material-icons'>style</i>
 				<h2 class='tag-name'>{this.props.name}</h2>
@@ -23,6 +23,7 @@ Tag.propTypes = {
 	id: PropTypes.number.isRequired,
 	name: PropTypes.string.isRequired,
 	options: PropTypes.array.isRequired,
+	type: PropTypes.string.isRequired,
 };
 
 export default Tag;

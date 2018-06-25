@@ -1,25 +1,25 @@
 const defaultState = {
-	list: [],
+	data: [],
 };
 
 export default (state = defaultState, action) => {
 	switch (action.type) {
-	case 'TAGS_LIST_UPDATE':
-		return { ...state, list: action.payload };
+	case 'TAGS_DATA_UPDATE':
+		return { ...state, data: action.payload };
 
-	case 'TAG_COUNT_ADD':
+	case 'TAG_DATA_COUNT_ADD':
 		return {
 			...state,
-			list: state.list.map(tag => (tag.Id === action.payload ? { ...tag, count: tag.count + 1 } : tag)),
+			data: state.data.map(tag => (tag.Id === action.payload ? { ...tag, count: tag.count + 1 } : tag)),
 		};
 
-	case 'TAG_COUNT_SUBTRACT':
+	case 'TAG_DATA_COUNT_SUBTRACT':
 		return {
 			...state,
-			list: state.list.map(tag => (tag.Id === action.payload ? { ...tag, count: tag.count - 1 } : tag)),
+			data: state.data.map(tag => (tag.Id === action.payload ? { ...tag, count: tag.count - 1 } : tag)),
 		};
 
-	case 'DEFAULT_STATE':
+	case 'TAG_CLEAR_DATA':
 		return defaultState;
 
 	default:
