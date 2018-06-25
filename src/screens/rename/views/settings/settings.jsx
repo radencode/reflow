@@ -93,7 +93,7 @@ class Settings extends React.Component {
 			location: [
 				{
 					action: () => {
-						this.props.actions.settings.setExistsOption('none', 0);
+						this.props.actions.settings.setExistsOption('none', 1);
 						this.props.actions.settings.setLocationOption('inplace', 0);
 						this.props.actions.settings.setLocationOptionPath(this.props.store.files.path);
 						this.setState({ ...this.state, panel: 'backup' });
