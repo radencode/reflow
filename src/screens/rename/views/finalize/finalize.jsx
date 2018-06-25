@@ -27,11 +27,12 @@ import * as tags_actions from 'screens/rename/views/configure/containers/tags/ac
 import APIController from 'lib/reflow';
 
 class Settings extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = { loading: true, loaded: false, openFolder: false, message: 'Preparing files...', progress: 0 };
 		this.loadedTimeout = null;
 		this.openFolderTimeout = null;
+		this.openFolderLocation = props.store.files.path;
 		this.progressInterval = null;
 		this.reflow = new APIController();
 	}
@@ -78,7 +79,6 @@ class Settings extends React.Component {
 			if (this.progressInterval) clearInterval(this.progressInterval);
 			this.props.actions.alert.openAlert(
 				'There has been an error in renaming files',
-				'Please try again or log error.',
 				[
 					{
 						label: 'Log Error',
@@ -117,7 +117,7 @@ class Settings extends React.Component {
 	};
 
 	handleOpenInFolder = () => {
-		shell.openItem(this.props.store.files.path);
+		shell.openItem(this.openFolderLocation);
 	};
 
 	getProgress = () => {
