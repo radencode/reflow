@@ -1,0 +1,109 @@
+.control-button
+  width: 12px
+  height: 12px
+  border-radius: 50%
+  position: relative
+  float: left
+  -webkit-app-region: no-drag
+
+
+  &.minimize
+    background-color: #FFBD2E
+    margin-left: 8px
+
+    .icon
+      background-color: #995700
+      width: 1px
+      height: 8px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform-origin: center
+      transform: translate(-50%, -50%) rotate(90deg)
+
+  &.fullscreen
+    background-color: #29CB42
+    margin-left: 8px
+
+    .icon
+      background-color: #016400
+      width: 6px
+      height: 6px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+      &:after
+        content: ''
+        display: block
+        background-color: #29CB42
+        width: 10px
+        height: 2px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform-origin: center
+        transform: translate(-50%, -50%) rotate(45deg)
+    
+  &.restore
+    background-color: #29CB42
+    margin-left: 8px
+
+    .icon
+      width: 0
+      height: 0
+      border-top: 3px solid #016400
+      border-right: 3px solid transparent
+      border-bottom: 3px solid #016400
+      border-left: 3px solid transparent
+      position: absolute
+      top: 50%
+      left: 50%
+      transform-origin: center
+      transform: translate(-50%, -50%) rotate(45deg)
+
+      &:after
+        content: ''
+        display: block
+        background-color: #29CB42
+        width: 10px
+        height: 1px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform-origin: center
+        transform: translate(-50%, -50%)
+
+  &.exit
+    background-color: #FF5F58
+
+    .icon
+      background-color: #4D0000
+      width: 1px
+      height: 8px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform-origin: center
+      transform: translate(-50%, -50%) rotate(45deg)
+
+      &:after
+        background-color: #4D0000
+        content: ''
+        display: block
+        width: 1px
+        height: 8px
+        position: absolute
+        transform-origin: center
+        transform: rotate(-90deg)
+
+  .icon
+    &.visible
+      visibility: visible
+    &.hidden
+      visibility: hidden
+  
+  &.disabled
+    background-color: #DCDCDC
+    pointer-events: none
