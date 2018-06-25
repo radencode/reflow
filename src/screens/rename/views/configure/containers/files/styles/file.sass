@@ -19,7 +19,8 @@
       font-size: 25px	
 
       i
-        line-height: 51px
+        font-size: 19px	
+        line-height: 50px
 
       &.checked > i
         color: $yellow
@@ -46,7 +47,48 @@
       color: $black
 
   .file-original, .file-new
-    width: 210px
+    width: 200px
+    padding-right: 10px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+  .file-size
+    width: 80pxidden
+    text-overflow: ellipsis
 
   .file-size
     width: 80px
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+  .file
+    height: 60px
+    line-height: 60px
+    font-size: 13px
+    &:hover
+      background-color: map-get($blue, 'dark')
+    .file-select
+      width: 100px
+      .file-check
+        padding-left: 30px
+
+        i
+          font-size: 22px	
+          line-height: 58px
+    .file-type
+      span
+        width: 50px
+        height: 18px
+        margin-top: 21px
+        margin-left: 4px
+    .file-original, .file-new
+      width: 285px
+
+    .file-size
+      width: 90px
+
+
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+    .file
+      .file-original, .file-new
+        width: 370px

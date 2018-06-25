@@ -1,0 +1,82 @@
+.open-in-folder
+	position: absolute
+	top: 40%
+	left: 50%
+	transform: translate(-50%,-50%)
+
+	.svg-open-in-folder
+		width: 370px
+		height: 370px					
+
+	.circle-open-in-folder
+		stroke: map-get($blue, 'dark')
+		stroke-width: 60px
+		stroke-dashoffset: 973.89
+		transition: 500ms all ease-in-out
+
+		&.open
+			stroke-dashoffset: 0
+
+	.folder-button
+		background-color: map-get($blue, 'main')
+		width: 250px
+		height: 250px
+		position: absolute
+		top: 60px
+		left: 60px
+		border-radius: 50%
+		cursor: pointer
+		transition: 500ms all ease-in-out
+		opacity: 0
+		visibility: hidden
+
+		&.open
+			opacity: 1
+			visibility: visible
+
+		&:hover
+			background-color: map-get($blue, 'light')
+
+		.folder-button-icon
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+
+			i
+				width: 100%
+				text-align: center
+				font-size: 50px
+				color: $yellow
+				padding-bottom: 10px
+
+			.folder-button-label
+				text-align: center
+				font-family: Esphimere
+				font-size: 15px
+				letter-spacing: 0.1em
+				color: #FFF		
+
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.open-in-folder
+		top: 40%
+		.svg-open-in-folder
+			width: 430px
+			height: 430px
+		.circle-open-in-folder
+			stroke-width: 70px
+			stroke-dashoffset: 1130.97
+			&.small
+				display: none
+		.folder-button
+			width: 290px
+			height: 290px
+			top: 70px
+			left: 70px
+			.folder-button-icon
+				i
+					font-size: 55px
+					padding-bottom: 10px
+				.folder-button-label
+					font-size: 16px

@@ -1,0 +1,45 @@
+.setting
+	width: 100%
+	height: auto
+	position: relative
+	top: 50%
+	transform: translate(0, -50%)
+		
+	.number-label
+		background-color: $yellow
+		width: 35px
+		height: 35px
+		margin: auto
+		font-family: Esphimere-Bold
+		border-radius: 50%
+		line-height: 35px
+		font-size: 14wpx
+		text-align: center
+		color: map-get($blue, 'dark')
+
+	.prompt
+		width: 100%
+		margin-top: 50px
+		font-size: 16px
+		text-align: center
+		color: #ffffff
+		letter-spacing: 0.2em
+
+	.options-container
+		display: flex
+		justify-content: center
+		margin-top: 80px
+		padding-bottom: 30px
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.setting			
+		.number-label
+			width: 50px
+			height: 50px
+			line-height: 50px
+			font-size: 18px
+		.prompt
+			font-size: 18px
+		.options-container
+			margin-top: 100px
+			padding-bottom: 50px

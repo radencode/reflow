@@ -53,3 +53,27 @@
 					opacity: 1
 					font-size: 20px
 				
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.drop-container
+		width: 220px
+		.drop
+			width: 190px
+			left: 15px
+			font-size: 13px
+			.drag-animation
+				&.draggedOver, &.dropped
+					width: 190px
+				&.dropped
+					i
+						font-size: 25px
+					
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+		.drop-container
+			width: 262.5px
+			.drop
+				width: 225px
+				left: 18.75px
+				.drag-animation
+					&.draggedOver, &.dropped
+						width: 225px
+			

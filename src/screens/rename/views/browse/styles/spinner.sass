@@ -1,4 +1,6 @@
 .spinner
+  width: 370px
+  height: 370px
   position: absolute
   top: 0
   left: 0
@@ -36,3 +38,24 @@
         stroke-dashoffset: 0
       100%
         stroke-dashoffset: -973.89
+
+@media screen and (min-width: 1600px) and (min-height: 880px)
+  .spinner
+    width: 430px
+    height: 430px
+    .background
+      stroke-width: 70px
+      &.small
+        display: none      
+    .loader
+      stroke-width: 70px
+      stroke-dashoffset: 1130.97
+      &.small
+        display: none
+      @keyframes loader
+        0%
+          stroke-dashoffset: 1130.97
+        50%
+          stroke-dashoffset: 0
+        100%
+          stroke-dashoffset: -1130.97

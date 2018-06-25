@@ -1,0 +1,132 @@
+.settings
+	.setting-container
+		width: 100%
+		height: 100%
+		.finalize
+			width: 100%
+			height: auto
+			position: relative
+			top: 50%
+			transform: translate(0, -50%)
+
+			.verify-container
+				width: 232px
+				height: auto
+				margin: auto
+				padding-top: 50px
+
+				.verify
+					width: 230px
+					height: 35px
+					position: relative
+					border: 1px solid map-get($blue, 'light')
+					text-align: center
+					line-height: 35px
+					font-size: 13px
+					cursor: pointer
+					margin-bottom: 20px
+
+					.option-type
+						color: #ffffff
+
+					.value
+						color: $yellow
+
+					.edit-option
+						background-color: map-get($blue, 'light')
+						width: 230px
+						height: 35px
+						position: absolute
+						top: 0
+						left: 0
+						visibility: hidden
+
+					&:hover > .edit-option
+						visibility: visible
+
+			.next-to-finalize
+				width: 250px
+				height: 30px
+				margin: 50px auto
+
+				.next-button
+					background-color: $yellow
+					width: 180px
+					height: 30px
+					position: absolute
+					left: 50%
+					transform: translate(-50%, 0)
+					cursor: pointer
+
+					i
+						width: 30px
+						height: 30px
+						position: absolute
+						top: 0
+						text-align: center
+						line-height: 30px
+						color: map-get($blue, 'dark')
+						font-size: 25px
+						transition: 250ms all ease-in-out 						
+						&:nth-child(1)
+							left: 10px
+							transform: rotate(-90deg)
+						&:nth-child(3)
+							right: 10px
+							transform: rotate(90deg)
+
+					h2
+						width: 100%
+						height: 100%
+						line-height: 30px
+						text-align: center
+						font-family: Esphimere-Bold
+						color: map-get($blue, 'dark')
+						text-transform: uppercase
+						font-size: 12px
+						letter-spacing: 0.2em
+
+					&:hover > i
+						transform: rotate(0deg)
+
+
+
+		@import './styles/option.sass'
+		@import './styles/panel.sass'
+		@import './styles/setting.sass'
+
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.settings
+		.setting-container
+			.finalize
+				.verify-container
+					width: 262px
+					padding-top: 70px
+					.verify
+						width: 260px
+						height: 55px
+						line-height: 55px
+						font-size: 16px
+						margin-bottom: 30px
+						&:last-child
+							margin-bottom: 80px
+						.edit-option
+							width: 260px
+							height: 55px
+				.next-to-finalize
+					width: 300px
+					height: 35px
+					.next-button
+						background-color: $yellow
+						width: 200px
+						height: 35px
+						i
+							width: 35px
+							height: 35px
+							line-height: 35px
+							font-size: 27px				
+						h2
+							line-height: 35px
+							font-size: 13px
+							letter-spacing: 0.15em

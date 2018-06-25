@@ -2,8 +2,8 @@
   height: 100%
 
   .text
-    height: 100%
-    display: flex							
+    display: inline-block
+    height: 100%						
     font-family: Esphimere
     cursor: pointer
     color: map-get($gray, 'light')
@@ -16,6 +16,7 @@
       
 
     .name
+      float: left
       font-size: 13px	
       text-transform: capitalize							
       padding-right: 7px
@@ -25,6 +26,7 @@
         color: #FFF			
 
     .icon
+      float: left
       font-size: 15px	
 
       i
@@ -36,7 +38,7 @@
       &.down
         color: $yellow
         transform: rotate(180deg)
-        transform-origin: 10px 24px
+        transform-origin: 10px 23.5px
           
   &.select
     padding-left: 15px
@@ -50,3 +52,25 @@
 
   &.original, &.new
     width: 210px
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+  .sort
+    .text       
+      .name
+        font-size: 14px							
+        line-height: 50px
+      .icon
+        font-size: 19px	
+        i
+          line-height: 53px
+        &.down
+          transform-origin: 10px 25.5px
+    &.size
+      width: 90px
+    &.original, &.new
+      width: 295px
+
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+  .sort
+    &.original, &.new
+      width: 380px

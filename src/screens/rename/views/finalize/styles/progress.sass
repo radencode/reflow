@@ -1,0 +1,90 @@
+.renaming-progess
+	width: 700px
+	height: 25px
+	position: absolute
+	left: 50%
+	bottom: 20%
+	transform: translate(-50%, 0)
+
+	.full-bar-progress
+		background-color: map-get($blue, 'dark')
+		width: 700px
+		height: 25px
+		border-radius: 25px
+		position: absolute
+		overflow: hidden
+		top: 0
+		left: 0
+
+		.load-bar
+			background-color: $yellow
+			width: 0
+			height: 25px
+			transition: 350ms all ease-in-out
+
+	.label-container
+		width: 0
+		height: 25px
+		position: absolute
+		top: -35px
+		left: 0
+		transition: 350ms all ease-in-out
+
+		.progress-label
+			background-color: map-get($blue, 'dark')
+			width: 50px
+			height: 18px
+			border-radius: 5px
+			position: absolute
+			top: 0
+			left: 100%
+			transform: translate(-50%, 0)
+
+			h2
+				width: 100%
+				font-family: Esphimere-Bold
+				text-align: center
+				line-height: 18px
+				font-size: 10px
+				color: #FFF
+				
+			.label-arrow
+				background-color: map-get($blue, 'dark')
+				width: 10px
+				height: 10px
+				position: absolute
+				bottom: -5px
+				left: 50%
+				transform: translate(-50%, 0) rotate(45deg)
+				z-index: -1
+
+	.progress-stage
+		width: 100%
+		position: absolute
+		bottom: -35px
+
+		h1
+			width: 100%
+			letter-spacing: 0.15em
+			text-align: center
+			font-size: 11px
+
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.renaming-progess
+		width: 900px
+		.full-bar-progress
+			background-color: map-get($blue, 'dark')
+			width: 900px
+		.label-container
+			top: -40px
+			.progress-label
+				width: 60px
+				height: 22px
+				h2
+					line-height: 22px
+					font-size: 12px
+		.progress-stage
+			bottom: -40px
+			h1
+				font-size: 12px

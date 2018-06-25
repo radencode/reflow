@@ -54,10 +54,11 @@
 					height: auto
 					list-style: none
 					padding: 0
-					margin: 0
+					margin: 0					
 
 					&.open
 						display: block
+						z-index: 100
 					&.closed
 						display: none			
 					
@@ -80,4 +81,37 @@
 						&:hover
 							background-color: map-get($blue, 'dark')
 
-		
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	#configure-options
+		.option
+			&.droplist
+				height: 30px
+				.styled-select
+					width: 220px
+					height: 30px
+					.styled-header
+						width: 180px
+						height: 30px
+						padding: 0 25px 0 10px
+						line-height: 30px
+						font-size: 13px
+						i
+							width: 30px
+							height: 30px		
+							line-height: 30px			
+							font-size: 23px
+					.styled-options
+						width: 209px
+						position: absolute
+						top: 30px
+						border-right: 3px solid map-get($blue, 'dark')
+						border-bottom: 3px solid map-get($blue, 'dark')
+						border-left: 3px solid map-get($blue, 'dark')	
+						.styled-option
+							width: 204px
+							height: 25px
+							padding-left: 5px
+							line-height: 25px
+							font-size: 12px	
+
+			

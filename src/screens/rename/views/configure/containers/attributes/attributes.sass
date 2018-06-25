@@ -80,3 +80,54 @@
 					color: map-get($gray, 'light')
 
 	@import './styles/attribute.sass'
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	#configure-attributes   
+		width: 880px   
+		height: 35px   
+		.attribute-scroll
+			width: 55px
+			height: 35px
+			.attribute-arrow
+				width: 31px
+				height: 31px
+				i
+					width: 31px
+					height: 31px
+					line-height: 31px
+					font-size: 25px
+				&.right
+					right: 0
+				&.left
+					left: 0
+		.attributes
+			width: 770px
+			height: 35px
+			overflow: hidden
+			position: relative
+			.slider
+				@for $i from 5 through 50
+					&.pos#{$i}
+						left: -#{($i - 4) * 200}px
+
+				.attribute-info
+					width: 770px
+					height: 35px
+					h3
+						font-size: 13px
+						line-height: 35px
+	
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+	#configure-attributes   
+		width: 1050px
+		.attribute-scroll
+			width: 70px   
+		.attributes
+			width: 910px
+			.slider
+				@for $i from 5 through 50
+					&.pos#{$i}
+						left: -#{($i - 4) * 235}px
+				.attribute-info
+					width: 910px
+	

@@ -51,3 +51,25 @@
 				visibility: visible
 				opacity: 1
 				font-size: 20px
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.delete-drop
+		width: 186px
+		height: 46px
+		bottom: -25px
+		font-size: 13px
+		i
+			font-size: 30px
+		.drag-animation
+			&.draggedOver, &.dropped
+				width: 190px
+			&.dropped
+				i
+					font-size: 25px
+
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+	.delete-drop
+		width: 221px
+		.drag-animation
+			&.draggedOver, &.dropped
+				width: 225px

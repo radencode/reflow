@@ -4,15 +4,31 @@
   position: absolute
   transition: all 500ms ease
 
+  &:nth-child(2)
+    top: 0
+    left: 50%
+
+  &:nth-child(3)
+    top: 50%
+    left: 100%
+
+  &:nth-child(4)
+    top: 100%
+    left: 50%
+
+  &:nth-child(5)
+    top: 50%
+    left: 0
+
   &.active
     opacity: 1
     visibility: visible
-    transform: scale(1)
+    transform: translate(-50%, -50%) scale(1)
 
   &.inactive
     opacity: 0
     visibility: hidden
-    transform: scale(0)
+    transform: translate(-50%, -50%) scale(0)
 
   svg
     position: absolute
@@ -37,3 +53,8 @@
     text-transform: uppercase
     letter-spacing: 0.1em
     color: $yellow
+
+@media screen and (min-width: 1600px) and (min-height: 880px)
+  .folder
+    &.active
+      transform: translate(-50%, -50%) scale(1.1)

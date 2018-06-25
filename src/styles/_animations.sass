@@ -15,11 +15,12 @@
 .slide-up-enter
   opacity: 0
   top: 200px
+  transition: 250ms all ease-in-out
+  transition-delay: 250ms
 
 .slide-up-enter.slide-up-enter-active
   opacity: 1
-  top: 0
-  transition: 1s all ease-in-out
+  top: 0  
 
 .slide-up-exit
   opacity: 1
@@ -28,17 +29,18 @@
 .slide-up-exit.slide-up-exit-active
   opacity: 0
   top: -200px
-  transition: 1s all ease-in-out
+  transition: 250ms all ease-in-out
 
 
 .slide-down-enter
   opacity: 0
   top: -200px
+  transition: 250ms all ease-in-out
+  transition-delay: 250ms
 
 .slide-down-enter.slide-down-enter-active
   opacity: 1
-  top: 0px
-  transition: 1s all ease-in-out
+  top: 0px  
 
 .slide-down-exit
   opacity: 1
@@ -47,4 +49,4 @@
 .slide-down-exit.slide-down-exit-active
   opacity: 0
   top: 200px
-  transition: 1s all ease-in-out
+  transition: 250ms all ease-in-out

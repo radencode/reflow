@@ -1,0 +1,24 @@
+.panel
+	width: 800px
+	height: 450px
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+	&.active
+		opacity: 1
+		visibility: visible
+		transition: 300ms opacity ease-in-out
+		transition-delay: 300ms
+
+	&.inactive
+		opacity: 0
+		visibility: hidden
+		transition: 300ms all ease-in-out
+		transition-delay: 0
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.panel
+		width: 1100px
+		height: 650px

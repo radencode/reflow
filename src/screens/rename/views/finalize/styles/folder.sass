@@ -1,0 +1,165 @@
+.folder-animation-container
+	width: 128px
+	height: 78.51px
+	position: absolute
+	top: 40%
+	left: 50%
+	transform: translate(-50%,-50%)
+	opacity: 0
+	visibility: hidden
+	transition: 350ms ease-in-out
+
+	&.loading
+		opacity: 1
+		visibility: visible
+
+	#svg-folder-animation-cover
+		width: 128px
+		height: 78.51px
+		position: absolute
+		top: 0
+		left: 0
+
+		#polygon-folder-animation-cover
+			fill: $yellow
+
+	#svg-folder-animation-back
+		width: 51.2px
+		height: 31.4px
+		position: absolute
+		top: -16px
+		left: 5px
+
+		#polygon-folder-animation-back
+			fill: $yellow
+			opacity: 0.8
+
+	.folder-paper
+		background-color: map-get($blue, 'dark')
+		width: 120px
+		height: 70px
+		border-radius: 5px
+		position: absolute
+		font-family: Esphimere-Bold
+		text-align: center
+		line-height: 70px
+		font-size: 20px
+		color: $yellow
+		animation: folder-animation 2s ease-in-out infinite
+		animation-delay: 250ms
+
+		&.white
+			color: map-get($blue, 'dark')
+
+	@keyframes folder-animation
+		0%
+			opacity: 0
+			top: -150px
+			left: -100px
+			transform: rotate(-90deg)
+			transform-origin: bottom left
+		20%
+			opacity: 1
+			transform: rotate(0deg)
+			left: 4.25px
+		50%			
+			top: -4px
+			left: 4.25px
+			transform: rotate(0deg)
+		80%
+			opacity: 1
+			transform: rotate(0deg)
+			left: 4.25px
+		100%
+			opacity: 0
+			top: -150px
+			left: 100px
+			transform: rotate(90deg)
+			transform-origin: bottom right
+
+	.folder-label
+		width: 128px
+		height: 78.51px
+		position: absolute
+		top: 0
+		left: 0
+		font-family: Esphimere-Bold
+		text-align: center
+		line-height: 78px
+		font-size: 20px
+		color: $black
+
+		&.yellow
+			color: $yellow
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.folder-animation-container
+		width: 172px
+		height: 110px
+		#svg-folder-animation-cover
+			width: 172px
+			height: 110px
+		#svg-folder-animation-back
+			width: 73.41px
+			height: 27.97px
+			top: -12px
+		.folder-paper
+			width: 164px
+			height: 102px
+			line-height: 102px
+			font-size: 23px
+		.folder-label
+			width: 172px
+			height: 110px
+			line-height: 110px
+			font-size: 23px
+
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+	.folder-animation-container
+		width: 206px
+		height: 132px
+		top: 45%
+		#svg-folder-animation-cover
+			width: 206px
+			height: 132px
+		#svg-folder-animation-back
+			width: 90.24px
+			height: 33.56px
+			top: -15px
+		.folder-paper
+			width: 198px
+			height: 124px
+			line-height: 124px
+			font-size: 25px
+			
+		@keyframes folder-animation
+			0%
+				opacity: 0
+				top: -200px
+				left: -100px
+				transform: rotate(-90deg)
+				transform-origin: bottom left
+			20%
+				opacity: 1
+				transform: rotate(0deg)
+				left: 4.25px
+			50%			
+				top: -4px
+				left: 4.25px
+				transform: rotate(0deg)
+			80%
+				opacity: 1
+				transform: rotate(0deg)
+				left: 4.25px
+			100%
+				opacity: 0
+				top: -200px
+				left: 100px
+				transform: rotate(90deg)
+				transform-origin: bottom right
+
+		.folder-label
+			width: 206px
+			height: 132px
+			line-height: 132px
+			font-size: 25px

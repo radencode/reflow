@@ -1,0 +1,43 @@
+.option
+	width: 110px
+	height: 110px
+	margin-left: 30px
+	border: 1px solid map-get($blue, 'light')
+	transition: 350ms hover ease-in-out
+	cursor: pointer
+
+	&.active
+		border: 1px solid $yellow	
+
+	&:first-child
+		margin-left: 0px
+
+	&:hover
+		background-color: map-get($blue, 'light')
+
+	i
+		width: 100%
+		text-align: center
+		line-height: 70px
+		font-size: 50px
+		color: $yellow
+
+	.label
+		width: 100%
+		text-align: center
+		line-height: 35px
+		font-size: 13px
+		color: #ffffff
+
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.option
+		width: 160px
+		height: 160px
+		margin-left: 50px
+		i
+			line-height: 90px
+			font-size: 65px
+		.label
+			line-height: 55px
+			font-size: 16px

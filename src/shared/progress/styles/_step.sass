@@ -59,14 +59,17 @@
     left: 50px
     
     .link-label
-      display: block
       line-height: 34px
       font-size: 14px
       text-transform: capitalize
       color: map-get($gray, 'light')
+      cursor: pointer
 
       &.current
         color: $yellow
+        pointer-events: none
+
+      &.disable
         pointer-events: none
     
       &:hover

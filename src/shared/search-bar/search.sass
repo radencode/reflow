@@ -4,34 +4,58 @@
 	display: flex
 
 	&.files
-			width: 550px
+		width: 550px
 
 	&.tags
-			width: 250px
+		width: 250px
 			
 	.search-icon
-			i
-					width: 40px
-					height: 40px
-					font-size: 25px
-					line-height: 40px
-					text-align: center
-					color: $yellow
+		i
+			width: 40px
+			height: 40px
+			font-size: 25px
+			line-height: 40px
+			text-align: center
+			color: $yellow
 
 	.search-text
-			width: 100%
-			height: 40px
-			outline: none
-			background-color: $black
-			font-size: 13px
-			letter-spacing: 0.1em
-			color: #FFF
-			font-family: Esphimere
-			border: none
-			margin: 0
-			padding: 0 10px 0 0
+		width: 100%
+		height: 40px
+		outline: none
+		background-color: $black
+		font-size: 13px
+		letter-spacing: 0.1em
+		color: #FFF
+		font-family: Esphimere
+		border: none
+		margin: 0
+		padding: 0 10px 0 0
 
+		&::-webkit-input-placeholder
+			color: #FFF
+			font-size: 13px
+			font-family: Esphimere
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+	.search
+		height: 45px
+		&.files
+			width: 730px
+		&.tags
+			width: 300px				
+		.search-icon
+			i
+				width: 45px
+				height: 45px
+				font-size: 28px
+				line-height: 45px
+		.search-text
+			height: 45px
+			font-size: 14px
 			&::-webkit-input-placeholder
-					color: #FFF
-					font-size: 13px
-					font-family: Esphimere
+				font-size: 14px
+
+@media screen and (min-width: 1900px) and (min-height: 1000px)
+	.search
+		&.files
+			width: 910px
