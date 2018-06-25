@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const File = ({ isSelected, newName, originalName, size, type, toggleSelected, fileKey }) => {
+const File = ({ isSelected, newName, originalName, size, type, toggleIsSelected, id }) => {
 	return (
-		<div class='file' onClick={toggleSelected.bind(this, fileKey)}>
+		<div class='file' onClick={toggleIsSelected.bind(this, id)}>
 			<div class='file-select'>
 				<div class={`file-check ${isSelected ? 'checked' : 'unchecked'}`}>
 					<i class='material-icons'>done</i>
@@ -21,13 +21,13 @@ const File = ({ isSelected, newName, originalName, size, type, toggleSelected, f
 };
 
 File.propTypes = {
+	id: PropTypes.number.isRequired,
 	isSelected: PropTypes.bool.isRequired,
 	newName: PropTypes.string.isRequired,
 	originalName: PropTypes.string.isRequired,
 	size: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
-	toggleSelected: PropTypes.func.isRequired,
-	fileKey: PropTypes.number.isRequired,
+	toggleIsSelected: PropTypes.func.isRequired,
 };
 
 export default File;
