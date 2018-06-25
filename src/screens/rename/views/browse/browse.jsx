@@ -14,6 +14,7 @@ import Selector from './components/selector.jsx';
 import Messages from './components/messages.jsx';
 
 //Actions
+import * as alert_actions from 'shared/notifications/alert/actions';
 import * as files_actions from 'screens/rename/views/configure/containers/files/actions';
 import * as progress_actions from 'shared/progress/actions';
 import * as tags_actions from 'screens/rename/views/configure/containers/tags/actions';
@@ -33,15 +34,38 @@ class Browse extends React.Component {
 			if (path) {
 				this.setState({ stage: 'loading' });
 				try {
-					const [files, tags] = await Promise.all([this.reflow.fetchFiles(path), this.reflow.fetchTags()]);
+					const [files, tags] = await Promise.all([
+						this.reflow.fetchFilesInDirectory(path[0]),
+						this.reflow.fetchTags(),
+					]);
 					const count = await this.reflow.fetchFilesCount();
+					console.log(count);
 					this.props.actions.files.load(files);
+					this.props.actions.files.setPath(path[0]);
 					this.props.actions.tags.load(tags);
 					this.props.actions.files.setCount(count);
 					this.setState({ stage: 'configure' });
 				} catch (err) {
-					console.log(new Error('Rename calls error'));
-					this.setState({ stage: 'browse' });
+					this.props.actions.alert.openAlert(
+						'There has been an error in loading files',
+						'Please try again or log error.',
+						[
+							{
+								label: 'Log Error',
+								action: err => {
+									console.log(err);
+									this.setState({ stage: 'browse' });
+								},
+							},
+							{
+								label: 'Cancel',
+								action: () => {
+									this.setState({ stage: 'browse' });
+								},
+							},
+						],
+						err
+					);
 				}
 			}
 		});
@@ -49,7 +73,6 @@ class Browse extends React.Component {
 
 	handleConfigure = () => {
 		this.props.history.push('/app/rename/configure');
-		this.props.actions.files.setUnsavedFiles();
 		this.props.actions.progress.progressToConfigure('up');
 	};
 
@@ -73,13 +96,14 @@ Browse.propTypes = {
 
 const mapStateToProps = state => {
 	return {
-		store: { files: state.files },
+		store: { files: state.rename.files },
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		actions: {
+			alert: bindActionCreators(alert_actions, dispatch),
 			files: bindActionCreators(files_actions, dispatch),
 			progress: bindActionCreators(progress_actions, dispatch),
 			tags: bindActionCreators(tags_actions, dispatch),
