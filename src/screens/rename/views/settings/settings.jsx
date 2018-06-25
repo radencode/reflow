@@ -20,27 +20,27 @@ import * as settings_actions from './actions';
 class Settings extends React.Component {
 	constructor() {
 		super();
-		this.state = { panel: 'backup' };
+		this.state = { panel: 'location' };
 		this.options = {
 			backup: [
 				{
 					action: () => {
-						this.props.actions.settings.setBackupOption('yes', 0);
 						dialog.showOpenDialog({ properties: ['openDirectory'] }, path => {
 							if (path) {
+								this.props.actions.settings.setBackupOption('yes', 0);
 								this.props.actions.settings.setBackupOptionPath(path[0]);
-								this.setState({ ...this.state, panel: 'exists' });
+								this.setState({ ...this.state, panel: 'finalize' });
 							}
 						});
 					},
 					label: 'Yes',
-					icon: 'check',
+					icon: 'create_new_folder',
 					value: 'yes',
 				},
 				{
 					action: () => {
 						this.props.actions.settings.setBackupOption('no', 1);
-						this.setState({ ...this.state, panel: 'exists' });
+						this.setState({ ...this.state, panel: 'finalize' });
 					},
 					label: 'No',
 					icon: 'close',
@@ -77,9 +77,9 @@ class Settings extends React.Component {
 				},
 				{
 					action: () => {
-						this.props.actions.settings.setExistsOption('moveToFolder', 3);
 						dialog.showOpenDialog({ properties: ['openDirectory'] }, path => {
 							if (path) {
+								this.props.actions.settings.setExistsOption('moveToFolder', 3);
 								this.props.actions.settings.setExistsOptionPath(path[0]);
 								this.setState({ ...this.state, panel: 'finalize' });
 							}
@@ -88,6 +88,34 @@ class Settings extends React.Component {
 					label: 'Move to folder',
 					icon: 'folder_open',
 					value: 'moveToFolder',
+				},
+			],
+			location: [
+				{
+					action: () => {
+						this.props.actions.settings.setExistsOption('none', 0);
+						this.props.actions.settings.setLocationOption('inplace', 0);
+						this.props.actions.settings.setLocationOptionPath(this.props.store.files.path);
+						this.setState({ ...this.state, panel: 'backup' });
+					},
+					label: 'Current Folder',
+					icon: 'folder_open',
+					value: 'inplace',
+				},
+				{
+					action: () => {
+						dialog.showOpenDialog({ properties: ['openDirectory'] }, path => {
+							if (path) {
+								this.props.actions.settings.setLocationOption('custom', 1);
+								this.props.actions.settings.setBackupOption('no', 1);
+								this.props.actions.settings.setLocationOptionPath(path[0]);
+								this.setState({ ...this.state, panel: 'exists' });
+							}
+						});
+					},
+					label: 'New Folder',
+					icon: 'create_new_folder',
+					value: 'custom',
 				},
 			],
 		};
@@ -102,9 +130,17 @@ class Settings extends React.Component {
 		return (
 			<div class='rename-child settings'>
 				<div class='setting-container'>
-					<Panel active={this.state.panel === 'backup' ? true : false}>
+					<Panel active={this.state.panel === 'location' ? true : false}>
 						<Setting
 							number={1}
+							options={this.options.location}
+							prompt={'Where would you like to store the renamed files?'}
+							value={this.props.store.settings.backup}
+						/>
+					</Panel>
+					<Panel active={this.state.panel === 'backup' ? true : false}>
+						<Setting
+							number={2}
 							options={this.options.backup}
 							prompt={'Would you like to create files backup before renaming?'}
 							value={this.props.store.settings.backup}
@@ -130,7 +166,7 @@ class Settings extends React.Component {
 									}}
 								>
 									<span class='option-type'>Backup files: </span>
-									<span class='value'>{this.options.backup[this.props.store.settings.backupIndex].label}</span>
+									<span class='value'>{this.options.backup[this.props.store.settings.backupActive].label}</span>
 									<span class='edit-option'>Edit option</span>
 								</div>
 								<div
@@ -140,7 +176,7 @@ class Settings extends React.Component {
 									}}
 								>
 									<span class='option-type'>If file exists: </span>
-									<span class='value'>{this.options.exists[this.props.store.settings.existsIndex].label}</span>
+									<span class='value'>{this.options.exists[this.props.store.settings.existsActive].label}</span>
 									<span class='edit-option'>Edit option</span>
 								</div>
 							</div>
@@ -166,7 +202,7 @@ Settings.propTypes = {
 };
 
 const mapStateToProps = state => {
-	return { store: { settings: state.rename.settings } };
+	return { store: { settings: state.rename.settings, files: state.rename.files } };
 };
 
 const mapDispatchToProps = dispatch => {
