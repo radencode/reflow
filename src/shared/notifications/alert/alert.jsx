@@ -12,7 +12,7 @@ import AlertButton from './components/button.jsx';
 //Actions
 import * as alert_actions from './actions';
 
-const Alert = ({ actions, isOn, message, prompt, buttons }) => {
+const Alert = ({ actions, isOn, message, prompt, buttons, err }) => {
 	return (
 		<div class={`alert ${isOn ? 'on' : 'off'}`}>
 			<div class={`alert-board ${isOn ? 'on' : 'off'}`}>
@@ -21,7 +21,7 @@ const Alert = ({ actions, isOn, message, prompt, buttons }) => {
 					<h1 class={`alert-prompt ${isOn ? 'on' : 'off'}`}>{prompt}</h1>
 					<div class={`alert-buttons ${isOn ? 'on' : 'off'}`}>
 						{buttons.map((button, index) => (
-							<AlertButton key={index} label={button.label} onClick={button.action} alert={actions.alert} />
+							<AlertButton key={index} label={button.label} onClick={button.action} alert={actions.alert} err={err} />
 						))}
 					</div>
 				</div>
@@ -36,14 +36,16 @@ Alert.propTypes = {
 	message: PropTypes.string.isRequired,
 	prompt: PropTypes.string.isRequired,
 	buttons: PropTypes.array.isRequired,
+	err: PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string]).isRequired,
 };
 
 const mapStateToProps = state => {
 	return {
-		isOn: state.alert.isOn,
-		message: state.alert.message,
-		prompt: state.alert.prompt,
-		buttons: state.alert.buttons,
+		isOn: state.rename.alert.isOn,
+		message: state.rename.alert.message,
+		prompt: state.rename.alert.prompt,
+		buttons: state.rename.alert.buttons,
+		err: state.rename.alert.err,
 	};
 };
 

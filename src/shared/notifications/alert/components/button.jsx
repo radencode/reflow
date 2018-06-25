@@ -6,6 +6,10 @@ class Button extends React.Component {
 	handleClick = () => {
 		this.props.alert.closeAlert();
 		if (!this.props.onClick) return;
+		if (this.props.err) {
+			this.props.onClick(this.props.err);
+			return;
+		}
 		this.props.onClick();
 	};
 
@@ -20,6 +24,7 @@ class Button extends React.Component {
 
 Button.propTypes = {
 	alert: PropTypes.object.isRequired,
+	err: PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string]).isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]).isRequired,
 };

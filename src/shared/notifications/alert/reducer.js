@@ -3,6 +3,7 @@ const defaultState = {
 	message: '',
 	prompt: '',
 	buttons: [],
+	err: false,
 };
 
 export default function reducer(state = defaultState, action) {
@@ -14,6 +15,7 @@ export default function reducer(state = defaultState, action) {
 			message: action.payload.message,
 			prompt: action.payload.prompt,
 			buttons: action.payload.buttons,
+			err: action.payload.err,
 		};
 	case 'ALERT_CLOSE':
 		return {
