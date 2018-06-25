@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Reflow - Loading</title>
+</head>
+
+<style>
+	@font-face {
+		font-family: "Esphimere";
+		src: url("./Esphimere.otf")
+	}
+
+	@font-face {
+		font-family: "Esphimere-Bold";
+		src: url("./Esphimere-Bold.otf")
+	}
+
+	body,
+	html {
+		margin: 0;
+		padding: 0;
+	}
+
+	#reflow-loading {
+		background-color: #0E141A;
+		width: 700px;
+		height: 450px;
+		position: relative;
+		overflow: hidden;
+		user-select: none;
+		cursor: default;
+	}
+
+	#version {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		font-family: 'Esphimere';
+		color: #FFF;
+		font-size: 12px;
+		letter-spacing: 0.1em;
+	}
+
+	#title {
+		display: flex;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	#logo {
+		background-image: url('./logo.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 90px;
+		height: 90px;
+		border: 10px solid #0E141A;
+		border-radius: 50%;
+	}
+
+	#name {
+		height: 110px;
+		padding-left: 10px;
+		font-family: 'Esphimere-Bold';
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		line-height: 120px;
+		font-size: 70px;
+		color: #FFF;
+	}
+
+	#message {
+		position: absolute;
+		bottom: 15px;
+		left: 15px;
+		font-family: 'Esphimere';
+		color: #FFF;
+		font-size: 12px;
+		letter-spacing: 0.1em;
+	}
+
+	#loader {
+		display: flex;
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+	}
+
+	.dot {
+		background-color: #18212B;
+		width: 10px;
+		height: 10px;
+		margin-left: 10px;
+		animation: blink 900ms ease-in-out infinite;
+	}
+
+	.dot.first {
+		animation-delay: 0ms;
+	}
+
+	.dot.second {
+		animation-delay: 300ms;
+	}
+
+	.dot.third {
+		animation-delay: 600ms;
+	}
+
+	@keyframes blink {
+		0% {
+			background-color: #FFBF00;
+		}
+		33.3% {
+			background-color: #FFBF00;
+		}
+		33.4% {
+			background-color: #18212B;
+		}
+		100% {
+			background-color: #18212B;
+		}
+	}
+</style>
+
+<body>
+	<div id="reflow-loading">
+		<div id='version'></div>
+		<div id='title'>
+			<div id='logo'></div>
+			<div id='name'>eflow</div>
+		</div>
+		<div id='message'>Initializing...</div>
+		<div id='loader'>
+			<div class='dot first'></div>
+			<div class='dot second'></div>
+			<div class='dot third'></div>
+		</div>
+	</div>
+	<script>
+		const { ipcRenderer } = require('electron');
+		const message_box = document.getElementById('message');
+		const version_box = document.getElementById('version');
+		version_box.innerHTML = `v${process.env.REFLOW_VERSION}`;
+		ipcRenderer.on('message', function (event, message) {
+			message_box.innerHTML = message;
+		});
+	</script>
+</body>
+
+</html>
