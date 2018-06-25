@@ -1,9 +1,9 @@
-export function setBackupOption(backup, index) {
+export function setBackupOption(backup, active) {
 	return {
 		type: 'SETTINGS_SET_BACKUP',
 		payload: {
 			backup,
-			index,
+			active,
 		},
 	};
 }
@@ -15,12 +15,12 @@ export function setBackupOptionPath(path) {
 	};
 }
 
-export function setExistsOption(exists, index) {
+export function setExistsOption(exists, active) {
 	return {
 		type: 'SETTINGS_SET_EXISTS',
 		payload: {
 			exists,
-			index,
+			active,
 		},
 	};
 }
@@ -28,6 +28,23 @@ export function setExistsOption(exists, index) {
 export function setExistsOptionPath(path) {
 	return {
 		type: 'SETTINGS_SET_EXISTS_PATH',
+		payload: path,
+	};
+}
+
+export function setLocationOption(location, active) {
+	return {
+		type: 'SETTINGS_SET_LOCATION',
+		payload: {
+			location,
+			active,
+		},
+	};
+}
+
+export function setLocationOptionPath(path) {
+	return {
+		type: 'SETTINGS_SET_LOCATION_PATH',
 		payload: path,
 	};
 }
