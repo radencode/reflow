@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Folder = ({ position, extention, match }) => {
+const Folder = ({ extention, match }) => {
 	return (
-		<div class={`folder ${match ? 'active' : 'inactive'}`} style={position}>
+		<div class={`folder ${match ? 'active' : 'inactive'}`}>
 			<svg version='1.1' x='0px' y='0px' viewBox='0 0 55 75' enableBackground='new 0 0 55 75'>
 				<path
 					class='folder-edge'
@@ -20,7 +20,6 @@ const Folder = ({ position, extention, match }) => {
 Folder.propTypes = {
 	extention: PropTypes.string.isRequired,
 	match: PropTypes.bool.isRequired,
-	position: PropTypes.object.isRequired,
 };
 
 export default Folder;
