@@ -1,39 +1,63 @@
 {
 	"name": "reflow",
-	"version": "2.0.0",
-	"description": "reflow file management sofware",
+	"description": "file management sofware",
+	"version": "1.0.0",
 	"main": "./app/main.js",
-	"scripts": {
-		"start": "electron ./app/main.js",
-		"bundle": "webpack --mode=production --config ./webpack/webpack.production.babel.js",
-		"electron": "electron ./server/main.js",
-		"api-server": "nodemon ./server/server.js",
-		"clint-server": "webpack-dev-server --mode=development --config ./webpack/webpack.development.babel.js",
-		"dev": "concurrently \"npm run clint-server\" \" npm run api-server\" \" npm run electron\"",
-		"build": "npm run bundle && electron-packager ./app Reflow --electron-version 1.8.2 --platform win32 --overwrite --asar true --icon ./src/icons/electron/icon.ico --out ./release"
-	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/radencode/reflow.git"
+		"url": "https://github.com/radencode/reflow-client.git"
 	},
-	"author": "Teddy Radenkov <teddy.pdx@gmail.com>",
+	"author": "Teddy Radenkov & Hristo Hentov",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/radencode/reflow/issues"
 	},
 	"homepage": "https://github.com/radencode/reflow#readme",
-	"dependencies": {
-		"electron": "^1.8.2",
-		"electron-builder": "^20.5.1",
-		"material-design-icons": "^3.0.1",
-		"react": "^16.2.0",
-		"react-dom": "^16.2.0",
-		"react-redux": "^5.0.7",
-		"react-router-dom": "^4.2.2",
-		"react-transition-group": "^2.3.1",
-		"react-virtualized": "^9.18.5",
-		"redux": "^3.7.2",
-		"redux-promise-middleware": "^5.1.1"
+	"build": {
+		"appId": "com.electron.reflow",
+		"productName": "Reflow",
+		"copyright": "Reflow Project 2018",
+		"asar": true,
+		"extraResources": "./lib",
+		"publish": [
+			{
+				"provider": "github",
+				"owner": "radencode",
+				"repo": "reflow-client"
+			}
+		],
+		"nsis": {
+			"oneClick": false,
+			"perMachine": true,
+			"allowElevation": true,
+			"allowToChangeInstallationDirectory": true,
+			"deleteAppDataOnUninstall": true,
+			"createDesktopShortcut": true,
+			"installerIcon": "icons/icon.ico",
+			"uninstallerIcon": "icons/icon.ico",
+			"uninstallDisplayName": "Uninstall",
+			"license": "LICENSE"
+		},
+		"win": {
+			"target": "nsis",
+			"icon": "icons/icon.ico",
+			"publisherName": "Teddy Radenkov & Hristo Hentov"
+		}
+	},
+	"scripts": {
+		"start": "electron ./app/main.js",
+		"bundle-osx": "webpack --osx --mode=production --config ./webpack/webpack.production.babel.js",
+		"bundle-win": "webpack --win --mode=production --config ./webpack/webpack.production.babel.js",
+		"bundle-api": "node ./scripts/api.js",
+		"electron": "electron ./dev/main.js",
+		"api-server": "nodemon ./dev/server.js",
+		"clint-server-osx": "webpack-dev-server --osx --mode=development --config ./webpack/webpack.development.babel.js",
+		"clint-server-win": "webpack-dev-server --win --mode=development --config ./webpack/webpack.development.babel.js",
+		"dev-osx": "concurrently \"npm run clint-server-osx\" \" npm run api-server\" \" npm run electron\"",
+		"dev-win": "concurrently \"npm run clint-server-win\" \" npm run api-server\" \" npm run electron\"",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
+		"publish": "build -p always"
 	},
 	"devDependencies": {
 		"axios": "^0.18.0",
@@ -54,25 +78,36 @@
 		"cors": "^2.8.4",
 		"css-loader": "^0.28.9",
 		"edge-js": "^9.3.4",
-		"electron-packager": "^11.0.1",
-		"eslint": "^4.18.2",
+		"electron-builder": "^20.15.1",
+		"electron": "^2.0.2",
 		"eslint-plugin-react": "^7.7.0",
-		"express": "^4.16.2",
+		"eslint": "^4.18.2",
 		"express-sanitizer": "^1.0.3",
+		"express": "^4.16.2",
 		"file-loader": "^1.1.6",
 		"html-webpack-plugin": "^3.2.0",
+		"material-design-icons": "^3.0.1",
 		"node-sass": "^4.7.2",
 		"nodemon": "^1.15.1",
 		"progress-bar-webpack-plugin": "^1.10.0",
+		"react-dom": "^16.2.0",
+		"react-redux": "^5.0.7",
+		"react-responsive": "^4.1.0",
+		"react-router-dom": "^4.2.2",
+		"react-transition-group": "^2.3.1",
+		"react-virtualized": "^9.18.5",
+		"react": "^16.2.0",
 		"redux-logger": "^3.0.6",
+		"redux-promise-middleware": "^5.1.1",
 		"redux-thunk": "^2.2.0",
+		"redux": "^3.7.2",
 		"sass-loader": "^6.0.6",
 		"style-loader": "^0.20.2",
 		"uglifyjs-webpack-plugin": "^1.2.0",
 		"url-loader": "^0.6.2",
-		"webpack": "^4.8.3",
 		"webpack-cli": "^2.1.3",
 		"webpack-dev-server": "^3.1.4",
-		"webpack-merge": "^4.1.1"
+		"webpack-merge": "^4.1.1",
+		"webpack": "^4.8.3"
 	}
 }

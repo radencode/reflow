@@ -1,14 +1,21 @@
 {
-	"name": "reflow-edge",
+	"name": "reflow",
+	"description": "File management sofware",
 	"version": "1.0.0",
-	"description": "",
 	"main": "main.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/radencode/reflow.git"
 	},
-	"author": "Teddy Radenkov",
-	"license": "ISC",
+	"author": "Teddy Radenkov & Hristo Hentov",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/radencode/reflow/issues"
+	},
+	"homepage": "https://github.com/radencode/reflow#readme",
 	"dependencies": {
-		"electron-edge-js": "^8.3.2"
+		"electron-edge-js": "^8.3.6",
+		"electron-log": "^2.2.15",
+		"electron-updater": "^2.21.10"
 	}
 }
