@@ -11,10 +11,10 @@ class Sorts extends React.Component {
 		this.state = {
 			sort: {
 				select: { isActive: false, isSortDown: true, field: { name: 'isSelected', type: 'boolean' } },
-				type: { isActive: false, isSortDown: true, field: { name: 'Type', type: 'string' } },
-				original: { isActive: true, isSortDown: true, field: { name: 'OriginalName', type: 'string' } },
-				new: { isActive: false, isSortDown: true, field: { name: 'NewName', type: 'string' } },
-				size: { isActive: false, isSortDown: true, field: { name: 'Size', type: 'string' } },
+				type: { isActive: false, isSortDown: true, field: { name: 'type', type: 'string' } },
+				original: { isActive: true, isSortDown: true, field: { name: 'originalName', type: 'string' } },
+				new: { isActive: false, isSortDown: true, field: { name: 'newName', type: 'string' } },
+				size: { isActive: false, isSortDown: true, field: { name: 'size', type: 'string' } },
 			},
 			active: 'original',
 		};
@@ -50,8 +50,8 @@ class Sorts extends React.Component {
 	};
 
 	sortFiles = sortTypeName => {
-		let sort = this.state.sort[sortTypeName];
-		let direction =
+		const sort = this.state.sort[sortTypeName];
+		const direction =
 			this.state.active === sortTypeName ? (sort.isSortDown ? 'up' : 'down') : sort.isSortDown ? 'down' : 'up';
 		this.props.sortFiles(sort.field.type, direction, sort.field.name);
 	};
