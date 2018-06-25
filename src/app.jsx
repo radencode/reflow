@@ -4,9 +4,13 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
+//Redux modules
+import { connect } from 'react-redux';
+
 //Shared
 import Alert from 'shared/notifications/alert';
-import Navigation from 'shared/navigation';
+import Nav_Darwin from 'shared/navigation_darwin';
+import Nav_Win32 from 'shared/navigation_win32';
 
 //Screens
 import File from 'screens/file/file.jsx';
@@ -16,13 +20,13 @@ import Settings from 'screens/settings/settings.jsx';
 
 //Global styles
 import 'styles/main.sass';
-
-const App = ({ history, location }) => {
+const App = ({ history, location, filesLoading }) => {
+	const Navigation = process.env.PLATFORM === '--osx' ? Nav_Darwin : Nav_Win32;
 	return (
 		<div id='root'>
-			<Alert/>
+			<Alert />
 			<Navigation history={history} />
-			<div id='viewer'>
+			<div class={`viewer ${filesLoading ? 'disabled' : ''}`}>
 				<TransitionGroup style={{ width: '100%', height: '100%', position: 'relative' }}>
 					<CSSTransition
 						key={location.pathname.substr(0, location.pathname.lastIndexOf('/')) || 'root'}
@@ -43,8 +47,15 @@ const App = ({ history, location }) => {
 };
 
 App.propTypes = {
+	filesLoading: PropTypes.bool.isRequired,
 	history: PropTypes.object.isRequired,
 	location: PropTypes.object.isRequired,
 };
 
-export default App;
+const mapStateToProps = state => {
+	return {
+		filesLoading: state.rename.files.loader.isLoading,
+	};
+};
+
+export default connect(mapStateToProps, null)(App);
