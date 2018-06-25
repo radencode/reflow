@@ -17,8 +17,8 @@
 		"appId": "com.electron.reflow",
 		"productName": "Reflow",
 		"copyright": "Reflow Project 2018",
+		"artifactName": "Reflow_Setup_${version}.${ext}",
 		"asar": true,
-		"extraResources": "./lib",
 		"publish": [
 			{
 				"provider": "github",
