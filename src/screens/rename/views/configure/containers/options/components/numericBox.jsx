@@ -4,20 +4,29 @@ import React from 'react';
 class NumericBox extends React.Component {
 	constructor(props) {
 		super();
-		this.state = { number: props.default };
+		this.state = { number: props.value };
 	}
 
 	handleOnChange = evt => {
 		let userEneteredNumber = parseInt(evt.target.value);
-		if (userEneteredNumber >= 0 && userEneteredNumber <= 10000) this.setState({ number: userEneteredNumber });
+		if (userEneteredNumber >= 0 && userEneteredNumber <= 10000) {
+			this.props.updateAttributeOptions(this.props.optionIndex, userEneteredNumber);
+			this.setState({ number: userEneteredNumber });
+		}
 	};
 
 	handleAdd = () => {
-		if (this.state.number < 10000) this.setState({ number: this.state.number + 1 });
+		if (this.state.number < 10000) {
+			this.props.updateAttributeOptions(this.props.optionIndex, this.state.number + 1);
+			this.setState({ number: this.state.number + 1 });
+		}
 	};
 
 	handleSubtract = () => {
-		if (this.state.number > 0) this.setState({ number: this.state.number - 1 });
+		if (this.state.number > 0) {
+			this.props.updateAttributeOptions(this.props.optionIndex, this.state.number - 1);
+			this.setState({ number: this.state.number - 1 });
+		}
 	};
 
 	render() {
@@ -39,8 +48,10 @@ class NumericBox extends React.Component {
 }
 
 NumericBox.propTypes = {
-	default: PropTypes.number.isRequired,
 	name: PropTypes.string.isRequired,
+	optionIndex: PropTypes.number.isRequired,
+	updateAttributeOptions: PropTypes.func.isRequired,
+	value: PropTypes.number.isRequired,
 };
 
 export default NumericBox;

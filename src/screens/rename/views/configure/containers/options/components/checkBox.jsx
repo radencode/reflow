@@ -4,10 +4,11 @@ import React from 'react';
 class CheckBox extends React.Component {
 	constructor(props) {
 		super();
-		this.state = { isChecked: props.default };
+		this.state = { isChecked: props.value };
 	}
 
 	handleClick = () => {
+		this.props.updateAttributeOptions(this.props.optionIndex, !this.state.isChecked);
 		this.setState({ isChecked: !this.state.isChecked });
 	};
 
@@ -27,8 +28,10 @@ class CheckBox extends React.Component {
 }
 
 CheckBox.propTypes = {
-	default: PropTypes.bool.isRequired,
 	name: PropTypes.string.isRequired,
+	optionIndex: PropTypes.number.isRequired,
+	updateAttributeOptions: PropTypes.func.isRequired,
+	value: PropTypes.bool.isRequired,
 };
 
 export default CheckBox;

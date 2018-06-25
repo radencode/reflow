@@ -4,12 +4,25 @@ import React from 'react';
 import CheckBox from './checkBox';
 
 class CheckList extends React.Component {
+	updateAttributeOptions = (optionIndex, value) => {
+		const updatedCheckList = this.props.attributeOptions[this.props.optionIndex].props.value.map((checkbox, index) => {
+			if (index === optionIndex) return { ...checkbox, props: { ...checkbox.props, value } };
+			return { ...checkbox };
+		});
+		this.props.updateAttributeOptions(this.props.optionIndex, updatedCheckList);
+	};
+
 	render() {
 		return (
 			<div>
-				{this.props.list.map((checkbox, index) => (
-					<div class='checkbox-list-item' key={`${index}-list-${this.props.name}`}>
-						<CheckBox default={checkbox.default} name={checkbox.name} />
+				{this.props.value.map((checkbox, index) => (
+					<div class='checkbox-list-item' key={`${index}-list-${this.props.listKey}`}>
+						<CheckBox
+							value={checkbox.props.value}
+							name={checkbox.props.name}
+							optionIndex={index}
+							updateAttributeOptions={this.updateAttributeOptions}
+						/>
 					</div>
 				))}
 			</div>
@@ -18,8 +31,11 @@ class CheckList extends React.Component {
 }
 
 CheckList.propTypes = {
-	name: PropTypes.string.isRequired,
-	list: PropTypes.array.isRequired,
+	attributeOptions: PropTypes.array.isRequired,
+	listKey: PropTypes.string.isRequired,
+	optionIndex: PropTypes.number.isRequired,
+	updateAttributeOptions: PropTypes.func.isRequired,
+	value: PropTypes.array.isRequired,
 };
 
 export default CheckList;

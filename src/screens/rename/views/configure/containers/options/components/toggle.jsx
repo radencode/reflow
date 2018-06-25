@@ -4,10 +4,11 @@ import React from 'react';
 class Toggle extends React.Component {
 	constructor(props) {
 		super();
-		this.state = { isToggleOn: props.default };
+		this.state = { isToggleOn: props.value };
 	}
 
 	handleClick = () => {
+		this.props.updateAttributeOptions(this.props.optionIndex, !this.state.isToggleOn);
 		this.setState({ isToggleOn: !this.state.isToggleOn });
 	};
 
@@ -27,8 +28,10 @@ class Toggle extends React.Component {
 }
 
 Toggle.propTypes = {
-	default: PropTypes.bool.isRequired,
 	name: PropTypes.string.isRequired,
+	optionIndex: PropTypes.number.isRequired,
+	updateAttributeOptions: PropTypes.func.isRequired,
+	value: PropTypes.bool.isRequired,
 };
 
 export default Toggle;
