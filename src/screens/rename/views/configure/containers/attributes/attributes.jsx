@@ -17,14 +17,14 @@ class Attributes extends React.Component {
 	handleRightArrow = () => {
 		if (this.props.store.attributes.scrollPosition < this.props.store.attributes.count) {
 			this.props.actions.options.hideOptions();
-			this.props.actions.attributes.uptateScrollPosition(this.props.store.attributes.scrollPosition + 1);
+			this.props.actions.attributes.updateScrollPosition(this.props.store.attributes.scrollPosition + 1);
 		}
 	};
 
 	handleLeftArrow = () => {
 		if (this.props.store.attributes.scrollPosition > 1) {
 			this.props.actions.options.hideOptions();
-			this.props.actions.attributes.uptateScrollPosition(this.props.store.attributes.scrollPosition - 1);
+			this.props.actions.attributes.updateScrollPosition(this.props.store.attributes.scrollPosition - 1);
 		}
 	};
 
@@ -57,20 +57,24 @@ class Attributes extends React.Component {
 					<div class={`slider pos${this.props.store.attributes.scrollPosition}`}>
 						{this.props.store.attributes.count === 0 ? (
 							<div class='attribute-info'>
-								<h3>Double click on attribute to apply it.</h3>
+								<h3>Click on attribute to apply it.</h3>
 							</div>
 						) : (
-							this.props.store.attributes.list.map((attribute, index) => (
+							this.props.store.attributes.data.map(attribute => (
 								<Attribute
-									key={attribute.key}
-									id={index}
+									key={attribute.id}
+									id={attribute.id}
+									isActive={this.props.store.attributes.activeId === attribute.id ? true : false}
+									isOptions={this.props.store.options.data.length > 0 ? true : false}
 									name={attribute.name}
+									tagType={attribute.tagType}
 									showDragArea={this.showDragArea}
 									hideDragArea={this.hideDragArea}
 									updateAttributeHasBeenDropped={this.props.actions.attributes.attributeHasBeenDropped}
 									hasAttributeBeenDropped={this.props.store.attributes.hasBeenDropped}
 									options={attribute.options}
 									showOptions={this.props.actions.options.updateOptions}
+									updateActiveId={this.props.actions.attributes.updateActiveId}
 								/>
 							))
 						)}
@@ -100,7 +104,7 @@ Attributes.propTypes = {
 };
 
 const mapStateToProps = state => {
-	return { store: { attributes: state.attributes } };
+	return { store: { attributes: state.rename.attributes, options: state.rename.options } };
 };
 
 const mapDispatchToProps = dispatch => {
