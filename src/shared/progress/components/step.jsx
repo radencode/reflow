@@ -1,7 +1,6 @@
 //React modules
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Step = ({ config, handleAction }) => {
 	return (
@@ -12,9 +11,12 @@ const Step = ({ config, handleAction }) => {
 				</div>
 			</div>
 			<div class='link'>
-				<Link class={`link-label ${config.current ? 'current' : ''}`} to={`${config.link}`} onClick={handleAction}>
+				<div
+					class={`link-label ${config.current ? 'current' : ''} ${config.disable ? 'disable' : ''}`}
+					onClick={handleAction}
+				>
 					{config.linkLabel}
-				</Link>
+				</div>
 				<div class={`link-slider ${config.status}`} />
 			</div>
 		</div>

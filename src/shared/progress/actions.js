@@ -28,9 +28,9 @@ export function progressToConfigure(_direction) {
 	};
 }
 
-export function progressToOptions(_direction) {
+export function progressToSettings(_direction) {
 	return {
-		type: 'PROGRESS_OPTIONS',
+		type: 'PROGRESS_SETTINGS',
 		payload: {
 			direction: _direction,
 		},
@@ -43,5 +43,17 @@ export function progressToFinalize(_direction) {
 		payload: {
 			direction: _direction,
 		},
+	};
+}
+
+export function setUnsavedData() {
+	return {
+		type: 'PROGRESS_SET_UNSAVED_DATA',
+	};
+}
+
+export function clearUnsavedData() {
+	return {
+		type: 'PROGRESS_CLEAR_UNSAVED_DATA',
 	};
 }
