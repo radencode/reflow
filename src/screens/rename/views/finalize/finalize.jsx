@@ -57,6 +57,8 @@ class Settings extends React.Component {
 			return 'KeepBoth';
 		case 'moveToFolder':
 			return 'MoveOrignalToFolder';
+		case 'none':
+			return 'None';
 		default:
 			return 'Skip';
 		}
@@ -65,10 +67,12 @@ class Settings extends React.Component {
 	renameFiles = async () => {
 		try {
 			await this.reflow.renameFiles({
-				CreateBackup: this.props.store.settings.backup === 'no' ? false : true,
 				BackupFolder: this.props.store.settings.backupPath,
-				FileExistsStrategy: this.getExistsStrategyIndex(this.props.store.settings.exists),
+				CreateBackup: this.props.store.settings.backup === 'no' ? false : true,
 				FileExistsFolder: this.props.store.settings.existsPath,
+				FileExistsStrategy: this.getExistsStrategyIndex(this.props.store.settings.exists),
+				RenameLocation: this.props.store.settings.locationPath,
+				RenameType: this.props.store.settings.location,
 			});
 		} catch (err) {
 			if (this.progressInterval) clearInterval(this.progressInterval);
