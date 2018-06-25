@@ -11,14 +11,20 @@ import files from 'screens/rename/views/configure/containers/files/reducer';
 import options from 'screens/rename/views/configure/containers/options/reducer';
 import tags from 'screens/rename/views/configure/containers/tags/reducer';
 
+//Settings
+import settings from 'screens/rename/views/settings/reducer';
+
 //Combine reducers
 const reducers = combineReducers({
-	alert,
-	attributes,
-	files,
-	options,
-	progress,
-	tags,
+	rename: combineReducers({
+		alert,
+		attributes,
+		files,
+		options,
+		progress,
+		settings,
+		tags,
+	}),
 });
 
 export default reducers;
