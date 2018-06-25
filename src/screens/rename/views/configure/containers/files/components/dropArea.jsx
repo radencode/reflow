@@ -8,31 +8,36 @@ import DropMove from './dropMove.jsx';
 
 class DropArea extends React.Component {
 	onDropDelete = draggedID => {
-		this.props.attributeHasBeenDropped(true);
-		const deleteKey = this.props.drops[draggedID].key;
-		const deleteId = this.props.drops[draggedID].id;
+		this.props.actions.attributes.attributeHasBeenDropped(true);
+		const attributeId = this.props.store.attributes.data[draggedID].id;
+		const tagId = this.props.store.attributes.data[draggedID].tagId;
 		setTimeout(() => {
-			this.props.deleteDroppedAttribute(deleteKey);
-			this.props.subtractFromTagCount(deleteId);
+			if (this.props.store.attributes.count === 1) this.props.actions.progress.clearUnsavedData();
+			this.props.actions.attributes.deleteAttribute(attributeId);
+			this.props.actions.tags.subtractFromTagCount(tagId);
+			this.props.actions.attributes.updateIds();
+			this.props.updateAttributeStructure();
 		}, 500);
 	};
 
 	onDropMove = (draggedID, droppedID) => {
-		this.props.attributeHasBeenDropped(true);
+		this.props.actions.attributes.attributeHasBeenDropped(true);
 		if (draggedID === droppedID) return;
-		const updatedAttributes = [...this.props.drops];
+		const updatedAttributes = [...this.props.store.attributes.data];
 		updatedAttributes.splice(droppedID, 0, updatedAttributes.splice(draggedID, 1)[0]);
 		setTimeout(() => {
-			this.props.updateAttributeOrder(updatedAttributes);
+			this.props.actions.attributes.update(updatedAttributes);
+			this.props.actions.attributes.updateIds();
+			this.props.updateAttributeStructure();
 		}, 500);
 	};
 
 	render() {
 		return (
-			<div class={`drop-area ${this.props.isDropAreaOpen ? 'open' : 'close'}`}>
+			<div class={`drop-area ${this.props.store.attributes.isBeingDragged ? 'open' : 'close'}`}>
 				<div class='drops'>
-					{this.props.drops.map((drop, index) => (
-						<DropMove key={`drop-${drop.key}`} name={drop.name} id={index} onDrop={this.onDropMove} />
+					{this.props.store.attributes.data.map(drop => (
+						<DropMove key={`drop-${drop.id}`} name={drop.name} id={drop.id} onDrop={this.onDropMove} />
 					))}
 				</div>
 				<DropDelete onDrop={this.onDropDelete} />
@@ -42,12 +47,9 @@ class DropArea extends React.Component {
 }
 
 DropArea.propTypes = {
-	attributeHasBeenDropped: PropTypes.func.isRequired,
-	deleteDroppedAttribute: PropTypes.func.isRequired,
-	drops: PropTypes.array.isRequired,
-	isDropAreaOpen: PropTypes.bool.isRequired,
-	updateAttributeOrder: PropTypes.func.isRequired,
-	subtractFromTagCount: PropTypes.func.isRequired,
+	actions: PropTypes.object.isRequired,
+	store: PropTypes.object.isRequired,
+	updateAttributeStructure: PropTypes.func.isRequired,
 };
 
 export default DropArea;
