@@ -1,7 +1,7 @@
-app
-release
+app/*
+!app/package.json
+dist
 node_modules
-server/reflow
 yarn-error.log
 npm-debug.log
 .DS_Store
