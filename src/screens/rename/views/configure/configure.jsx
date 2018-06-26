@@ -17,7 +17,7 @@ import * as alert_actions from 'shared/notifications/alert/actions';
 import * as progress_actions from 'shared/progress/actions';
 
 class Configure extends React.Component {
-	handleOptions = () => {
+	handleSettings = () => {
 		if (!this.props.store.progress.unsaved) {
 			this.props.actions.alert.openAlert(
 				'There are no file changes detected.',
@@ -25,6 +25,30 @@ class Configure extends React.Component {
 				[
 					{
 						label: 'Okay',
+						action: false,
+					},
+				],
+				false
+			);
+			return;
+		}
+		let newNames = [];
+		for (let i = 0; i < this.props.store.files.count; i++)
+			newNames.push(`${this.props.store.files.data[i].newName}.${this.props.store.files.data[i].type}`);
+		if (this.props.store.files.count != new Set(newNames).size) {
+			this.props.actions.alert.openAlert(
+				'There are files detected that contain duplicate names.',
+				'If you continue, then (n) will be appended to each duplicate file - Ex: file_name(1)',
+				[
+					{
+						label: 'Continue',
+						action: () => {
+							this.props.actions.progress.progressToSettings('up');
+							this.props.history.push('/app/rename/settings');
+						},
+					},
+					{
+						label: 'Cancel',
 						action: false,
 					},
 				],
@@ -45,7 +69,7 @@ class Configure extends React.Component {
 					<Attributes />
 					<Options />
 					<div class='next-to-settings'>
-						<div class='next-button' onClick={this.handleOptions}>
+						<div class='next-button' onClick={this.handleSettings}>
 							<i class='material-icons'>keyboard_arrow_down</i>
 							<h2>Settings</h2>
 							<i class='material-icons'>keyboard_arrow_down</i>
@@ -64,7 +88,7 @@ Configure.propTypes = {
 };
 
 const mapStateToProps = state => {
-	return { store: { progress: state.rename.progress } };
+	return { store: { progress: state.rename.progress, files: state.rename.files } };
 };
 
 const mapDispatchToProps = dispatch => {
