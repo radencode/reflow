@@ -13,8 +13,8 @@ process.env.EDGE_APP_ROOT = baseNetAppPath;
 const edge = require('edge-js');
 
 //Set up body-parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 
 //Mount Express-Sanitizer
 app.use(expressSanitizer());
@@ -41,13 +41,11 @@ app.post('/reflow/files/directory', (req, res) => {
 
 app.post('/reflow/files/sync', (req, res) => {
 	const files = JSON.stringify(req.body.files);
-	console.log(files);
 	edge.func({
 		assemblyFile: dll,
 		typeName: typeName,
 		methodName: 'SyncFiles',
 	})(files, (error, result) => {
-		console.log(result);
 		if (error) throw error;
 		res.json(JSON.parse(result));
 	});
@@ -55,7 +53,6 @@ app.post('/reflow/files/sync', (req, res) => {
 
 app.post('/reflow/tags/structure-update', (req, res) => {
 	const tags = JSON.stringify(req.body.tags);
-	console.log(tags);
 	edge.func({
 		assemblyFile: dll,
 		typeName: typeName,
@@ -68,7 +65,6 @@ app.post('/reflow/tags/structure-update', (req, res) => {
 
 app.post('/reflow/tags/add', (req, res) => {
 	const tag = JSON.stringify(req.body.tag);
-	console.log(tag);
 	edge.func({
 		assemblyFile: dll,
 		typeName: typeName,
@@ -81,7 +77,6 @@ app.post('/reflow/tags/add', (req, res) => {
 
 app.post('/reflow/tags/data-update', (req, res) => {
 	const tag = JSON.stringify(req.body.tag);
-	console.log(tag);
 	edge.func({
 		assemblyFile: dll,
 		typeName: typeName,
@@ -94,7 +89,6 @@ app.post('/reflow/tags/data-update', (req, res) => {
 
 app.post('/reflow/files/rename', (req, res) => {
 	const config = JSON.stringify(req.body.config);
-	console.log(config);
 	edge.func({
 		assemblyFile: dll,
 		typeName: typeName,
@@ -111,7 +105,6 @@ app.get('/reflow/files/rename-progress', (req, res) => {
 		typeName: typeName,
 		methodName: 'GetProgress',
 	})(null, (error, result) => {
-		console.log(result);
 		if (error) throw error;
 		res.json(JSON.parse(result));
 	});
