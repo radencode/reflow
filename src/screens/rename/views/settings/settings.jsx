@@ -14,6 +14,7 @@ import Panel from './components/panel.jsx';
 import Setting from './components/setting.jsx';
 
 //Actions
+import * as files_actions from 'screens/rename/views/configure/containers/files/actions';
 import * as progress_actions from 'shared/progress/actions';
 import * as settings_actions from './actions';
 
@@ -40,6 +41,7 @@ class Settings extends React.Component {
 				{
 					action: () => {
 						this.props.actions.settings.setBackupOption('no', 1);
+						this.props.actions.settings.setBackupOptionPath('');
 						this.setState({ ...this.state, panel: 'finalize' });
 					},
 					label: 'No',
@@ -95,7 +97,7 @@ class Settings extends React.Component {
 					action: () => {
 						this.props.actions.settings.setExistsOption('none', 1);
 						this.props.actions.settings.setLocationOption('inplace', 0);
-						this.props.actions.settings.setLocationOptionPath(this.props.store.files.path);
+						this.props.actions.settings.setLocationOptionPath('');
 						this.setState({ ...this.state, panel: 'backup' });
 					},
 					label: 'Current Folder',
@@ -109,6 +111,7 @@ class Settings extends React.Component {
 								this.props.actions.settings.setLocationOption('custom', 1);
 								this.props.actions.settings.setBackupOption('no', 1);
 								this.props.actions.settings.setLocationOptionPath(path[0]);
+								this.props.actions.files.setPath(path[0]);
 								this.setState({ ...this.state, panel: 'exists' });
 							}
 						});
@@ -208,6 +211,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		actions: {
+			files: bindActionCreators(files_actions, dispatch),
 			progress: bindActionCreators(progress_actions, dispatch),
 			settings: bindActionCreators(settings_actions, dispatch),
 		},
