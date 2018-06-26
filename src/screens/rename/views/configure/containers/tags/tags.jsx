@@ -84,16 +84,16 @@ class Tags extends React.Component {
 	applyTagToFiles = async (tagId, tagType, name, options) => {
 		try {
 			this.props.actions.files.updateLoader(true, 'Applying attribute to files...');
-			await this.reflow.syncFiles(
-				this.props.store.files.data.map(file => ({
-					Id: file.id,
-					NewName: file.newName,
-					OriginalName: file.originalName,
-					Size: file.size,
-					Type: file.type,
-					Filtered: file.isSelected,
-				}))
-			);
+			// await this.reflow.syncFiles(
+			// 	this.props.store.files.data.map(file => ({
+			// 		Id: file.id,
+			// 		NewName: file.newName,
+			// 		OriginalName: file.originalName,
+			// 		Size: file.size,
+			// 		Type: file.type,
+			// 		Filtered: file.isSelected,
+			// 	}))
+			// );
 			let optionsInToObject = {};
 			options.forEach(option => {
 				optionsInToObject[option.props.name] = option.props.value;
