@@ -8,7 +8,7 @@ export function load(files) {
 				originalName: file.OriginalName,
 				size: file.Size,
 				type: file.Type,
-				isSelected: file.Filtered,
+				isSelected: file.Selected,
 			};
 		}),
 	};
