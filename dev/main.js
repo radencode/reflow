@@ -28,9 +28,6 @@ const setWindowParams = () => {
 app.on('ready', () => {
 	let mainWindow = setWindowParams();
 	mainWindow.openDevTools({ detached: true });
-	BrowserWindow.addDevToolsExtension(
-		'C:\\Users\\Jenster\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.3_0'
-	);
 	mainWindow.setResizable(true);
 	mainWindow.loadURL('http://localhost:3000/');
 });
